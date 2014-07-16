@@ -1,0 +1,10 @@
+---
+author: Richard
+comments: true
+date: 2006-08-30 05:32:30+00:00
+layout: post
+slug: test-post
+title: A test post
+---
+
+This is basically just a test post to make sure I got everything up and running.
