@@ -255,8 +255,6 @@ a:focus {
 }
 .colophon-links li {
   color: inherit;
-  font-size: 23px;
-  /* font-weight: normal; */
 }
 
 /* Responsive masthead */
@@ -308,7 +306,8 @@ a:focus {
     padding: 60px 0;
   }
   .container {
-    width: 35%;
+    width: 65%;
+    max-width: 700px;
     margin-left: 25%;
     margin-right: 10%;
   }
