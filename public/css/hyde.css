@@ -300,6 +300,11 @@ a:focus {
   padding: 40px 20px;
 }
 
+.content img, content video {
+	max-width: 100%;
+	height: auto;
+}
+
 /* Center container in available real estate */
 @media (min-width: 990px) {
   .content {
@@ -312,7 +317,6 @@ a:focus {
     margin-right: 10%;
   }
 }
-
 
 /*
  * Posts
