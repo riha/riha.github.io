@@ -1,12 +1,11 @@
-title:        richardhallgren.com
-tagline:      'An other blog'
-description:  '.NET, BizTalk and integration focused scribbles'
+title:        'Gobble&#173;dygooks'
+tagline:      'Gobbledygooks by @riha78'
+description:  'A random pile of .NET, BizTalk and integration focused scribbles by <a href="http://twitter.com/riha78">@riha78</a>.'
 url:          http://richardhallgren.com
-version:      1.1.1
 author:
-  name:       ''
-  email:      ''
+  name:       'Richard'
+  email:      'richard.hallgren@gmail.com'
 markdown:     rdiscount
 permalink:    pretty
-pygments:     true
+highligter:     true
 paginate:     5
