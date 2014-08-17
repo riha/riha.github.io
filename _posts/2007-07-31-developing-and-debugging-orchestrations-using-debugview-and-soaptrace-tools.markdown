@@ -28,7 +28,7 @@ This make is possible to have a filter in DebugView and to for example have it l
 
 
 
-[![](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1debugview1-thumb13.jpg)](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1debugview133.jpg)
+[![](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1debugview1-thumb13.jpg)](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1debugview133.jpg)
 
 
 
@@ -60,7 +60,7 @@ Example of a full message trace.
 
 
 
-[![](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1debugview2-thumb13.jpg)](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1debugview253.jpg)
+[![](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1debugview2-thumb13.jpg)](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1debugview253.jpg)
 
 
 
@@ -95,7 +95,7 @@ This is a totally [other tool](http://www.microsoft.com/downloads/details.aspx?F
 
 
 
-[![](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soaptrace1-thumb3.jpg)](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soaptrace123.jpg)
+[![](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soaptrace1-thumb3.jpg)](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soaptrace123.jpg)
 
 
 
@@ -105,7 +105,7 @@ The trace tool is placed as a [reverse proxy](http://en.wikipedia.org/wiki/Rever
 
 
 
-[![](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soapsendport1-thumb2.jpg)](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soapsendport122.jpg)
+[![](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soapsendport1-thumb2.jpg)](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soapsendport122.jpg)
 
 
 
@@ -115,7 +115,7 @@ Finally we'll set up the trace tool to listen to port 9091 and redirect all traf
 
 
 
-[![](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soaptrace2-thumb2.jpg)](/assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soaptrace222.jpg)
+[![](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soaptrace2-thumb2.jpg)](../assets/2007/07/windowslivewriterdevelopinganddebugingorchestrationsusing-dfd1soaptrace222.jpg)
 
 
 

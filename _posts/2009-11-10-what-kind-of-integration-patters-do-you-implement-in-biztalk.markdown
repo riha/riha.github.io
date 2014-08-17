@@ -25,7 +25,7 @@ I am sure someone could come up with fancier names but I will in this post try a
 
  
 
-[![image](/assets/2009/11/image-thumb.png)](/assets/2009/11/image.png) This is where a lot of us started. The idea is that the sending system has information and knowledge about the receiving system.
+[![image](../assets/2009/11/image-thumb.png)](../assets/2009/11/image.png) This is where a lot of us started. The idea is that the sending system has information and knowledge about the receiving system.
 
  
 
@@ -57,7 +57,7 @@ Another problem is the _lack of agility_. In this invoice scenario all other sys
 
  
 
-[![image](/assets/2009/11/image-thumb1.png)](/assets/2009/11/image1.png)In the broker-based scenario the integration platform is used as a broker of messages.
+[![image](../assets/2009/11/image-thumb1.png)](../assets/2009/11/image1.png)In the broker-based scenario the integration platform is used as a broker of messages.
 
  
 
@@ -109,7 +109,7 @@ _This makes business agility hard and any changes takes long time to develop and
 
  
 
-[![image](/assets/2009/11/image-thumb2.png)](/assets/2009/11/image2.png)ESB-based integration in BizTalk is today achieved using [ESB Toolkit](http://msdn.microsoft.com/en-us/biztalk/dd876606.aspx) from Microsoft.
+[![image](../assets/2009/11/image-thumb2.png)](../assets/2009/11/image2.png)ESB-based integration in BizTalk is today achieved using [ESB Toolkit](http://msdn.microsoft.com/en-us/biztalk/dd876606.aspx) from Microsoft.
 
  
 

@@ -9,7 +9,7 @@ Yesterday I presented the [MasterData Management using BizTalk 2006 R2 talk](htt
 
  
 
-[![Janolof on how to be cool](/assets/2008/05/windowslivewriterspeakingatknugkarlstad.netusergroup-e257janolof-on-how-to-be-cool-thumb.jpg)](/assets/2008/05/windowslivewriterspeakingatknugkarlstad.netusergroup-e257janolof-on-how-to-be-cool.jpg)KNUG is a new .NET user group that I actually helped start a couple of months ago. This meeting was the second meeting for the group. The meeting was attended by about 20 persons and we had two presentations on the agenda. Besides my own Thomas Heder showed the group some [LINQ](http://en.wikipedia.org/wiki/Language_Integrated_Query) and how he and his colleagues uses [LINQPad](http://www.linqpad.net/) to develop and test there queries.
+[![Janolof on how to be cool](../assets/2008/05/windowslivewriterspeakingatknugkarlstad.netusergroup-e257janolof-on-how-to-be-cool-thumb.jpg)](../assets/2008/05/windowslivewriterspeakingatknugkarlstad.netusergroup-e257janolof-on-how-to-be-cool.jpg)KNUG is a new .NET user group that I actually helped start a couple of months ago. This meeting was the second meeting for the group. The meeting was attended by about 20 persons and we had two presentations on the agenda. Besides my own Thomas Heder showed the group some [LINQ](http://en.wikipedia.org/wiki/Language_Integrated_Query) and how he and his colleagues uses [LINQPad](http://www.linqpad.net/) to develop and test there queries.
 
  
 

@@ -171,7 +171,7 @@ Using the [Xml Path syntax](http://msdn2.microsoft.com/en-us/library/ms189885.as
 
 
 
-[![SchemaDBTest](/assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235schemadbtest-thumb.jpg)](/assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235schemadbtest-2.jpg)
+[![SchemaDBTest](../assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235schemadbtest-thumb.jpg)](../assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235schemadbtest-2.jpg)
 
 
 
@@ -213,7 +213,7 @@ In the AddEmployee and TestDB example I'd create **a new Group in the AD called 
 
 
 
-[![TestDBHost](/assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235testdbhost-thumb.jpg)](/assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235testdbhost-2.jpg)
+[![TestDBHost](../assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235testdbhost-thumb.jpg)](../assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235testdbhost-2.jpg)
 
 
 
@@ -225,13 +225,13 @@ Finally we'll create a Host Instance and make a Send Handler of it on the SQL Se
 
 
 
-[![DBTestHostInstance](/assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235dbtesthostinstance-thumb-1.jpg)](/assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235dbtesthostinstance-4.jpg)
+[![DBTestHostInstance](../assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235dbtesthostinstance-thumb-1.jpg)](../assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235dbtesthostinstance-4.jpg)
 
 
 
 
 
-[![DBTestSqlAdapter](/assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235dbtestsqladapter-thumb.jpg)](/assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235dbtestsqladapter-2.jpg)
+[![DBTestSqlAdapter](../assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235dbtestsqladapter-thumb.jpg)](../assets/2008/02/windowslivewritertsqlstoreproceduresforbiztalk-c235dbtestsqladapter-2.jpg)
 
 
 

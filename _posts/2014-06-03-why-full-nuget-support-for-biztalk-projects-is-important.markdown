@@ -69,7 +69,7 @@ A NuGet reference also makes things a bit easier when it comes to managing the w
 
 As disused [here](https://nuget.codeplex.com/workitem/3010) NuGet currently doesn't support .btproj files. As BizTalk project files are are basically a standard .NET project file with some extra information a two line change in the NuGet whitelist is needed as in [this pull request](https://nuget.codeplex.com/SourceControl/network/forks/robinhultman/NuGetWithBizTalkProjectExtension/contribution/5960#!/tab/changes).
 
-![nolove](/assets/2014/06/nolove.png)
+![nolove](../assets/2014/06/nolove.png)
 
 So the main issue it that by _not having full support of .btproj files Package Restore won’t work_ and we’re for now force to check in all the NuGet packages as part of our solutions.       
 An other minor issue is that the token replacement feature also doesn’t work. I also think that if we could actually get full BizTalk support we’d see more BizTalk specific open shared packages for things like useful libraries and pipeline components.

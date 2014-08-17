@@ -17,7 +17,7 @@ It is however still a good idea to monitor these just as one would monitor a mor
 
  
 
-[![image](/assets/2009/05/image-thumb.png)](/assets/2009/05/image.png)
+[![image](../assets/2009/05/image-thumb.png)](../assets/2009/05/image.png)
 
  
 
@@ -35,7 +35,7 @@ Our tracking profile configuration will like below. Dead simple.
 
  
 
-[![image](/assets/2009/05/image-thumb1.png)](/assets/2009/05/image1.png)
+[![image](../assets/2009/05/image-thumb1.png)](../assets/2009/05/image1.png)
 
  
 

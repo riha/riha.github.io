@@ -58,7 +58,7 @@ I’ve setup a really simple sample solution to reproduce the problem. [**Downlo
 
  
 
-The sample receives a XML file, maps it on the send port to schema made to match the store procedure. It also uses a dead simple tracking definition and profile to track a milestone on the send port.[![image](/assets/2010/03/image_thumb.png)](/assets/2010/03/image.png)
+The sample receives a XML file, maps it on the send port to schema made to match the store procedure. It also uses a dead simple tracking definition and profile to track a milestone on the send port.[![image](../assets/2010/03/image_thumb.png)](../assets/2010/03/image.png)
 
  
 

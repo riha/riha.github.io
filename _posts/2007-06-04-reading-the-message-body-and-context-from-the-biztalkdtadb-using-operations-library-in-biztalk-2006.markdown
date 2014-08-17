@@ -27,15 +27,15 @@ So the option that was left to us before BizTalk 2006 for reading all the messag
 
 A quick view in [Lutz Roeder's Reflector](http://www.aisto.com/roeder/dotnet/) shows us a couple of interesting methods in the operations dll. However I'll only use the _GetTrackedMessage_ method in this post.  
 
-[![operations](/assets/2007/06/operations-thumb1.jpg)](/assets/2007/06/operations1.jpg)  
+[![operations](../assets/2007/06/operations-thumb1.jpg)](../assets/2007/06/operations1.jpg)  
 
 I've written a tiny test application that uses the library to read the body part of the message (the meat of the message) and a couple of properties I'm interested in from the context of the message. It looks something like this. If your interested drop me an email and I'll send it. The first screenshot below shows an example of reading the _InterchangeID_ from the context of a tracked message.  
 
-[![OperationsTest2](/assets/2007/06/operationstest2-thumb2.jpg)](/assets/2007/06/operationstest22.jpg)  
+[![OperationsTest2](../assets/2007/06/operationstest2-thumb2.jpg)](../assets/2007/06/operationstest22.jpg)  
 
 This screenshot shows an example of reading the full body of a tracked message from the tracking database. Try doing this with less then 10 lines of code using the _MSBTS_TrackedMessageInstance_ script! 
 
-[![OperationsTest1](/assets/2007/06/operationstest1-thumb1.jpg)](/assets/2007/06/operationstest11.jpg)  
+[![OperationsTest1](../assets/2007/06/operationstest1-thumb1.jpg)](../assets/2007/06/operationstest11.jpg)  
 
 There is really nothing to the application, reading a tracked message using the _MessageID_ will return an object implementing _[IBaseMessage](http://msdn2.microsoft.com/en-us/library/microsoft.biztalk.message.interop.ibasemessage_members.aspx)_ and we basically read the _[BodyPart](http://msdn2.microsoft.com/en-us/library/microsoft.biztalk.message.interop.ibasemessage.bodypart.aspx)_ property of - it really couldn't be any easier. 
     

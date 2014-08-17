@@ -5,7 +5,7 @@ title: Looking forward to stackoverflow.com
 categories: [Community, Podcast]
 ---
 
-[![stackoverflow-logo-250](/assets/2008/07/windowslivewriterlookingforwardtostackoverflow.com-7cb8stackoverflow-logo-250-thumb.png)](/assets/2008/07/windowslivewriterlookingforwardtostackoverflow.com-7cb8stackoverflow-logo-250-2.png)I'm really looking forward to the release of s[tackoverflow.com](http://stackoverflow.com/) - have you heard about it? If not it's a collaboration between [Joel Spolsky](http://www.joelonsoftware.com/AboutMe.html) and [Jeff Atwood](http://www.codinghorror.com/blog/archives/000021.html). Joel and Jeff are of course the two blogger behind the popular [Joel on Software](http://www.joelonsoftware.com/) and [Coding Horror](http://www.codinghorror.com/blog/) blogs. 
+[![stackoverflow-logo-250](../assets/2008/07/windowslivewriterlookingforwardtostackoverflow.com-7cb8stackoverflow-logo-250-thumb.png)](../assets/2008/07/windowslivewriterlookingforwardtostackoverflow.com-7cb8stackoverflow-logo-250-2.png)I'm really looking forward to the release of s[tackoverflow.com](http://stackoverflow.com/) - have you heard about it? If not it's a collaboration between [Joel Spolsky](http://www.joelonsoftware.com/AboutMe.html) and [Jeff Atwood](http://www.codinghorror.com/blog/archives/000021.html). Joel and Jeff are of course the two blogger behind the popular [Joel on Software](http://www.joelonsoftware.com/) and [Coding Horror](http://www.codinghorror.com/blog/) blogs. 
 
  
 

@@ -17,7 +17,7 @@ Sometimes the requirements also forces one into reading each row to a separate m
 
 When I implemented similar batch import scenarios in the past I tried to practice good practice and split the data into separate files that I then filtered to the SQL adapter send port, one by one.
 
-[![image](/assets/2009/02/windowslivewriterperformanceinbatchimportstosqlserverusin-b997image-thumb-3.png)](/assets/2009/02/windowslivewriterperformanceinbatchimportstosqlserverusin-b997image-8.png)
+[![image](../assets/2009/02/windowslivewriterperformanceinbatchimportstosqlserverusin-b997image-thumb-3.png)](../assets/2009/02/windowslivewriterperformanceinbatchimportstosqlserverusin-b997image-8.png)
 
   1. The received flat file files has been split into thousands of small little message that one by one are sent to the SQL adapter send port. 
   2. The SQL adapter then parses each message into a SQL script that executes a store procedure and the message is finally inserted to the target database. 
@@ -78,7 +78,7 @@ _**[Eureka!](http://en.wikipedia.org/wiki/Eureka_(word)) **__**This means that w
 
 
 
-[![image](/assets/2009/02/windowslivewriterperformanceinbatchimportstosqlserverusin-b997image-thumb-4.png)](/assets/2009/02/windowslivewriterperformanceinbatchimportstosqlserverusin-b997image-10.png)**__**
+[![image](../assets/2009/02/windowslivewriterperformanceinbatchimportstosqlserverusin-b997image-thumb-4.png)](../assets/2009/02/windowslivewriterperformanceinbatchimportstosqlserverusin-b997image-10.png)**__**
 
 
 

@@ -91,7 +91,7 @@ We can use this XSL stylesheet in a ordinary BizTalk map on the send port using 
 
 
 
-[![](/assets/2007/12/windowslivewriterremovingnamespacefromoutgoingmessage-a4edxsltpath-thumb11.jpg)](/assets/2007/12/windowslivewriterremovingnamespacefromoutgoingmessage-a4edxsltpath51.jpg)
+[![](../assets/2007/12/windowslivewriterremovingnamespacefromoutgoingmessage-a4edxsltpath-thumb11.jpg)](../assets/2007/12/windowslivewriterremovingnamespacefromoutgoingmessage-a4edxsltpath51.jpg)
 
 
 
@@ -109,7 +109,7 @@ The figure below shows how we use the property windows of the _XSLT Transform Co
 
 
 
-[![](/assets/2007/12/windowslivewriterremovingnamespacefromoutgoingmessage-a4edxsltpath2-thumb1.jpg)](/assets/2007/12/windowslivewriterremovingnamespacefromoutgoingmessage-a4edxsltpath221.jpg)
+[![](../assets/2007/12/windowslivewriterremovingnamespacefromoutgoingmessage-a4edxsltpath2-thumb1.jpg)](../assets/2007/12/windowslivewriterremovingnamespacefromoutgoingmessage-a4edxsltpath221.jpg)
 
 
 

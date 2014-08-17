@@ -26,7 +26,7 @@ To handel these two issues I set up a receive pipeline that looked like the one 
 
 
 
-[![](/assets/2007/11/windowslivewriterba0c14911562-ef39pipeline-thumb12.jpg)](/assets/2007/11/windowslivewriterba0c14911562-ef39pipeline32.jpg)
+[![](../assets/2007/11/windowslivewriterba0c14911562-ef39pipeline-thumb12.jpg)](../assets/2007/11/windowslivewriterba0c14911562-ef39pipeline32.jpg)
 
 
 

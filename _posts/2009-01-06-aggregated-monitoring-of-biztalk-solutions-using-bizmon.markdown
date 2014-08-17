@@ -51,7 +51,7 @@ Strangely enough _**BizTalk Server 2006 R2 _in my humble opinion_ doesn't come w
 
  
 
-[![image](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-9.png)](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-20.png) Before I get myself deeper into trouble I'd like to define what I mean by monitoring. I think monitoring a BizTalk integration solution could be divided into four categories.
+[![image](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-9.png)](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-20.png) Before I get myself deeper into trouble I'd like to define what I mean by monitoring. I think monitoring a BizTalk integration solution could be divided into four categories.
 
  
 
@@ -113,7 +113,7 @@ In BizTalk 2006 [Failed Message Routing](http://msdn.microsoft.com/en-us/library
    
   4. **Heartbeat (monitoring actual successful traffic)        
 
-[![image](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-1.png)](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-4.png)As I said before I think this is a very important metric. If you can see that messages travel through BizTalk in a normal rate things much be pretty ok – right? Without doing to much coding and developing you own pipeline components for tracking etc there are two options.
+[![image](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-1.png)](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-4.png)As I said before I think this is a very important metric. If you can see that messages travel through BizTalk in a normal rate things much be pretty ok – right? Without doing to much coding and developing you own pipeline components for tracking etc there are two options.
 
             **      
 
@@ -138,7 +138,7 @@ Much of what’s discussed in this post can be solved using the [BizTalk Adminis
 
  
 
-[![Monitor DashBoard](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80monitor-dashboard-thumb.jpg)](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80monitor-dashboard-2.jpg)
+[![Monitor DashBoard](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80monitor-dashboard-thumb.jpg)](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80monitor-dashboard-2.jpg)
 
  
 
@@ -168,7 +168,7 @@ Based on the needs and "requirements" above I've started developing a applicatio
 
  
 
-[![image](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-4.png)](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-10.png)
+[![image](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-4.png)](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-10.png)
 
  
 
@@ -189,7 +189,7 @@ Each row and application show when the last message on that application was rece
 
  
 
-[![image](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-5.png)](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-12.png)
+[![image](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-5.png)](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-12.png)
 
  
 
@@ -205,7 +205,7 @@ It also displays a graph showing how many messages that has been processed by ea
 
  
 
-[![image](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-6.png)](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-14.png)
+[![image](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-6.png)](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-14.png)
 
  
 
@@ -213,7 +213,7 @@ It also displays a graph showing how many messages that has been processed by ea
 
  
 
-[![image](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-8.png)](/assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-18.png)
+[![image](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-thumb-8.png)](../assets/2009/01/windowslivewriteraggregatedmonitoringofbiztalksolutions-dd80image-18.png)
 
  
 

@@ -21,7 +21,7 @@ Our goal is to track the duration between the request and response on each of th
 
  
 
-#### [![scenario](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bscenario-thumb.jpg)](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bscenario-2.jpg)
+#### [![scenario](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bscenario-thumb.jpg)](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bscenario-2.jpg)
 
  
 
@@ -62,7 +62,7 @@ Next step is to bind the model to the implementation using the [Tracking Profile
 
  
 
-**[![tracking profile using continuation](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-using-continuation-thumb.jpg)](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-using-continuation-2.jpg) **
+**[![tracking profile using continuation](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-using-continuation-thumb.jpg)](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-using-continuation-2.jpg) **
 
  
 
@@ -74,7 +74,7 @@ The next figure shows how the tracking of the request milestone event actually h
 
  
 
-[![tracking profile configure ports 2](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-configure-ports-2-thumb-1.jpg)](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-configure-ports-2-4.jpg)
+[![tracking profile configure ports 2](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-configure-ports-2-thumb-1.jpg)](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-configure-ports-2-4.jpg)
 
  
 
@@ -86,7 +86,7 @@ Our final problem is that unless we somehow correlate our request tracking point
 
  
 
-[![bam portal split results](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bbam-portal-split-results-thumb-1.jpg)](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bbam-portal-split-results-4.jpg)
+[![bam portal split results](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bbam-portal-split-results-thumb-1.jpg)](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bbam-portal-split-results-4.jpg)
 
  
 
@@ -94,7 +94,7 @@ The reason for this is of course that BAM doesn’t have a context for the two t
 
  
 
-[![tracking profile using continuation 2](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-using-continuation-2-thumb-2.jpg)](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-using-continuation-2-6.jpg)
+[![tracking profile using continuation 2](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-using-continuation-2-thumb-2.jpg)](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0btracking-profile-using-continuation-2-6.jpg)
 
  
 
@@ -106,7 +106,7 @@ In our case ServiceID is the prefect candidate for correlating the two points. A
 
  
 
-[![bam portal complete results](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bbam-portal-complete-results-thumb.jpg)](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bbam-portal-complete-results-2.jpg)
+[![bam portal complete results](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bbam-portal-complete-results-thumb.jpg)](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bbam-portal-complete-results-2.jpg)
 
  
 
@@ -116,7 +116,7 @@ This model might not be optimal in an other scenario where your process are more
 
 <blockquote>  
 > 
-> [![note](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bnote-thumb.gif)](/assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bnote-2.gif) NOTE: When configuring BAM to track a port the _[MessageType](http://msdn2.microsoft.com/en-us/library/aa561650.aspx)_ is actually promoted. This causes some problems in combination with the SOAP based ports that have been published using the Web Services Publishing Wizard. Saravana writes about this [here](http://www.digitaldeposit.net/blog/2007/08/soap-adapter-and-biztalk-web-publishing.html) and all his articles on this subject is a must read when working with SOAP ports. The problem however comes down to that the Web Services Publishing Wizard generates code that puts the wrong _DocumentSpecName _in the message context and that causes the _XmlDisassembler_ to fail (it tricks the _XmlDisassembler_ to look for a _MessageType_ that doesn't exists).
+> [![note](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bnote-thumb.gif)](../assets/2008/04/windowslivewriterusingbamforlatencytrackinginabiztalkrequ-9c0bnote-2.gif) NOTE: When configuring BAM to track a port the _[MessageType](http://msdn2.microsoft.com/en-us/library/aa561650.aspx)_ is actually promoted. This causes some problems in combination with the SOAP based ports that have been published using the Web Services Publishing Wizard. Saravana writes about this [here](http://www.digitaldeposit.net/blog/2007/08/soap-adapter-and-biztalk-web-publishing.html) and all his articles on this subject is a must read when working with SOAP ports. The problem however comes down to that the Web Services Publishing Wizard generates code that puts the wrong _DocumentSpecName _in the message context and that causes the _XmlDisassembler_ to fail (it tricks the _XmlDisassembler_ to look for a _MessageType_ that doesn't exists).
 > 
 >    
 > 

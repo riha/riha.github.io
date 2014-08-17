@@ -9,7 +9,7 @@ categories: [BizTalk 2006, BizTalk 2009, BizTalk 2010, R2]
 
 As most BizTalk developers/architects you have probably been in a situation were documentation of your integration solution has been discussed. And you probably also been just as happy as me when you first found [BizTalk Documenter](http://biztalkdocumenter.codeplex.com/). BizTalk Documenter is a great tool for extracting all that configuration data that is so vital to BizTalk and create a nice technical documentation of it.
 
-![documentation levels](/assets/2011/09/documentation-levels.png)There are of course several levels to documentation in BizTalk Server based solution were the technical information is at the lowest level. Above that you would then have you integration process descriptions and then possible another level above that where you fit the integration processes into bigger business processes, and so on – but let’s stick to the technical documentation for now.
+![documentation levels](../assets/2011/09/documentation-levels.png)There are of course several levels to documentation in BizTalk Server based solution were the technical information is at the lowest level. Above that you would then have you integration process descriptions and then possible another level above that where you fit the integration processes into bigger business processes, and so on – but let’s stick to the technical documentation for now.
 
 BizTalk Documenter does a nice job of automating the creation of technical documentation, instead of basically having to all that configuration job a second time when documenting. Doing technical documentation by hand usually also breaks down after a while as solution setup and configuration changes a lot and the work is really time consuming. And as documentation that isn’t up to date frankly is completely worthless people soon looses interest in both reading and maintaining the technical documentation.
 
@@ -29,7 +29,7 @@ A web based documentation is both much easier to distribute and more accessible 
   * **Easy way of see changes in versions**  
 Sometimes one wants to see how things have changed and how things used to be configured. The tools should support “jumping back in time” and see previous versions. 
  
-[![config explorer](/assets/2011/09/config-explorer.png)](http://demo.configexplorer.com/)
+[![config explorer](../assets/2011/09/config-explorer.png)](http://demo.configexplorer.com/)
 
 Check out an an [example](http://demo.btswebdoc.com) of a Config Explorer yourself.
 
@@ -43,4 +43,4 @@ This release is a 1.0 release and there will are many features we haven’t had 
 
  
 
-I’ll of course also check for any comments here ![Winking smile](/assets/2011/09/wlEmoticon-winkingsmile.png).
+I’ll of course also check for any comments here ![Winking smile](../assets/2011/09/wlEmoticon-winkingsmile.png).

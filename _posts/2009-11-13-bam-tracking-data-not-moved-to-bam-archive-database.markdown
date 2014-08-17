@@ -17,7 +17,7 @@ This post will however focus on some details in the last step of the process tha
 
  
 
-[![image](/assets/2009/11/image_thumb.png)](/assets/2009/11/image3.png)
+[![image](../assets/2009/11/image_thumb.png)](../assets/2009/11/image3.png)
 
  
 
@@ -51,7 +51,7 @@ Below there is a deployed tracking activity called “SimpleTracking” with a o
 
  
 
-[![image](/assets/2009/11/image_thumb5.png)](/assets/2009/11/image8.png)
+[![image](../assets/2009/11/image_thumb5.png)](../assets/2009/11/image8.png)
 
  
 
@@ -63,7 +63,7 @@ _So if we run the SSIS job these rows should be moved to the archive database. l
 
  
 
-[![image](/assets/2009/11/image_thumb6.png)](/assets/2009/11/image9.png)
+[![image](../assets/2009/11/image_thumb6.png)](../assets/2009/11/image9.png)
 
  
 
@@ -71,7 +71,7 @@ But when we execute the SSIS job the BAM Archive database is still empty! All we
 
  
 
-[![image](/assets/2009/11/image_thumb7.png)](/assets/2009/11/image10.png)
+[![image](../assets/2009/11/image_thumb7.png)](../assets/2009/11/image10.png)
 
  
 
@@ -79,7 +79,7 @@ _It turns out that the SSIS job does **not at all look at the the “Last Modifi
 
  
 
-[![image](/assets/2009/11/image_thumb8.png)](/assets/2009/11/image11.png)
+[![image](../assets/2009/11/image_thumb8.png)](../assets/2009/11/image11.png)
 
  
 

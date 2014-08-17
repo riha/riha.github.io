@@ -116,7 +116,7 @@ So the idea is the to read the incoming flat file, use the [Flat File Disassembl
 
 
 
-[![GroupingFlow2](/assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow2-thumb.png)](/assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow2-2.png)
+[![GroupingFlow2](../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow2-thumb.png)](../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow2-2.png)
 
 
 
@@ -211,7 +211,7 @@ The XSLT will use could look something like the below. It's kind of straight for
 <blockquote>
   
 > 
-> [![note](/assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295note-thumb.gif)](/assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295note-2.gif)You have found all the [XSLT and XML related features](http://msdn.microsoft.com/en-us/library/aa302298.aspx) in Visual Studio - right?
+> [![note](../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295note-thumb.gif)](../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295note-2.gif)You have found all the [XSLT and XML related features](http://msdn.microsoft.com/en-us/library/aa302298.aspx) in Visual Studio - right?
 > 
 > 
 </blockquote>
@@ -328,7 +328,7 @@ Looking at the model of the data flow again you probably see that I'm using the 
 
 
 
-[![GroupingFlow3](/assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow3-thumb.png)](/assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow3-2.png)
+[![GroupingFlow3](../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow3-thumb.png)](../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow3-2.png)
 
 
 

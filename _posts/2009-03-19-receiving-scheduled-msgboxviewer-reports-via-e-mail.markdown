@@ -15,7 +15,7 @@ I worked with the tool before but now I wanted to schedule the tool and to have 
 
 
 
-[![image](/assets/2009/03/windowslivewriterreceivingscheduledmsgboxviewereportsviae-f7aeimage-thumb-5.png)](/assets/2009/03/windowslivewriterreceivingscheduledmsgboxviewereportsviae-f7aeimage-12.png)
+[![image](../assets/2009/03/windowslivewriterreceivingscheduledmsgboxviewereportsviae-f7aeimage-thumb-5.png)](../assets/2009/03/windowslivewriterreceivingscheduledmsgboxviewereportsviae-f7aeimage-12.png)
 
 
 
@@ -25,7 +25,7 @@ The command-line version is of course perfect for scheduling using the [Windows 
 
 
 
-[![image](/assets/2009/03/windowslivewriterreceivingscheduledmsgboxviewereportsviae-f7aeimage-thumb-4.png)](/assets/2009/03/windowslivewriterreceivingscheduledmsgboxviewereportsviae-f7aeimage-10.png)
+[![image](../assets/2009/03/windowslivewriterreceivingscheduledmsgboxviewereportsviae-f7aeimage-thumb-4.png)](../assets/2009/03/windowslivewriterreceivingscheduledmsgboxviewereportsviae-f7aeimage-10.png)
 
 
 

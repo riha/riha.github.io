@@ -7,7 +7,7 @@ categories: [BizTalk 2006]
 
 An integration between systems can often be view upon as a chain of system and services working together to move a message to its final destination.
 
-[![image](/assets/2011/01/image_thumb5.png)](/assets/2011/01/image5.png)
+[![image](../assets/2011/01/image_thumb5.png)](../assets/2011/01/image5.png)
 
 One problem with this loosely-coupled way of dealing with message transfers is that its hard to see if and where something has gone wrong. Usually all we know is that the sending system has send the message, but the final system never received it. The problem could then be within any of the components in between. Tracking messages within BizTalk is one thing but achieving a _end-to-end tracking _within the whole “chain” is much harder.
 
@@ -61,10 +61,10 @@ The obvious way to solve the limitation of a .NET based client - and to get one 
 
 The [BAM Service Generator](http://bmsrvgen.codeplex.com/) is a command line tool that will read the BAM definition file and generate a compiled .NET 4.0 WCF service. The service is configured with a default basicHttp endpoint and is ready to go straight into AppFabric or similar hosting. 
 
-[![image](/assets/2011/01/image_thumb7.png)](/assets/2011/01/image7.png)
+[![image](../assets/2011/01/image_thumb7.png)](../assets/2011/01/image7.png)
 
 This service-approach makes it possible to take advantage of the BAM infrastructure from all different types of system, and even in cases when they aren’t behind the same firewall! As shown in figure below this could take us one step closer to the end-to-end tracking scenario.
 
-[![image](/assets/2011/01/image_thumb8.png)](/assets/2011/01/image8.png)
+[![image](../assets/2011/01/image_thumb8.png)](../assets/2011/01/image8.png)
 
 “BAM Service Generator” is open-source and can be found [here](http://bmsrvgen.codeplex.com/).

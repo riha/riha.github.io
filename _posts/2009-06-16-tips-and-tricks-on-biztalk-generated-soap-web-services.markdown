@@ -21,7 +21,7 @@ BizTalk Server includes the “BizTalk Web Services Publishing Wizard” tool th
 
  
 
-[![image](/assets/2009/06/image-thumb.png)](/assets/2009/06/image.png)
+[![image](../assets/2009/06/image-thumb.png)](../assets/2009/06/image.png)
 
  
 
@@ -33,7 +33,7 @@ The output of the tool is then a xml file (a “WebServiceDescription” file) t
 
  
 
-[![image](/assets/2009/06/image-thumb1.png)](/assets/2009/06/image1.png)
+[![image](../assets/2009/06/image-thumb1.png)](../assets/2009/06/image1.png)
 
  
 

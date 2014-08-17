@@ -8,7 +8,7 @@ categories: [BizTalk 2006]
 
 I’ve talked a lot about efficient documentation previously on this blog, both when in comes to splitting the documentation up in different layers as [here](http://www.richardhallgren.com/using-biztalk-config-explorer-as-a-new-way-of-documenting-your-biztalk-solutions/), but also in relation to tools BizTalk Documenter and [BizTalk Web Documenter](http://btswebdoc.com/) for automatically generation technical documentation as [here](http://www.richardhallgren.com/reborn-as-biztalk-web-documenter/).
 
-Last week I however had the pleasure to present on the BizTalk User Group Sweden meeting and got to talk all documentation for a whole hour ![Smile](/assets/2012/10/wlEmoticon-smile.png). You can find the PPT from the meeting [here](http://biztalkusergroup.se/blogs/info/BUGS%20docs%20-%20Richard%20Hallgren.pptx). 
+Last week I however had the pleasure to present on the BizTalk User Group Sweden meeting and got to talk all documentation for a whole hour ![Smile](../assets/2012/10/wlEmoticon-smile.png). You can find the PPT from the meeting [here](http://biztalkusergroup.se/blogs/info/BUGS%20docs%20-%20Richard%20Hallgren.pptx). 
 
 I ended the presentation by presenting the ten commandments for efficient system integrations documentation:
 

@@ -21,7 +21,7 @@ Don't get me wrong, Xslt definitely has some **major** [limitations](http://bigl
 
 And it doesn't take long before one runs up against one of these and suddenly you wish you were **back** in mapping tool were we just could add scripting functoid and some code or a external assembly. But then you remember ... (Sorry, I know it's painful just to watch it).
 
-[![BadMap_thumb](/assets/2008/09/windowslivewriterhowtheextendacustomxsltinbizt.xmlproject-138fabadmap-thumb-thumb.png)](/assets/2008/09/windowslivewriterhowtheextendacustomxsltinbizt.xmlproject-138fabadmap-thumb-2.png)
+[![BadMap_thumb](../assets/2008/09/windowslivewriterhowtheextendacustomxsltinbizt.xmlproject-138fabadmap-thumb-thumb.png)](../assets/2008/09/windowslivewriterhowtheextendacustomxsltinbizt.xmlproject-138fabadmap-thumb-2.png)
 
 **There has to be a better way of doing this and _combining_ the best out of the two worlds! **
 
@@ -96,7 +96,7 @@ All you then have to do in you map is to reference the Xslt and the extension Xm
 
 
 
-[![Custom Extension In Map](/assets/2008/09/windowslivewriterhowtheextendacustomxsltinbizt.xmlproject-138facustom-extension-in-map-thumb.png)](/assets/2008/09/windowslivewriterhowtheextendacustomxsltinbizt.xmlproject-138facustom-extension-in-map-2.png)
+[![Custom Extension In Map](../assets/2008/09/windowslivewriterhowtheextendacustomxsltinbizt.xmlproject-138facustom-extension-in-map-thumb.png)](../assets/2008/09/windowslivewriterhowtheextendacustomxsltinbizt.xmlproject-138facustom-extension-in-map-2.png)
 
 
 

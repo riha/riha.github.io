@@ -144,7 +144,7 @@ As we need BizTalk and the WCF adapter to pick up the need behavior and make it 
 
 
 
-[![PromoteUserNameBehavior GAC](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4promoteusernamebehavior-gac-thumb.jpg)](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4promoteusernamebehavior-gac-2.jpg)
+[![PromoteUserNameBehavior GAC](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4promoteusernamebehavior-gac-thumb.jpg)](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4promoteusernamebehavior-gac-2.jpg)
 
 
 
@@ -190,7 +190,7 @@ When you then browse to the URL you choose to publish your service to you'll see
 
 
 
-[![WSDL code example](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4wsdl-code-example-thumb.jpg)](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4wsdl-code-example-2.jpg)
+[![WSDL code example](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4wsdl-code-example-thumb.jpg)](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4wsdl-code-example-2.jpg)
 
 
 
@@ -202,7 +202,7 @@ If we then send a request message to service (you'll find a client as part of th
 
 
 
-[![Message No Username](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-no-username-thumb.jpg)](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-no-username-2.jpg)
+[![Message No Username](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-no-username-thumb.jpg)](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-no-username-2.jpg)
 
 
 
@@ -220,7 +220,7 @@ To add the username to the message context we'll need to add our newly created b
 
 
 
-[![Add Endpoint behavior](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4add-endpoint-behavior-thumb.jpg)](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4add-endpoint-behavior-2.jpg)
+[![Add Endpoint behavior](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4add-endpoint-behavior-thumb.jpg)](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4add-endpoint-behavior-2.jpg)
 
 
 
@@ -229,7 +229,7 @@ To add the username to the message context we'll need to add our newly created b
 <blockquote>
   
 > 
-> [![note](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4note-thumb.gif)](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4note-2.gif) NOTE: there is a limitation in the BizTalk WCF implementation in that you can't create the WCF-Custom receive location that uses a HTTP in-process based binding (like the wsHttpBinding used in a WCF-Custom endpoint is) first and then use the WCF Publishing Wizard to only publish a metadata endpoint.
+> [![note](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4note-thumb.gif)](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4note-2.gif) NOTE: there is a limitation in the BizTalk WCF implementation in that you can't create the WCF-Custom receive location that uses a HTTP in-process based binding (like the wsHttpBinding used in a WCF-Custom endpoint is) first and then use the WCF Publishing Wizard to only publish a metadata endpoint.
 > 
 > 
 
@@ -262,7 +262,7 @@ If we then post another message to the service and inspect the message we'll see
 
 
 
-[![Message Username](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-username-thumb-1.jpg)](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-username-4.jpg)
+[![Message Username](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-username-thumb-1.jpg)](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-username-4.jpg)
 
 
 
@@ -327,7 +327,7 @@ The end results looks something like this.
 
 
 
-[![Message Promoted Username](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-promoted-username-thumb.jpg)](/assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-promoted-username-2.jpg)
+[![Message Promoted Username](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-promoted-username-thumb.jpg)](../assets/2008/04/windowslivewriterwritingbiztalkcontextpropertiestoamessag-72f4message-promoted-username-2.jpg)
 
 
 

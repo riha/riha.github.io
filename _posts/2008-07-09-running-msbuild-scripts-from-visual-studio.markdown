@@ -5,7 +5,7 @@ title: "Running MSBuild scripts from Visual Studio"
 categories: [MSBuild]
 ---
 
-[![MSBuild2](/assets/2008/07/windowslivewriterrunningmsbuildscriptsfromvisualstudio-9bb0msbuild2-thumb.png)](/assets/2008/07/windowslivewriterrunningmsbuildscriptsfromvisualstudio-9bb0msbuild2-2.png)It seems like there more build script one writes, the more often one wants to run them and it's always a bit annoying (and time consuming) having to leave Visual Studio and start MSBuild from the command line. Brennan Stehling has a cool solution to that problem [here](http://brennan.offwhite.net/blog/2007/05/31/running-msbuild-from-visual-studio/) were he sets up MSBuild as an external tool and runs it.
+[![MSBuild2](../assets/2008/07/windowslivewriterrunningmsbuildscriptsfromvisualstudio-9bb0msbuild2-thumb.png)](../assets/2008/07/windowslivewriterrunningmsbuildscriptsfromvisualstudio-9bb0msbuild2-2.png)It seems like there more build script one writes, the more often one wants to run them and it's always a bit annoying (and time consuming) having to leave Visual Studio and start MSBuild from the command line. Brennan Stehling has a cool solution to that problem [here](http://brennan.offwhite.net/blog/2007/05/31/running-msbuild-from-visual-studio/) were he sets up MSBuild as an external tool and runs it.
 
  
 
@@ -13,4 +13,4 @@ One problem for us was the we had our solution files in one place on the file sy
 
  
 
-[![MSBuild](/assets/2008/07/windowslivewriterrunningmsbuildscriptsfromvisualstudio-9bb0msbuild-thumb-2.png)](/assets/2008/07/windowslivewriterrunningmsbuildscriptsfromvisualstudio-9bb0msbuild-6.png)
+[![MSBuild](../assets/2008/07/windowslivewriterrunningmsbuildscriptsfromvisualstudio-9bb0msbuild-thumb-2.png)](../assets/2008/07/windowslivewriterrunningmsbuildscriptsfromvisualstudio-9bb0msbuild-6.png)

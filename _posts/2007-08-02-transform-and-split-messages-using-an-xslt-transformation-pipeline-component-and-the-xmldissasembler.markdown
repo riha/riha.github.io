@@ -66,7 +66,7 @@ All this component does is to let you point out a [XSLT stylesheet](http://en.wi
 
 
 
-[![](/assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6xsltpipeline-thumb9.jpg)](/assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6xsltpipeline29.jpg)
+[![](../assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6xsltpipeline-thumb9.jpg)](../assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6xsltpipeline29.jpg)
 
 
 
@@ -127,7 +127,7 @@ This is what the envelope schema looks like in this example.
 
 
 
-[![](/assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6envelopeschema-thumb19.jpg)](/assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6envelopeschema59.jpg)
+[![](../assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6envelopeschema-thumb19.jpg)](../assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6envelopeschema59.jpg)
 
 
 
@@ -137,7 +137,7 @@ This is what the _XmlDisassembler_ configuration looks like.
 
 
 
-[![](/assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6pipelineconfig-thumb9.jpg)](/assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6pipelineconfig29.jpg)
+[![](../assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6pipelineconfig-thumb9.jpg)](../assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6pipelineconfig29.jpg)
 
 
 
@@ -147,7 +147,7 @@ There, we're done! Now we can drop a test file containing two _Sale_-nodes and a
 
 
 
-[![](/assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6out-thumb9.jpg)](/assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6out29.jpg)
+[![](../assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6out-thumb9.jpg)](../assets/2007/08/windowslivewritertransformandsplitmessagesusinganxslttrab-f7f6out29.jpg)
 
 
 

@@ -13,7 +13,7 @@ The post recently got commented by [Jeff Lynch](http://codebetter.com/blogs/jeff
 
  
 
-[![Removing XML namespaces - revisit](/assets/2008/06/windowslivewriterremovingxmlnamespacesrevisit-834dremoving-xml-namespaces-revisit-thumb.png)](/assets/2008/06/windowslivewriterremovingxmlnamespacesrevisit-834dremoving-xml-namespaces-revisit-2.png)
+[![Removing XML namespaces - revisit](../assets/2008/06/windowslivewriterremovingxmlnamespacesrevisit-834dremoving-xml-namespaces-revisit-thumb.png)](../assets/2008/06/windowslivewriterremovingxmlnamespacesrevisit-834dremoving-xml-namespaces-revisit-2.png)
 
  
 

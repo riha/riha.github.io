@@ -32,7 +32,7 @@ I’ll start this post by clarifying two important things
 
  
 
-![image](/assets/2009/08/image1.png) I have worked as a BizTalk developer for many years but it was not until I really got in to maintaining a large integration solution that I realized that the tools I really needed was not there. I found myself using the following “tools” and techniques over and over again.
+![image](../assets/2009/08/image1.png) I have worked as a BizTalk developer for many years but it was not until I really got in to maintaining a large integration solution that I realized that the tools I really needed was not there. I found myself using the following “tools” and techniques over and over again.
 
  
 

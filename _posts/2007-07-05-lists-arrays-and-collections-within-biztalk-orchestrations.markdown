@@ -83,7 +83,7 @@ This _StringList_ class exists within the _BizTalkCollections_ namespace where w
 
 
 
-[![](/assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729biztalkcollections-thumb23.jpg)](/assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729biztalkcollections23.jpg)
+[![](../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729biztalkcollections-thumb23.jpg)](../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729biztalkcollections23.jpg)
 
 
 
@@ -95,7 +95,7 @@ In the orchestration we then have set up a variable and type this to our _String
 
 
 
-[![](/assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729variable-thumb53.jpg)](/assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729variable53.jpg)
+[![](../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729variable-thumb53.jpg)](../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729variable53.jpg)
 
 
 
@@ -125,7 +125,7 @@ Then you can use the following code within your orchestration! [Download the sam
 
 
 
-[![](/assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729code2-thumb12.jpg)](/assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729code212.jpg)
+[![](../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729code2-thumb12.jpg)](../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729code212.jpg)
 
 
 

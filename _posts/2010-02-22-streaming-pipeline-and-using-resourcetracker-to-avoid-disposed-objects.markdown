@@ -84,7 +84,7 @@ It took us a while to figure out the real problem here, everything worked fine w
 
 
 
-[![image](/assets/2010/02/image_thumb1.png)](/assets/2010/02/image1.png)It turns out that when we debatched messages the execute method of the custom pipeline ran multiple times, one time for each sub-messages. This forced the .NET Garbage Collector to run.
+[![image](../assets/2010/02/image_thumb1.png)](../assets/2010/02/image1.png)It turns out that when we debatched messages the execute method of the custom pipeline ran multiple times, one time for each sub-messages. This forced the .NET Garbage Collector to run.
 
 
 

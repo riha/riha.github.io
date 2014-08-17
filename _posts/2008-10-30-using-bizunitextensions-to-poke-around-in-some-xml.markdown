@@ -15,7 +15,7 @@ But build processes isn't was this post is supposed to be about. This post is ab
 > 
 > </blockquote>
 
-<blockquote>[![note](/assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286note-thumb.gif)](/assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286note-2.gif)If you have used BizUnit before and need an introduction before reading further, start [here](http://www.codeproject.com/KB/biztalk/BizUnit2006.aspx), [here](http://www.codeplex.com/bizunit) or [here](http://biztalkia.blogspot.com/2007/03/getting-started-with-nunit-and-bizunit.html) - they're all excellent articles.
+<blockquote>[![note](../assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286note-thumb.gif)](../assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286note-2.gif)If you have used BizUnit before and need an introduction before reading further, start [here](http://www.codeproject.com/KB/biztalk/BizUnit2006.aspx), [here](http://www.codeplex.com/bizunit) or [here](http://biztalkia.blogspot.com/2007/03/getting-started-with-nunit-and-bizunit.html) - they're all excellent articles.
 > 
 > </blockquote>
 
@@ -59,7 +59,7 @@ The example below shows how we first use an ordinary BizUnit task to validate an
         </XPathExpressions>
     </TestStep>
 
-This of course means that all you need to extend you current test steps and gain some cool new abilities is to add another assembly to you test project![![image](/assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286image-thumb-3.png)](/assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286image-8.png) 
+This of course means that all you need to extend you current test steps and gain some cool new abilities is to add another assembly to you test project![![image](../assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286image-thumb-3.png)](../assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286image-8.png) 
 
 
 ### Using BizUnitExtensions in a "real" scenario
@@ -67,7 +67,7 @@ This of course means that all you need to extend you current test steps and gain
 
 
 
-An scenario when this can be useful is the following example were we need to test some message correlation.[![image](/assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286image-thumb.png)](/assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286image-2.png)
+An scenario when this can be useful is the following example were we need to test some message correlation.[![image](../assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286image-thumb.png)](../assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286image-2.png)
 
 
 
@@ -91,7 +91,7 @@ So how can we **_now test this_**? The steps should be something like the below.
 <blockquote>
 
 > 
-> [![note](/assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286note-thumb-1.gif)](/assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286note-4.gif) Notice that we read and write to the file system in the example. Once deployed to test these send ports and receive location will be reconfigured to use the queuing adapter. But for testing the scenario the file system works just fine a simplifies things IMHO.
+> [![note](../assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286note-thumb-1.gif)](../assets/2008/10/windowslivewriterusingbizunitextensionstopokesomexml-d286note-4.gif) Notice that we read and write to the file system in the example. Once deployed to test these send ports and receive location will be reconfigured to use the queuing adapter. But for testing the scenario the file system works just fine a simplifies things IMHO.
 > 
 > </blockquote>
 

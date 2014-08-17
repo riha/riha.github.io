@@ -15,7 +15,7 @@ _One of the big advantages in a working CI process is to always have tested and 
  
 [Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html) is a concept first described by Martin Fowler back in 2006. At its core its about team communication and fast feedback but also often leads to better quality software and more efficient processes. 
 
-![CI](/assets/2014/01/CI1.png)
+![CI](../assets/2014/01/CI1.png)
 
 A CI process usually works something like the above picture.
   
@@ -48,7 +48,7 @@ A final possibility is of course to directly add the resources one by one using 
 
 Another option is then to use [BtsMsiTask](https://github.com/riha/BtsMsiTask) to directly generate a BizTalk Server MSI from the Visual Studio build and MsBuild.
 
-![SimplerProcess](/assets/2014/01/SimplerProcess1.png)
+![SimplerProcess](../assets/2014/01/SimplerProcess1.png)
 
 The BtsMsiTask uses same approach and tools as the MSI export process implemented into BizTalk Server but extracts it into a MSBuild task that can be directly executed as part of the build process. 
 

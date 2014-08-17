@@ -67,7 +67,7 @@ First we need to find a regular expression to find the right values. With some h
     
     (?<=string\sbodyTypeAssemblyQualifiedName\s=\s)(?s:[^;]*)(?=;)
 
-![ninja5](/assets/2008/11/windowslivewriterhandlethebodytypeassemblyqualifiednameso-adf4ninja5-thumb.jpg) If you're not a RegEx ninja the line above does something like this:
+![ninja5](../assets/2008/11/windowslivewriterhandlethebodytypeassemblyqualifiednameso-adf4ninja5-thumb.jpg) If you're not a RegEx ninja the line above does something like this:
 
 
 
