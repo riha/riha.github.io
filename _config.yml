@@ -9,3 +9,4 @@ markdown:     rdiscount
 permalink:    pretty
 highligter:     true
 paginate:     5
+permalink:    /:title
