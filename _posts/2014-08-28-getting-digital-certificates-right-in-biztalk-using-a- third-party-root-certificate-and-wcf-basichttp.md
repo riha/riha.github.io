@@ -4,15 +4,15 @@ layout: post
 title: "Getting digital certificates right in BizTalk using a third party root certificate in combination with client certificate security and WCF BasicHttp"
 ---
 
-Digital certificates and asymmetric security is notoriously hard to get right in a Windows environment. Getting it right in a _BizTalk context_ isn't exatlly easier. 
+Digital certificates and asymmetric security is notoriously hard to get right in a Windows environment. Getting it right in a _BizTalk context_ isn't exactly easier. 
 
 In this scenario a BizTalk Server act as a client and communicates with a service over https. The service also uses a client certificate for client authentication.
 
-![presentation1](https://cloud.githubusercontent.com/assets/1317734/4082243/e3123c2e-2eef-11e4-9218-3ec8b31c041e.png)
+![Flow](https://cloud.githubusercontent.com/assets/1317734/4082243/e3123c2e-2eef-11e4-9218-3ec8b31c041e.png)
 
 ## Long story short ##
 
-Third party root certificates always needs to be places under "Third-Party Root Certifation Authorities" or directly under the "Trusted Root Certifaction Authorities" folder on Local Machine level. When however also configuring the WCF-BasicHttp adapter to also use client certificate aturization the BizTalk administration requires the thumbnail id of a specifik server certificate (in addition to the client certificate thumbnail). **This makes the runtime also look for the for the public certifiates under Trusted People folder and causes and error if we don't _also_ place it that folder.**
+Third party root certificates always needs to be places under "Third-Party Root Certification Authorities" or directly under the "Trusted Root Certification Authorities" folder on Local Machine level. When however also configuring the "WCF-BasicHttp" adapter to also use client certificate authorization the BizTalk administration requires the thumbnail id of a specific server certificate (in addition to the client certificate thumbnail). This makes the runtime also look for the for the public certificates under "Trusted People" folder and **causes an error if we don't _also_ place it that folder.**
  
 ## Server certificate ##
 
@@ -51,9 +51,13 @@ So after requesting the used root certificate and placing it in the trusted auth
 As the server however required a client certificate for authorization I reconfigured the send port to use `Certificate` as client credential type.   
 ![3](https://cloud.githubusercontent.com/assets/1317734/4076354/713ca4c6-2eb9-11e4-8293-ed462b550fdc.png)
 
-The BizTalk Administration Console then also requires one to enter the thumbprint of the certificates to use. When browsing for picking the client certificate the console will look for certificates to choose from in the "Personal" folder on the "Current User" level. So for the certificate to show up one has to add the client certificate to the "Personal" folder running as the user that eventually will run the console. Adding it only to the "Personal" folder of "Local Machine" will not make it show up in the console.
+The BizTalk Administration Console then requires one to enter the thumbprint of the private client certificate to use. When browsing for picking the client certificate the console will look for certificates to choose from in the "Personal" folder on the "Current User" level. So for the certificate to show up one has to add the client certificate to the "Personal" folder running as the user that eventually will run the console. Adding it only to the "Personal" folder of "Local Machine" will not make it show up in the console. as the Current User level is separate for each user it's important to to add it to the "Personal" folder for the user that eventually will run the BizTalk process. In this case just pasting the thumbprint id from the certificate will work fine.
 
-When selecting `Certificate` client credential type the BizTalk Administration console also requires one to pick a server certificate to use, even though we still just want to use the same root certificate as just added ... When locating server certificates to display the console will in this case look in the "Other People" folder on "Local Computer" level. So for making out root certificate show up we also have to this to this folder. It turns out that when pinpointing a specific server certificate the BizTalk runtime will throw an error if the server certificate is placed in the "Other People" folder. Likewise will an error we be thrown if the certificate is placed only in one of the truse autoritizes folders.
- 
+When selecting `Certificate` client credential type the BizTalk Administration console also requires one to pick what private client certificate to use, even though we still just want to use the same root certificate as just added to the trusted store on machine level... When locating server certificates to display the console will look in the "Other People" folder on "Local Computer" level. So for making our root certificate show up we also have to this to this folder. It turns out that when having a pinpointed specific server certificate the BizTalk runtime will throw an error if the server certificate is placed in the "Other People" folder. Likewise will an error we be thrown if the certificate is placed only in one of the trusted authorities folders. 
+
 > A message sent to adapter "WCF-BasicHttp" on send port "SP1" with URI "https://skattjakt.cloudapp.net:444/Service42.svc" is suspended. 
 >  Error details: System.InvalidOperationException: Cannot find the X.509 certificate using the following search criteria: StoreName 'AddressBook', StoreLocation 'LocalMachine', FindType 'FindByThumbprint', FindValue '70A9899E6CF89B014E6195ADE6E1BA12BEA58728'. 
+
+So in this case we need to add the public CA certificate in two different places for the communication to work.
+
+Frankly I don't see the point of having to point out a server certificate at all - all I want is to configure what client certificate to use for authorization.
