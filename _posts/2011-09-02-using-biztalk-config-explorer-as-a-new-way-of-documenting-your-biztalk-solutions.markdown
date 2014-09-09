@@ -43,4 +43,4 @@ This release is a 1.0 release and there will are many features we haven’t had 
 
  
 
-I’ll of course also check for any comments here ![Winking smile](../assets/2011/09/wlEmoticon-winkingsmile.png).
+I’ll of course also check for any comments here! [Winking smile](../assets/2011/09/wlEmoticon-winkingsmile.png)

@@ -5,17 +5,10 @@ title: "Third party BizTalk monitoring tools"
 categories: [BAM, BizMon, BizTalk 2006, BizTalk 2009, Monitoring, Tools]
 ---
 
-<blockquote>  
-> 
 > **Update 2012-03-28**        
 When looking into BizTalk monitoring and overall governance tools for BizTalk, don’t miss [BizTalk360](http://www.biztalk360.com/). BizTalk 360 wasn't available when this post was written and has some really compelling features. 
 > 
->    
-> 
 > **Update 2010-09-30:** BizMon is now owned and developed by [Communicate Norway](http://www.communicate.no). They have renamed, and further developed the product, to IPM (Integration Monitoring Platform) – check it out [here](http://ipm.communicate.no/exciting-news).
-> 
-> </blockquote>
-
  
 
 I’ll start this post by clarifying two important things

@@ -5,8 +5,7 @@ title: "Use code blocks to extend your BizTalk custom XSLT maps"
 categories: [BizTalk 2006, BizTalk 2009, XSLT]
 ---
 
-<blockquote>**Update 2010-04-13
-**Grant Samuels commented and made me aware of the fact that inline scripts might in some cases cause memory leaks. He has some further information [here](http://linderalex.blogspot.com/2008/06/memory-leak-using-biztalk-mapper.html) and you’ll find a kb-article [here](http://support.microsoft.com/kb/918643).** **</blockquote>
+> Update 2010-04-13: Grant Samuels commented and made me aware of the fact that inline scripts might in some cases cause memory leaks. He has some further information [here](http://linderalex.blogspot.com/2008/06/memory-leak-using-biztalk-mapper.html) and you’ll find a kb-article [here](http://support.microsoft.com/kb/918643).
 
 
 I’ve posted a few times before on how powerful I think it is in complex mapping to be able to replace the BizTalk Mapper with a custom XSLT script ([here’s how to](http://msdn.microsoft.com/en-us/library/aa560154(BTS.20).aspx)). The BizTalk Mapper is nice and productive in simpler scenarios but in my experience it break down in more complex ones and maintaining a good overview is _hard_. I’m however looking forward to the new version of the [tool in BizTalk 2010](http://www.microsoft.com/biztalk/en/us/roadmap.aspx#2009r2) – but until then I’m using custom XSLT when things gets complicated.

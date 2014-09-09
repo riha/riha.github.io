@@ -97,13 +97,7 @@ _This makes business agility hard and any changes takes long time to develop and
 
  
 
-<blockquote>  
-> 
 > I guess these issues has more to do with how BizTalk works than the integration pattern itself - but this is a BizTalk blog!
-> 
-> </blockquote>
-
- 
 
 ### ESB-based integration
 

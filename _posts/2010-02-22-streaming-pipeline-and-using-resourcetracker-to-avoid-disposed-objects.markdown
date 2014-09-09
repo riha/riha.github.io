@@ -63,20 +63,7 @@ The [Optimizing Pipeline Performance](http://msdn.microsoft.com/en-us/library/ee
 We used this example as a base when developing something very similar in a recent project. At first every thing worked fine but after a while we stared getting an error saying:
 
 
-
-
-
-<blockquote>
-  
-> 
-> Cannot access a disposed object. Object name: DataReader
-> 
-> 
-</blockquote>
-
-
-
-
+    Cannot access a disposed object. Object name: DataReader
 
 It took us a while to figure out the real problem here, everything worked fine when sending in simple messages but as soon as we used to code in a pipeline were we also [debatched](http://geekswithblogs.net/benny/archive/2007/02/15/106329.aspx) messages we got the “disposed object” problem.
 
@@ -86,50 +73,16 @@ It took us a while to figure out the real problem here, everything worked fine w
 
 [![image](../assets/2010/02/image_thumb1.png)](../assets/2010/02/image1.png)It turns out that when we debatched messages the execute method of the custom pipeline ran multiple times, one time for each sub-messages. This forced the .NET Garbage Collector to run.
 
-
-
-
-
 The GC found the XmlTextReader that we used to read the stream as unreferenced and decided to destoy it.
-
-
-
-
 
 The problem is that **will also dispose the readOnlySeekable-Stream stream that we connected to our message data object**!
 
-
-
-
-
-****
-
-
-
-
-
 **It’s then the BizTalk End Point Manager (EPM) that throws the error as it hits a disposed stream object when trying to read the message body and save it to the BizTalkMsgBox!**
-
-
-
-
 
 ### ResourceTracker to the rescue!
 
-
-
-
-
 Turns out that the BizTalk message context object has a nice little class connected to it called the _ResourceTracker_. This object has a “AddResouce”-method that makes it possible to add an object and the context will the hold a reference to this object, **this will tell the GC not to dispose it!**
 
-
-
-
-
 So when adding the below before ending the method everything works fine - even when debatching messages!
-
-
-
-
     
     context.ResourceTracker.AddResource(xmlTextReader);
