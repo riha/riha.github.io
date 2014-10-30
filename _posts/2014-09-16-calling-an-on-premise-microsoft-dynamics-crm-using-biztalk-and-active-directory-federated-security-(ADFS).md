@@ -18,7 +18,7 @@ Traditionally the CRM system then had to manage the credentials for the client a
 
 When using federated security each part instead chooses to trust a common part (in this case the ADFS and AD), and as long as someone provide a token that can be validated with the trusted part, the CRM system will trust that it already has been authenticated and that everything is ok.
 
-<img style="height:80%;width:80%;" src="https://cloud.githubusercontent.com/assets/1317734/4677004/35ce5cea-55e2-11e4-8283-91f8158ffbb2.png" alt="Information flow" />
+![Data flow](https://cloud.githubusercontent.com/assets/1317734/4677004/35ce5cea-55e2-11e4-8283-91f8158ffbb2.png)
 
 1. Authentication and requesting token
 1. Authentication against AD
@@ -41,12 +41,12 @@ So let’s configure the authentication from scratch using Windows Communication
 ## Choosing the right WCF binding ##
 First thing to do is to choose the right WCF binding. Let’s create a WCF-Custom Static Solicit-Response send port and choose the `ws2007FederationHttpBinding`.
 
-<img style="height:80%;width:80%;" src="https://cloud.githubusercontent.com/assets/1317734/4677011/4c6ebf80-55e2-11e4-8176-5d6689344b9b.png" alt="Choose binding" />
+![Choose binding](https://cloud.githubusercontent.com/assets/1317734/4851310/55ef1c46-6071-11e4-95ad-fce44c84cf5a.png)
 
 ## Adding the Issuer ##
 First thing we need to add is information on how to connect to the Issuer. The Issuer is the one issuing the ticket, in our case that’s the ADFS.
 
-<img style="height:80%;width:80%;" src="https://cloud.githubusercontent.com/assets/1317734/4677021/615e582e-55e2-11e4-8a20-d412647a9a54.png" alt="Issuer details" />
+![Issuer details](https://cloud.githubusercontent.com/assets/1317734/4677021/615e582e-55e2-11e4-8a20-d412647a9a54.png)
 
 First we need to add information about the address of the Issuer. The WSDL tells us that the mex endpoint for the ADFS server is located at `https://adfs20.xxx.yy/adfs/trust/mex`.
 
@@ -72,11 +72,11 @@ What this basically means is that we need to add information to a second, or an 
 
 Once this is setup we can point our BizTalk Server WCF configuration to the correct URL and reference the WCF inner binding we just configured.
 
-<img style="height:80%;width:80%;" src="https://cloud.githubusercontent.com/assets/1317734/4677048/8771fe58-55e2-11e4-9fb8-cdaea394039a.png" alt="Issuer configured" />
+![Issuer configured](https://cloud.githubusercontent.com/assets/1317734/4677048/8771fe58-55e2-11e4-9fb8-cdaea394039a.png)
 
 Finally we need to provide the username and password to authenticate ourselves to the ADFS server.
 
-<img style="height:80%;width:80%;" src="https://cloud.githubusercontent.com/assets/1317734/4677053/980b0d04-55e2-11e4-97d4-2c3a9befb553.png" alt="Login details" />
+![Login details](https://cloud.githubusercontent.com/assets/1317734/4677053/980b0d04-55e2-11e4-97d4-2c3a9befb553.png)
 
 We now have communication setup to the ADFS service and should be able to get a valid ticket that we then can use to authenticate ourselves to the CRM system!
 
@@ -86,17 +86,17 @@ We now however also need to provide information on how to connect to the actual 
 
 The rest is easy. Let’s start with adding the URL to the end service we want to call. As with any other service call we’ll also add the SOAP Action Header that in this case is the Update service (`http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Update`) of the `OrganizationService` service.
 
-<img style="height:80%;width:80%;" src="https://cloud.githubusercontent.com/assets/1317734/4677061/a975aab8-55e2-11e4-9727-1ffbd12e5132.png" alt ="Service details" />
+![Service details](https://cloud.githubusercontent.com/assets/1317734/4677061/a975aab8-55e2-11e4-9727-1ffbd12e5132.png)
 
 As out service also uses SSL for encryption we need to tell the binding to use `TransportWithMessageCredentials`.
 
-<img style="height:80%;width:80%;" src="https://cloud.githubusercontent.com/assets/1317734/4677066/bab52f7e-55e2-11e4-8c17-5c93dde94637.png" alt="Transport encryption" />
+![Transport encryption](https://cloud.githubusercontent.com/assets/1317734/4677066/bab52f7e-55e2-11e4-8c17-5c93dde94637.png)
 
 ## Establishing a Security Context – or not ##
 
 Finally there is a little tweak that is needed. WCF supports establishing a Security Context. This will cache the token and avoid asking the STS for a new token for each call to the CRM system. BizTalk Server however doesn’t seem to support this so we need to turn it off.
 
-<img style="height:80%;width:80%;" src="https://cloud.githubusercontent.com/assets/1317734/4677070/cc96a416-55e2-11e4-942a-851427e242ea.png" alt="Security Context" />
+![Security Context](https://cloud.githubusercontent.com/assets/1317734/4677070/cc96a416-55e2-11e4-942a-851427e242ea.png)
 
 ## Conclusion ##
 
