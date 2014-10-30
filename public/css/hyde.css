@@ -248,6 +248,14 @@ h1 a:focus {
 .colophon-links li {
   color: inherit;
 }
+.icons {
+  margin-top: 60px;
+  text-align: center;
+}
+.icons img {
+  display: inline;
+  margin-right: 10px;
+}
 /* Responsive masthead */
 
 @media (min-width: 768px) {

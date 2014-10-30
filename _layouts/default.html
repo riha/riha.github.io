@@ -4,12 +4,10 @@
 {% include head.html %}
 
 <body>
-
   <header class="masthead">
     <div class="masthead-inner">
       <h1><a alt="Home" href="/">{{ site.title }}</a></h1>
       <p class="lead">{{ site.description }}</p>
-
       <div class="colophon">
         <ul class="colophon-links">
           <li>
@@ -27,9 +25,18 @@
           </li>
         </ul>
       </div>
+      <div class="icons">
+        <a href="/feed"><img src="/public/images/feed.png" alt="Feed" />
+        </a>
+        <a href="mailto:richard.hallgren@gmail.com"><img src="/public/images/@.png" alt="Mail" />
+        </a>
+        <a href="https://twitter.com/riha78"><img src="/public/images/twitter.png" alt="Twitter" />
+        </a>
+        <a href="https://www.linkedin.com/in/richardhallgren"><img src="/public/images/linked-in.png" alt="LinkedIn" />
+        </a>
+      </div>
     </div>
   </header>
-
   <div class="content container">
     {{ content }}
   </div>
