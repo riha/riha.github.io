@@ -26,7 +26,7 @@ When using federated security each part instead chooses to trust a common part (
 1. ADFS token response
 1. ADFS token based authentication
 1. Response from CRM
-    
+
 So basically a federated security model allows for separating all authentication and authorization out to a separate system.
 
 As mentioned ADFS is just an implementation of federated security were Active Directory acts as the main repository with a Security Token Service implementation on top of it.

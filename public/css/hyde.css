@@ -18,8 +18,6 @@ Designed, built, and released under MIT license by @mdo.
 Learn more at http://andhyde.com or https://github.com/mdo/hyde.
 
 */
-
-
 /*
  * Contents
  *
@@ -33,8 +31,6 @@ Learn more at http://andhyde.com or https://github.com/mdo/hyde.
  * Pagination
  * Themes
  */
-
-
 /*
  * Body resets
  *
@@ -43,16 +39,14 @@ Learn more at http://andhyde.com or https://github.com/mdo/hyde.
 
 * {
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 html,
 body {
   margin: 0;
   padding: 0;
 }
-
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   font-size: 16px;
@@ -65,8 +59,12 @@ body {
     font-size: 18px;
   }
 }
-
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0 0 10px;
   font-weight: 600;
   line-height: 1.25;
@@ -83,19 +81,19 @@ h3 {
   margin-top: 24px;
   font-size: 24px;
 }
-h4, h5, h6 {
+h4,
+h5,
+h6 {
   margin-top: 16px;
   font-size: 16px;
 }
-
 p {
   margin: 0 0 15px;
 }
-
-ul, ol {
+ul,
+ol {
   margin-bottom: 15px;
 }
-
 hr {
   position: relative;
   margin: 40px 0;
@@ -103,11 +101,9 @@ hr {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #fff;
 }
-
 strong {
   color: #222;
 }
-
 abbr {
   background-color: #eee;
   display: inline-block;
@@ -119,7 +115,6 @@ abbr {
   text-transform: uppercase;
   border-radius: 3px;
 }
-
 code,
 pre {
   font-family: Menlo, Monaco, "Courier New", monospace;
@@ -156,8 +151,8 @@ pre code {
 .highlight pre {
   margin-bottom: 0;
 }
-
 /* Quotes */
+
 blockquote {
   padding: 5px 30px 5px 25px;
   margin: 15px 0;
@@ -174,14 +169,11 @@ blockquote p:before {
 blockquote p:after {
   content: '\201D';
 }
-
 img {
   display: block;
   margin: 0 0 15px;
   border-radius: 5px;
 }
-
-
 /*
  * Custom type
  *
@@ -197,8 +189,6 @@ img {
     font-size: 24px;
   }
 }
-
-
 /*
  * Links
  *
@@ -219,14 +209,13 @@ h1 a:hover,
 h1 a:focus {
   text-decoration: none;
 }
-
 /*
  * Masthead
  *
  * Sidebar banner for housing site name, intro, and colophon (footer).
  */
-
 /* Sidebar masthead */
+
 .masthead {
   color: #fff;
   background-color: #2a2a2a;
@@ -234,8 +223,8 @@ h1 a:focus {
 .masthead-inner {
   padding: 20px;
 }
-
 /* Masthead content */
+
 .masthead h1 {
   margin-top: 0;
   font-family: "Abril Fatface";
@@ -246,11 +235,11 @@ h1 a:focus {
 .masthead a {
   color: #fff;
 }
-
 /* Footer area of masthead */
+
 .colophon {
   margin-top: 20px;
-  color: rgba(255,255,255,.5);
+  color: rgba(255, 255, 255, .5);
 }
 .colophon-links {
   padding-left: 0;
@@ -259,8 +248,8 @@ h1 a:focus {
 .colophon-links li {
   color: inherit;
 }
-
 /* Responsive masthead */
+
 @media (min-width: 768px) {
   .masthead-inner {
     padding: 40px;
@@ -268,6 +257,7 @@ h1 a:focus {
 }
 @media (min-width: 990px) {
   /* Fix the masthead to the side for impact and awesomeness */
+
   .masthead {
     position: fixed;
     top: 0;
@@ -287,12 +277,9 @@ h1 a:focus {
   }
   .colophon {
     /* margin-top: 40px; */
-  
     /* font-weight: lighter; */
+  }
 }
-}
-
-
 /* Container
  *
  * Align the contents of the site above the proper threshold with some margin-fu
@@ -302,13 +289,13 @@ h1 a:focus {
 .content {
   padding: 40px 20px;
 }
-
-.content img, content video {
-	max-width: 100%;
-	height: auto;
+.content img,
+content video {
+  max-width: 100%;
+  height: auto;
 }
-
 /* Center container in available real estate */
+
 @media (min-width: 990px) {
   .content {
     padding: 60px 0;
@@ -320,18 +307,16 @@ h1 a:focus {
     margin-right: 10%;
   }
 }
-
 .meta {
-    margin: 15px 0px 15px 0px;
+  margin: 15px 0px 15px 0px;
 }
-
 /*
  * Posts
  *
  * Each post is wrapped in `.post`. Used on default and post layouts.
  */
-
 /* Single post */
+
 .post {
   margin-bottom: 40px;
 }
@@ -340,20 +325,20 @@ h1 a:focus {
     margin-bottom: 60px;
   }
 }
-
 /* Meta data line below post title */
+
 .post-date {
   color: #9a9a9a;
   padding-right: 10px;
   font-size: smaller;
 }
 span.post-date a {
-    /* color: #9a9a9a; */
-    font-weight: normal;
+  /* color: #9a9a9a; */
+
+  font-weight: normal;
 }
-
-
 /* Related posts */
+
 .related {
   padding-top: 20px;
   padding-bottom: 40px;
@@ -377,8 +362,6 @@ span.post-date a {
 .related-posts li a:hover small {
   color: inherit;
 }
-
-
 /*
  * Pagination
  *
@@ -387,7 +370,9 @@ span.post-date a {
  */
 
 .pagination {
-  overflow: hidden; /* clearfix */
+  overflow: hidden;
+  /* clearfix */
+
   margin-top: 40px;
   font-weight: bold;
   color: #ccc;
@@ -395,13 +380,13 @@ span.post-date a {
   border-top: 1px solid #eee;
 }
 /* Pagination should float when space is plentiful */
+
 @media (min-width: 990px) {
   .pagination {
     margin-bottom: 60px;
     border: 1px solid #eee;
   }
 }
-
 .pagination a,
 .pagination span {
   float: left;
@@ -416,8 +401,6 @@ span.post-date a {
   text-decoration: none;
   background-color: #f5f5f5;
 }
-
-
 /*
  * Reverse layout
  *
@@ -434,18 +417,15 @@ span.post-date a {
     margin-right: 35%;
   }
 }
-
-
 /*
  * Themes
  *
  * As of v1.1, Hyde includes optional themes to color the sidebar and links
  * within blog posts. To use, add the class of your choosing to the `body`.
  */
-
 /* Base16 (http://chriskempson.github.io/base16/#default) */
-
 /* Red */
+
 .theme-base-08 .masthead {
   background-color: #ac4142;
 }
@@ -453,8 +433,8 @@ span.post-date a {
 .theme-base-08 .related-posts li a:hover {
   color: #ac4142;
 }
-
 /* Orange */
+
 .theme-base-09 .masthead {
   background-color: #d28445;
 }
@@ -462,8 +442,8 @@ span.post-date a {
 .theme-base-09 .related-posts li a:hover {
   color: #d28445;
 }
-
 /* Yellow */
+
 .theme-base-0a .masthead {
   background-color: #f4bf75;
 }
@@ -471,8 +451,8 @@ span.post-date a {
 .theme-base-0a .related-posts li a:hover {
   color: #f4bf75;
 }
-
 /* Green */
+
 .theme-base-0b .masthead {
   background-color: #90a959;
 }
@@ -480,8 +460,8 @@ span.post-date a {
 .theme-base-0b .related-posts li a:hover {
   color: #90a959;
 }
-
 /* Cyan */
+
 .theme-base-0c .masthead {
   background-color: #75b5aa;
 }
@@ -489,8 +469,8 @@ span.post-date a {
 .theme-base-0c .related-posts li a:hover {
   color: #75b5aa;
 }
-
 /* Blue */
+
 .theme-base-0d .masthead {
   background-color: #6a9fb5;
 }
@@ -498,8 +478,8 @@ span.post-date a {
 .theme-base-0d .related-posts li a:hover {
   color: #6a9fb5;
 }
-
 /* Magenta */
+
 .theme-base-0e .masthead {
   background-color: #aa759f;
 }
@@ -507,8 +487,8 @@ span.post-date a {
 .theme-base-0e .related-posts li a:hover {
   color: #aa759f;
 }
-
 /* Brown */
+
 .theme-base-0f .masthead {
   background-color: #8f5536;
 }
