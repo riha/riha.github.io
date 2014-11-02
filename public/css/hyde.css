@@ -231,7 +231,7 @@ h1 a:focus {
   font-family: "Abril Fatface";
 }
 .masthead .lead {
-  margin-bottom: 0;
+  margin-bottom: 10;
 }
 .masthead a {
   color: #fff;
@@ -254,7 +254,7 @@ h1 a:focus {
   color: inherit;
 }
 .icons {
-  margin-top: 60px;
+  margin-top: 50px;
   text-align: center;
 }
 .icons img {

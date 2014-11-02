@@ -1,6 +1,7 @@
 title:        'Gobbledygooks'
 tagline:      'Gobbledygooks by @riha78'
 description:  'A random pile of .NET, BizTalk and integration focused scribbles by <a href="http://twitter.com/riha78">@riha78</a>.'
+menutext:         'A bit more <a href="/about">about me</a> and a few <a href="/projects">projects</a> I am currently spending time on.'
 url:          http://richardhallgren.com
 author:
   name:       'Richard'
