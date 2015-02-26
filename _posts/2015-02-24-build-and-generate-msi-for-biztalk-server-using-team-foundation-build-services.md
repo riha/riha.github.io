@@ -94,7 +94,8 @@ where the artefat was build on the stagin area.
 
 It be nice to also here have information about what build that built these arefacts.
  
-We can change what set in the source location by using the the source location property of BtsMsiTask. 
+We can change what set in the source location by using the source location property of BtsMsiTask `<SourceLocation>c:\$(TF_BUILD_BUILDNUMBER)</SourceLocation>`
+
 So after setting the property as below, build again and resinstall we get the following.
 ![Source Location with build number](https://www.dropbox.com/s/lacj7iwzs8nt4e0/9.png?raw=1)
  
