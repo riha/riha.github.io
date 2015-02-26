@@ -3,8 +3,6 @@ date: 2015-02-26 12:00:0+01:00
 layout: post
 title: "Build and generate MSI for BizTalk Server using Team Foundation Build Services"
 ---
-Build and generate MSI for BizTalk Server using Team Foundation Build Services
-
 Using a build server and leveraging continuous integration is good practice in any software 
 development project. The idea behind automated build and continuous integrations is to have a server that 
 monitors once source code repository and that builds the solution as changes occurs. This separate build 
