@@ -101,5 +101,7 @@ So after setting the property as below, queue another build, reinstall using the
 
 And finnaly This is the MsBuild project file we ended up with in our example. <script src="https://gist.github.com/riha/dd8d7b4a1fed1bad3ca5.js"></script>
 
+
+
  
 
