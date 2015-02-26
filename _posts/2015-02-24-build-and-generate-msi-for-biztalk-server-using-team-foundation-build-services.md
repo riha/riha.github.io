@@ -99,7 +99,8 @@ We can change what set in the source location by using the source location prope
 So after setting the property as below, queue another build, reinstall using the MSI and we'll get the following result with the build number in the source location property.
 ![Source Location with build number](https://www.dropbox.com/s/lacj7iwzs8nt4e0/9.png?raw=1)
 
-And finnaly This is the MsBuild project file we ended up with in our example. <script src="https://gist.github.com/riha/dd8d7b4a1fed1bad3ca5.js"></script>
+And finnaly This is the MsBuild project file we ended up with in our example. 
+<script src="https://gist.github.com/riha/dd8d7b4a1fed1bad3ca5.js"></script>
 
 
 
