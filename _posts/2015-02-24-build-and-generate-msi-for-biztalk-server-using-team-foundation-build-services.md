@@ -1,5 +1,5 @@
 ---
-date: 2015-02-15 12:00:0+01:00
+date: 2015-02-26 12:00:0+01:00
 layout: post
 title: "Build and generate MSI for BizTalk Server using Team Foundation Build Services"
 ---
