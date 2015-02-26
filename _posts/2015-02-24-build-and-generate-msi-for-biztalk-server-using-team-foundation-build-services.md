@@ -66,13 +66,12 @@ We can also download the output from the build where we can see all our build ar
 ## Using BtsMsiTask to create a MSI as part of the build
 That's all good but we started the article by saying that what we wanted was a deployable artefact. In the case of 
 BizTalk this means a BizTalk MSI. Let’s see what we need to change to also have the build process create a MSI.
+
 1. Install BtsMsiTask
-[Download and install](http://richardhallgren.com/BtsMsiTask/) BtsMsiTask. This will install a MsBuild task for generating the MSI.
+Download and install [BtsMsiTask](http://richardhallgren.com/BtsMsiTask/). This will install a MsBuild task for generating the MSI.
 
-2. Add a proj file to the solution
-<script src="https://gist.github.com/riha/24856902e68bae4ec244.js"></script>
-
-The project file will tell the BtsMsiTask process what aretafect to include. Add the project file to the solution and check it in as 
+2. Add a proj file to the solution 
+<script src="https://gist.github.com/riha/24856902e68bae4ec244.js"></script> The project file will tell the BtsMsiTask process what aretafect to include. Add the project file to the solution and check it in as 
 part of the solution.
 
 3. Add project file to the TFS build template by adding it to list of project to build
