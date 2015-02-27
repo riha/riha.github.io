@@ -8,7 +8,7 @@ development project. The idea behind automated build and continuous integrations
 monitors one's source code repository and builds the solution as changes occur. This separate build 
 activity alone will ensure that all artifacts are checked in and that a successful build doesn’t depend on any artifacts or settings on the development machines.
 
-![Build server](https://www.dropbox.com/s/qmifhapfsaxkjlb/1.png?raw=1)
+![Build server](https://www.dropbox.com/s/ipbds9l8j2v05j0/1.png?raw=1)
 
 Today build servers do a lot more as part of the build - the build process usually involves execution of 
 tests, labeling the source as well as packing the solution into a deployable artifact. 
@@ -25,7 +25,7 @@ and in what order.
 
 "Build Templates" in TFS Build Services are defined using Visual Studio. The image below shows a build template accessed through Visual Studio Team Explorer.
 
-![Visual Studio Team Explorer Build Templates](https://www.dropbox.com/s/shd29htzarcm6a4/2.png?raw=1)
+![Visual Studio Team Explorer Build Templates](https://www.dropbox.com/s/h87d7uemqkeo8am/2.png?raw=1)
 
 ### Major steps in a build template
 As one creates a new build template for a solution one has to go through the following major steps:
@@ -54,12 +54,12 @@ In this post I will use [this sample](https://github.com/riha/BtsMsiTask/tree/ma
 Foundation Source Control (I'll use TFS Source control in this post but it'll work similarly using Git) I’ll create a new build template for the solution. All that's 
 needed to change is the MsBuild platform setting property, so we’re using x86 when executing MsBuild as shown below.
  
-![Build process and the MsBuild platform setting property](https://www.dropbox.com/s/2alqzwmicye7qsd/3.png?raw=1)
+![Build process and the MsBuild platform setting property](https://www.dropbox.com/s/k0fttz72fs1ez0y/3.png?raw=1)
 
 After queuing a build we can in the TFS Build Explorer see a successful build!
  
 We can also download the output from the build where we can see all our build artifacts!
-![First artifact drop](https://www.dropbox.com/s/hza1lx1tfb2cxbb/5.png?raw=1)
+![First artifact drop](https://www.dropbox.com/s/p9u4edl8u6ov5n3/5.png?raw=1)
  
 ## Using BtsMsiTask to create a MSI as part of the build
 So far so good, but we started the article by saying that what we wanted was a deployable artifact. In the case of 
@@ -80,10 +80,10 @@ Add the created project file to the solution and check it in as part of the solu
 
 Add the created MsBuild project file to the TFS build template by adding it to the list of projects to build.
 
-![Adding the build file to the build process](https://www.dropbox.com/s/9bvopwd0p6vas1p/6.png?raw=1)
+![Adding the build file to the build process](https://www.dropbox.com/s/pcgzlx0xvqzl4k5/6.png?raw=1)
 
 After another successful build we can see that we also created a MSI as part of the build!
-![Successful build with msi](https://www.dropbox.com/s/eadrq1eonqxivdb/7.png?raw=1)
+![Successful build with msi](https://www.dropbox.com/s/p442d49vizzx94c/7.png?raw=1)
  
 ## Adding build information to the MSI
 ### File name
@@ -95,14 +95,14 @@ example can set to `<FileName>$(TF_BUILD_BUILDNUMBER).msi</FileName>`
 ### Source location
 When installing the artifact to BizTalk Server we can see that the source location property in the BizTalk Administration Console is set to 
 where the artifact was built on the staging area. 
-![Source Location without build number](https://www.dropbox.com/s/vtayz2mh6h48e7i/8.png?raw=1)
+![Source Location without build number](https://www.dropbox.com/s/i7qpewejqn8fpmu/8.png?raw=1)
 
 It'd be nice to also have information about what build that produced these artifacts. This will give the required information to know exactly what builds that are used for all the installed artifacts.
  
 We can change what is set in the source location by using the `SourceLocation` property of BtsMsiTask `<SourceLocation>c:\$(TF_BUILD_BUILDNUMBER)</SourceLocation>`
 
 So after setting the property as below, queue another build, reinstall using the MSI and we'll get the following result with the build number in the source location property.
-![Source Location with build number](https://www.dropbox.com/s/lacj7iwzs8nt4e0/9.png?raw=1)
+![Source Location with build number](https://www.dropbox.com/s/qlr4ds6yff4b6pb/9.png?raw=1)
 
 And finally this is the MsBuild project file we ended up with in our example. <script src="https://gist.github.com/riha/dd8d7b4a1fed1bad3ca5.js"></script>
  
