@@ -58,6 +58,8 @@ needed to change is the MsBuild platform setting property, so we’re using x86 
 
 After queuing a build we can in the TFS Build Explorer see a successful build!
  
+![Successful build in TFS Build Explorer](https://www.dropbox.com/s/6mu0aul34bk5mf9/4.png?raw=1)
+
 We can also download the output from the build where we can see all our build artifacts!
 ![First artifact drop](https://www.dropbox.com/s/p9u4edl8u6ov5n3/5.png?raw=1)
  
