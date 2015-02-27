@@ -3,35 +3,35 @@ layout: default
 ---
 
 <div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1>
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-    <div class="meta">
-      <span class="post-date">{{ post.date | date_to_string }}</span>
-      <span class="post-date"><a href="{{site.url}}{{post.url}}/#disqus_thread">{{site.url}}{{post.url}}/</a></span>
+    {% for post in paginator.posts %}
+    <div class="post">
+        <h1>
+            <a href="{{ post.url }}">
+                {{ post.title }}
+            </a>
+        </h1>
+        <div class="meta">
+            <span class="fa fa-calendar-o"></span>&nbsp;<span class="post-date">{{ post.date | date_to_string }}</span>
+            <span class="fa fa-comment-o"></span>&nbsp;<span class="post-date"><a href="{{site.url}}{{post.url}}/#disqus_thread">{{site.url}}{{post.url}}/</a></span>
+        </div>
+        {{ post.content }}
     </div>
-    {{ post.content }}
-  </div>
-  {% endfor %}
+    {% endfor %}
 </div>
 
 <!-- Pagination links -->
 <div class="pagination">
-  {% if paginator.next_page %}
+    {% if paginator.next_page %}
     <a href="/page{{paginator.next_page}}" class="older">Older</a>
-  {% else %}
+    {% else %}
     <span class="next">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-  {% if paginator.page == 2 %}
+    {% endif %}
+    {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
     <a href="/" class="newer">Newer</a>
-  {% else %}
+    {% else %}
     <a href="/page{{paginator.previous_page}}" class="newer">Newer</a>
-  {% endif %} {% else %}
+    {% endif %} {% else %}
     <span class="previous">Newer</span>
-  {% endif %}
+    {% endif %}
 </div>
