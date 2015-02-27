@@ -347,6 +347,10 @@ h1 a:focus {
   }
   /* Meta data line below post title */
 
+  .post-twitter {
+      vertical-align: sub;
+  }
+
   .post-date {
     color: #9a9a9a;
     padding-right: 10px;

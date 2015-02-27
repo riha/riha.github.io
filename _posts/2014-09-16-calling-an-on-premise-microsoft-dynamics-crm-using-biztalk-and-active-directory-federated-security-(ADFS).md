@@ -3,8 +3,6 @@ date: 2014-10-17 12:00:0+01:00
 layout: post
 title: "Calling an on premise Microsoft Dynamics CRM using BizTalk and Active Directory Federated Security (ADFS)"
 ---
-This post was originally posted [here](http://blog.ibiz-solutions.se/integration/calling-an-on-premise-microsoft-dynamics-crm-using-biztalk-and-active-directory-federated-security-adfs/).
-
 Federated security is a great way of accomplishing single-sign-on (SSO) security for your applications. It’s also a technique that is becoming increasingly relevant as things move to the cloud and we’re starting to get more hybrid situation with some applications on premise and some in the cloud.
 
 Active Directory Federated Security (ADFS) is an implementation of federated security and is used by a number of Microsoft Applications, Microsoft Dynamics CRM being one of them.
