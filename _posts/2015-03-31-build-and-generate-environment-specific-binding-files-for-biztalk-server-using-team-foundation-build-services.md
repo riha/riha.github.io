@@ -40,7 +40,6 @@ send port for two different environments - one called "Test" and one "Production
         <td>C:\Temp\PROD\Out\%MessageID%.xml</td>
     </tr>
 </table>
-
 As one can see there's a small difference between the send ports destinations paths in Test and Production.
 
 ##Exporting a binding template
