@@ -14,7 +14,7 @@ So let’s see how we can build environment specific binding files using TFS Bui
 Let’s start with a simple example of a simple binding with a receive port, receive location and a 
 send port for two different environments - one called "Test" and one "Production".
 
-<table>
+<table class="post" border="0" cellspacing="0" cellpadding="0">
     <tr>
         <th>Port type</th>
         <th>Name</th>

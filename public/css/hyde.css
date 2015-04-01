@@ -129,10 +129,29 @@ abbr {
     border-radius: 3px;
 }
 
+
+
 code,
 pre {
     font-family: Menlo, Monaco, "Courier New", monospace;
 }
+
+
+
+table.post {
+    border-collapse: collapse;
+}
+
+    table.post th {
+        background-color: #e6e6e6;
+    }
+
+    table.post td, th {
+        word-break: break-all;
+        border: 1px solid grey;
+        padding: 6px;
+        font-size: smaller;
+    }
 
 code {
     padding: .25em .5em;
