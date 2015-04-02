@@ -37,15 +37,15 @@ send port for two different environments - one called "Test" and one "Production
         <tr>
         <td>Send Port</td>
         <td>BtsSample_SendPort_A (File)</td>
-        <td>C:\Temp\TEST\Out\%MessageID%.xml</td>
-        <td>C:\Temp\PROD\Out\%MessageID%.xml</td>
+        <td>C:\Temp\<strong>TEST</strong>\Out\%MessageID%.xml</td>
+        <td>C:\Temp\<strong>PROD</strong>\Out\%MessageID%.xml</td>
     </tr>
 </table>
 As one can see there's a small difference between the send ports destinations paths in Test and Production.
 
 ##Exporting a binding template
-Let's start by creating a binding template. The binding template will hold all information that is shared between the different environments. 
-We’ll achieve this by an ordinary export of the binding template from the BizTalk Administration Console - as you’ve probably done many times before.
+Next we'll create a binding template. The binding template will hold all information that is shared between the different environments. 
+This is achieved this by an ordinary export of the application binding from the BizTalk Administration Console - as you’ve probably done many times before.
 <script src="https://gist.github.com/riha/72a597136892e428cf92.js"></script>
  
 ##Creating environment specific bindings using web.config Transformation Syntax
@@ -53,9 +53,8 @@ The [Web.config Transformation Syntax](https://msdn.microsoft.com/en-us/library/
 is often used to transform app.config and web.config files between different versions and environments – but it will of course work on any type 
 of configuration file. Including BizTalk binding files!
 
-Next we'll create two environment specific config files that only contains the values that differs between the template and 
-the values that specific for test and production. 
-We use the Web.config Transformation Syntax to match the nodes and values that we like to update in the template.
+So for each environment we'll then create an environment specific config file that only contains the values that differs between the template and 
+the values for that environment. We use the Web.config Transformation Syntax to match the nodes and values that we like to update in the template.
 
 Below is the Test environment specific file matching the send port and replacing the value with the value specific for Test.
 <script src="https://gist.github.com/riha/9f9fb0d2ca57502bd6f5.js"></script>
