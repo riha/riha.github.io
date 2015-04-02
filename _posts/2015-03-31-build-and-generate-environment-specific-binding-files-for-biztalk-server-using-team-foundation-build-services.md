@@ -5,9 +5,10 @@ title: "Build and generate environment specific binding files for BizTalk Server
 ---
 As most know a BizTalk Solution has two major parts – its resources in form of dlls, and its configuration in form of bindings. 
 In an [previous post](http://richardhallgren.com/build-and-generate-msi-for-biztalk-server-using-team-foundation-build-services/) 
-I described how to build and pack _resources_ into an MSI using Team Foundation Server (TFS) Build Services. Managing the configuration in a similar way is however equally important.
+I described how to build and pack _resources_ into an MSI using Team Foundation Server (TFS) Build Services. Managing the configuration in a similar way is equally important.
 So let’s see how we can build environment specific binding files using TFS Build Services and some config transformations syntax goodness!
 
+![Workflow](https://www.dropbox.com/s/3c4hz5v643v1p4z/5.png?raw=1)
 
 ##Creating a simple binding example for development and test environment
 
