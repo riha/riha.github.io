@@ -72,7 +72,7 @@ Finally we'll add a small .proj file to pass some parameters to the MSBuild proc
 template and what different environment specific files we like to use.
 <script src="https://gist.github.com/riha/79c4dab8854b8db6c692.js"></script>
 
-Next we can kick of MSBUild and point it to the cretated proj file. `C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild build.proj`.
+Next we can kick of MSBuild and point it to the cretated proj file. `C:\Windows\Microsoft.NET\Framework\v4.0.30319\MSBuild build.proj`.
 
 Voila! MSBuild has performed our transformation and created two complete environment specific binding file by combining the template with the specific environment files - one of test and one for production.
 
