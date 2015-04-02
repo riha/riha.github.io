@@ -136,7 +136,9 @@ pre {
     font-family: Menlo, Monaco, "Courier New", monospace;
 }
 
-
+.gist-file .gist-data {
+    max-height: 450px;
+}
 
 table.post {
     border-collapse: collapse;
@@ -152,6 +154,8 @@ table.post {
         padding: 6px;
         font-size: smaller;
     }
+
+
 
 code {
     padding: .25em .5em;
