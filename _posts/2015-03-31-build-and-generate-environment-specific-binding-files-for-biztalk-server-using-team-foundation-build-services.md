@@ -92,6 +92,6 @@ Once we have our build template all that's needed is to add the build.proj file 
 
 ![Adding a build file](https://www.dropbox.com/s/o71ofgvt1f5ngay/3.png?raw=1)
 
-When finally running the build our two binding files are written to the deployment area!
+When finally running the build our two complete binding files are written to the deployment area and ready for installation!
 
 ![Binding files in the deployment area](https://www.dropbox.com/s/szlteu8h963o1z7/4.png?raw=1)
