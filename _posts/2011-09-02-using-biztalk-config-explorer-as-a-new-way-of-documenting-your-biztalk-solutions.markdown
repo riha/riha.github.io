@@ -31,7 +31,7 @@ Sometimes one wants to see how things have changed and how things used to be con
  
 [![config explorer](../assets/2011/09/config-explorer.png)](http://demo.configexplorer.com/)
 
-Check out an an [example](http://demo.btswebdoc.com) of a Config Explorer yourself.
+Check out an an [example](http://btswebdoc.com/demo) of a Config Explorer yourself.
 
 ### Getting started ###
 
