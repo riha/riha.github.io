@@ -3,7 +3,8 @@ tagline:      'Gobbledygooks by @riha78'
 description:  'A random pile of .NET, BizTalk and integration focused scribbles by <a href="http://twitter.com/riha78">@riha78</a>.'
 permalink:    /:title
 
-url:          http://richardhallgren.com
+url:          'http://richardhallgren.com'
+baseurl: ''
 author:
   name:       'Richard'
   email:      'richard.hallgren@gmail.com'
