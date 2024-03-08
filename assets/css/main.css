@@ -76,8 +76,4 @@
   .post-page blockquote p {
     @apply m-0;
   }
-
-  .doodles-light {
-    background-image: url(/assets/pattern.svg);
-  }
 }

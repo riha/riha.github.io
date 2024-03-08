@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="{{ site.lang | default: "en-US" }}">
   {% include head.html %}
-  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
-    <div class="max-w-[750px]">
+  <body class="bg-bg-yellow max-w-[650px]  font-mono  post-page px-4 py-4 " style="margin: 0 auto;" >
+    <div class=" ">
       <div class="">
         <div class="flex justify-center">
           <a href="/">
@@ -18,9 +18,9 @@
       <h1>{{ page.title }}</h1>
       <div class="my-1"></div>
       <div class="text-center text-text-subtle text-sm">{{ page.date | date: '%b %d, %Y' }}</div>
-      <div class=" my-12">
+      
         {{ content }}
-      </div>
+      
       {% include footer.html %}
     </div>
   </body>
