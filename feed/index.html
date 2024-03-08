@@ -4,7 +4,7 @@
   <title>Gobbledygooks</title>
   <link href="http://richardhallgren.com/feed" rel="self" type="application/atom+xml" />
   <link href="http://richardhallgren.com/" type="text/html" rel="alternate" />
-  <updated>2024-03-08T11:23:17+00:00</updated>
+  <updated>2024-03-08T11:39:59+00:00</updated>
   <id>http://richardhallgren.com/</id>
   <author>
     <name>Richard</name>
@@ -38,15 +38,17 @@
 
 &lt;h3 id=&quot;3-make-it-readable-for-everyone&quot;&gt;3. Make it readable for everyone.&lt;/h3&gt;
 
-&lt;p&gt;UML and complex notations are great - if you understand them fully. The &lt;a href=&quot;https://c4model.com&quot;&gt;C4 model&lt;/a&gt; formalized the idea of a much simpler notion, based on boxes and arrows - easier to understand and work with.&lt;/p&gt;
+&lt;p&gt;UML and complex notations are great - if you understand them fully. The &lt;a href=&quot;https://c4model.com&quot;&gt;C4 model&lt;/a&gt; formalized the idea of a much simpler notation, based on boxes and arrows - easier to understand and work with.&lt;/p&gt;
 
-&lt;p&gt;Use a dead simple notion that everybody can write and read.&lt;/p&gt;
+&lt;p&gt;Use a dead simple notation that everybody can write and read.&lt;/p&gt;
 
 &lt;h3 id=&quot;4-make-it-useful-for-everyone&quot;&gt;4. Make it useful for everyone.&lt;/h3&gt;
 
 &lt;p&gt;Besides a simple notation, the &lt;a href=&quot;https://c4model.com&quot;&gt;C4 model&lt;/a&gt; describes a few different diagrams with increasing levels of detail. Using different levels makes it possible to drill down from an overview into more detailed diagrams. Similar to zooming in and out of a digital map.&lt;/p&gt;
 
-&lt;p&gt;Utilizing C4 model levels diagrams can have information useful for non-technical business users, at the same time as they can describe large parts of architecture without cluttering them down with too many details.&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;Utilizing the levels and the simple notation in the C4 model, diagrams can have information useful for non-technical business users and describe large parts of architecture &lt;em&gt;without&lt;/em&gt; cluttering them down with too many details.&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;h2 id=&quot;the-c4-levels-in-an-integration-context&quot;&gt;The C4 levels in an integration context&lt;/h2&gt;
 
@@ -57,11 +59,11 @@
   &lt;figcaption&gt;C4 model diagrams on levels with increasing detail.&lt;/figcaption&gt;
 &lt;/figure&gt;
 
-&lt;h3 id=&quot;level-1-context---the-overall-picture&quot;&gt;Level 1 (Context) - The Overall Picture&lt;/h3&gt;
+&lt;h3 id=&quot;level-1-context---the-overall-picture&quot;&gt;Level 1 (Context) - The Overall picture&lt;/h3&gt;
 
 &lt;p&gt;For quickly understanding an integration architecture the most important part of documentation is the high-level documentation. It shows all the systems and the data-flows between them. Not the nitty-gritty details, just what systems are involved and what data is transferer between them.&lt;/p&gt;
 
-&lt;p&gt;In smaller architectures, it’s possible to describe all systems and data-flows in a single level 1 diagram. In large ones, we need to choose a context to avoid too large and hard-to-read diagrams. In this example, the context is the e-Commerce part of the architecture.&lt;/p&gt;
+&lt;p&gt;In smaller architectures, it’s possible to describe all systems and data-flows in a single level 1 diagram. In large ones, we need to choose a context to avoid too large and hard-to-read diagrams. In this example, the context is the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;e-Commerce&lt;/code&gt; part of the architecture.&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;../assets/revision-level-1.png&quot; alt=&quot;Image description&quot; /&gt;
@@ -76,13 +78,15 @@
 
 &lt;p&gt;Even though most people would agree that the overall picture is important to have documented, I’ve found that this is the part most developers tend to skip.&lt;/p&gt;
 
-&lt;h3 id=&quot;level-2---the-integration-processes&quot;&gt;Level 2 - The Integration Processes&lt;/h3&gt;
+&lt;h3 id=&quot;level-2-container---the-integration-processes&quot;&gt;Level 2 (Container) - The Integration Processes&lt;/h3&gt;
 
 &lt;p&gt;It’s hard to define an integration. In the overall picture product data are moved between several systems. Is the integration the part that moves the products between &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;InRiver PIM&lt;/code&gt; and &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Dynamics 365 PO&lt;/code&gt;? Or is the integration the overall process that makes sure the products end up in all the destination systems?&lt;/p&gt;
 
 &lt;p&gt;Leaving that discussion aside we can agree that the purpose of an integration is to support some sort of business process. In this case, the handling of product master data.&lt;/p&gt;
 
 &lt;p&gt;Documenting how we support a business process is the second level of diagrams.&lt;/p&gt;
+
+&lt;p&gt;The difference between this and the level 1 diagram is that we’ll zoom in to a specific area and that we’ll here include more details - things that we didn’t want to include in the overall picture to keep it easy to understand. In the example, we’re showing that product master data actually is distributed using a product service. We’re also including other details we didn’t show in the level 1 diagram.&lt;/p&gt;
 
 &lt;figure&gt;
   &lt;img src=&quot;../assets/revision-level-2.png&quot; alt=&quot;&quot; /&gt;
@@ -91,9 +95,9 @@
 
 &lt;p&gt;Again this is information that is hard to get from reading code and configuration and that is important for getting the business users to understand what we’re actually building.&lt;/p&gt;
 
-&lt;p&gt;The difference between this and the level 1 diagram is that we’ll zoom in to a specific area and that we’ll here include more details - things that we didn’t want to include in the overall picture to keep it easy to understand.&lt;/p&gt;
+&lt;p&gt;It’s important to try and keep purely technical details out of this diagram and try and focus on more business rules like information. Information that is useful for a business user.&lt;/p&gt;
 
-&lt;p&gt;Here we can include business rules we implemented such as;&lt;/p&gt;
+&lt;p&gt;Example of information we might include on level 2;&lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;how often do we read and write data&lt;/li&gt;
@@ -102,11 +106,9 @@
   &lt;li&gt;transformations of data, and so on&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;It’s important to try and keep purely technical details out of this diagram and try and focus on more business rules like information. Information that is useful for a business user.&lt;/p&gt;
-
 &lt;h3 id=&quot;level-3---the-integration-details&quot;&gt;Level 3 - The Integration Details&lt;/h3&gt;
 
-&lt;p&gt;This is probably the diagram that needs the least explanation. This is the part I often find well done and maintained. Here we document all the technical components and implementation details.&lt;/p&gt;
+&lt;p&gt;This is probably the diagram that needs the least explanation. This is the part I often find well documented and maintained. Here we document all the technical components and implementation details.&lt;/p&gt;
 
 &lt;p&gt;This is however also the part that doesn’t always require that much documentation. Much of the details at this level can easily be found in code and configuration and it’s easy to spend time documenting things that in the end developers will look up code and configuration instead.&lt;/p&gt;
 
