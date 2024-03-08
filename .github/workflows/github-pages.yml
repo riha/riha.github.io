@@ -5,7 +5,7 @@ name: Build and deploy this site to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - master
   workflow_dispatch:
 
 jobs:
