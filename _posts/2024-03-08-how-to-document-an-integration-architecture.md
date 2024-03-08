@@ -41,7 +41,7 @@ Let's look at the three levels that make up good integration documentation.
 
 <figure >
   <img src="../assets/levels.png" alt="">
-  <figcaption>C4 model diagrams on levels with increasing detail.</figcaption>
+  <figcaption>C4 model diagrams levels with increasing detail.</figcaption>
 </figure>
 
 ### Level 1 (Context) - The Overall picture
