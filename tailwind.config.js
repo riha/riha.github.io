@@ -29,7 +29,6 @@ module.exports = {
         subtle: colors.gray[500],
       },
     },
-
     extend: {},
   },
   plugins: [],
