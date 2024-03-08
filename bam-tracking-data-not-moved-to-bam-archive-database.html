@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; BAM tracking data not moved to BAM Archive database
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>BAM tracking data not moved to BAM Archive database</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Nov 13, 2009</div>
+      <div class=" my-12">
+        <p>There are a few really good blog post that explains BAM – like <a href="http://blogs.digitaldeposit.net/SARAVANA/post/2009/10/08/BAM-Production-environment-management.aspx">this</a> from Saravana Kumar and <a href="http://geekswithblogs.net/andym/archive/2009/05/21/132346.aspx">this</a> by Andy Morrison. They both do a great job explaining the complete BAM process in detail.</p>
+
+<p>This post will however focus on some details in the last step of the process that has to do with archiving the data. Let’s start with a quick walk-through of the whole process.</p>
+
+<h3 id="bam-tracking-data-lifecycle">BAM Tracking Data lifecycle</h3>
+
+<p><a href="../assets/2009/11/image3.png"><img src="../assets/2009/11/image_thumb.png" alt="image" /></a></p>
+
+<ol>
+  <li>
+    <p>The tracked data is intercepted in the BizTalk process and written to the “BizTalk MsgBox” database.</p>
+  </li>
+  <li>
+    <p>The TDDS service reads the messages and moves them to the correct table in the “BAM Primary Import” database.</p>
+  </li>
+  <li>
+    <p>The SSIS package for the current BAM activity has to be triggered (this is manual job or something that one has to schedule). When executing the job will do couple of things.           <br />
+    1. Create a new partitioned table with a name that is a combination of the active table name and a GUID.</p>
+  </li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2. Move data from the active table to this new table. The whole point is of course to keep the active table as small and efficient as possible for writing new data to. 
+   
+3. Add the newly created table to a database view definition. It is this view we can then use to read all tracked data (including data from the active and partitioned tables). 
+   
+4. Read from the “BAM Metadata Activities” table to find out the configured time to keep data in the BAM Primary Import database. This value is called the “online window”. 
+   
+5. Move data that is older than the online window to the “BAM Archive” database (or delete it if you have that [option](http://support.microsoft.com/kb/971984)). 
+</code></pre></div></div>
+
+<p>Sound simple doesn’t it? I was however surprised to see <em>that my data was not moved to the BAM Archive database, even if it was clearly outside of the configured online window</em>.</p>
+
+<h3 id="so-what-data-is-moved-to-the-bam-archive-database-then">So, what data is moved to the BAM Archive database then?</h3>
+
+<p>Below there is a deployed tracking activity called “SimpleTracking” with a online window of 7 days. Ergo, <em>all data that is older than 7 days should be moved to the BAM Archive database when we run the SSIS job for the activity</em>.</p>
+
+<p><a href="../assets/2009/11/image8.png"><img src="../assets/2009/11/image_thumb5.png" alt="image" /></a></p>
+
+<p>If we then look at the “BAM Completed” table for this activity we see that all the data is much older than 7 days as today’s date is “13-11-2009”.</p>
+
+<p><em>So if we run the SSIS job these rows should be moved to the archive database. lets run the SSIS job. Right?</em></p>
+
+<p><a href="../assets/2009/11/image9.png"><img src="../assets/2009/11/image_thumb6.png" alt="image" /></a></p>
+
+<p>But when we execute the SSIS job the BAM Archive database is still empty! All we see are the partitioned tables that were created as part of the first steps of the SSIS job. <em>All data from the active table is however moved to the new partitioned table but not moved to the Archive database.</em></p>
+
+<p><a href="../assets/2009/11/image10.png"><img src="../assets/2009/11/image_thumb7.png" alt="image" /></a></p>
+
+<p><em>It turns out that the SSIS job does <strong>not at all look at the the “Last Modified” values</strong> of each row <strong>but on the “Creation Time” of the partitioned table in the “BAM MetaData Partitions” table</strong> that is shown below.</em></p>
+
+<p><a href="../assets/2009/11/image11.png"><img src="../assets/2009/11/image_thumb8.png" alt="image" /></a></p>
+
+<p>The idea behind this is of course to not have to read from tables that potentially are huge and find those rows that should be moved. But it also means that it will <em>take another 7 days before the data in the partitioned view is actually move to the archive database.</em></p>
+
+<p>This might actually be a problem if you haven not scheduled the SSIS job to run from day one and you BAM Primary Import database is starting to get to big and you quickly have to move data over to archiving. All you then have to is of course to change that “Creation Time” value in the BAM Metadata Partitions table so it is outside of the online window value for the activity.</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

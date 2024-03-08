@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Assembly loading policy from the GAC
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Assembly loading policy from the GAC</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Jan 17, 2007</div>
+      <div class=" my-12">
+        <p>UPDATE: This does not apply to BizTalk … I’ve made an update <a href="http://richardhallgren.com/blog/?p=51">post here</a>. Sorry.</p>
+
+<p>We’re working with a lot of code libraries that we use in different parts of our BizTalk solutions. As the are used on several servers and by loads of different “BizTalk parts” (both in orchestrations and maps) it’s important that we always keep the version number of the assemblies up to date. That means that every little change should increase the current version number. But as they are used in so many places people have started to skip this step as they thought they had to compile all parts that should use the new code (say it’s a bug fix and you’d like all “using parts” of the assembly to load the updated version). This is where GAC loading policy comes to the resource!</p>
+
+<p>First we have to understand that every .NET assembly is identified using four characteristics:</p>
+
+<ul>
+  <li>Assembly name</li>
+  <li>Major or minor version</li>
+  <li>Public key token</li>
+  <li>Culture</li>
+</ul>
+
+<p>Then we need to know that the first version number in for example version 1.1.2.1 is the <strong>major version</strong>. The second is the <strong>minor version</strong> and the third and fourth are <strong>build, revision version number</strong>. So this means that if you have 1.1.2.1 installed and make a minor change the easiest way to use the new assembly is to change the one of the build or revision numbers (the third or fourth number). Then the CLR will load the new assembly without any other changes!</p>
+
+<p>But sometimes we have to change the minor or major version - and we still don’t have to recompile a thing! We can use a publisher policy file. This is an example of such a file defined for version 1.0.0.0 moving to 2.0.0.0.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;configuration&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+    &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;runtime&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+        &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;assemblyBinding &lt;/span&gt;&lt;span style="color: #FF0000; "&gt;xmlns&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;="urn:schemas-microsoft-com:asm.v1"&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+            &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;dependentAssembly&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+                &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;assemblyIdentity &lt;/span&gt;&lt;span style="color: #FF0000; "&gt;name&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;="BaseHelper"&lt;/span&gt;&lt;span style="color: #FF0000; "&gt; publicKeyToken&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;="18517ea673f8584b"&lt;/span&gt;&lt;span style="color: #FF0000; "&gt; culture&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;="neutral"&lt;/span&gt;&lt;span style="color: #FF0000; "&gt; &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;/&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+                    &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;bindingRedirect &lt;/span&gt;&lt;span style="color: #FF0000; "&gt;oldVersion&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;="1.0.0.0"&lt;/span&gt;&lt;span style="color: #FF0000; "&gt; newVersion&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;="2.0.0.0"&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;/&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+            &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;/&lt;/span&gt;&lt;span style="color: #800000; "&gt;dependentAssembly&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+        &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;/&lt;/span&gt;&lt;span style="color: #800000; "&gt;assemblyBinding&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+    &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;/&lt;/span&gt;&lt;span style="color: #800000; "&gt;runtime&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;/&lt;/span&gt;&lt;span style="color: #800000; "&gt;configuration&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;/div&gt;
+</code></pre></div></div>
+
+<p>This <a href="http://support.microsoft.com/kb/891030">kb article</a> describes what to do next:</p>
+
+<ol>
+  <li><strong>Change the version and recompile.</strong> The first step is to create the new version of your component. After you’ve done that, you will need to modify the version number in the AssemblyInfo file for your component. <br />
+<strong>Create the publisher policy file. **Create the publisher policy file for the assembly using the format shown above. <br />
+**Use Assembly Linker (Al.exe) to create the publisher policy assembly.</strong> The Assembly Linker is included with the .NET Framework SDK. To create the publisher policy assembly that redirects a binding from version 1.0 of Website.dll to version 2.0 using a publisher policy file called website.config, run the following command:</li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;&lt;span style="color: #000000; "&gt;al /link:BaseHelper.config /out:policy.1.0.BaseHelper.dll /keyfile:c:\keyfile.snk&lt;/span&gt;&lt;/div&gt;
+</code></pre></div></div>
+
+<p>This command will create a new assembly called policy.1.0.BaseHelper.dll. This naming convention is important, as indicated in the “What Is a Publisher Policy Assembly?” section.</p>
+
+<ol>
+  <li>
+    <p><strong>Install the publisher policy assembly into the Global Assembly Cache.</strong> The publisher policy assembly is installed into the GAC. It will be used by the .NET runtime when any application attempts to bind to version 1.0 of the BaseHelper.dll, and it will force the application to bind to the new version automatically.</p>
+  </li>
+  <li>
+    <p>**Install the new version into the Global Assembly Cache. **Install the new version of the component into the GAC. After the new version has been installed, the old version can be safely removed.</p>
+  </li>
+</ol>
+
+<p>So no more excuses for not updating the version number!</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

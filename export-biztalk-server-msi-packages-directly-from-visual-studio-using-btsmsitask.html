@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Export BizTalk Server MSI packages directly from Visual Studio using BtsMsiTask
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Export BizTalk Server MSI packages directly from Visual Studio using BtsMsiTask</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Jan 14, 2014</div>
+      <div class=" my-12">
+        <p><em>Getting a full Continuous Integration (CI) process working with BizTalk Server is hard!</em></p>
+
+<p><em>One of the big advantages in a working CI process is to always have tested and verified artifacts from the build server to deploy into test and production. Packaging these build resources into a deployable unit is however notorious hard in BizTalk Server as a Visual Studio build will not provide a deployable artifact (only raw dlls). The only way to get a deployable MSI package for BizTalk Server is to first install everything into the server and then export – until now.</em></p>
+
+<h2 id="why-continuous-integration">Why Continuous Integration?</h2>
+
+<p><a href="http://martinfowler.com/articles/continuousIntegration.html">Continuous Integration</a> is a concept first described by Martin Fowler back in 2006. At its core its about team communication and fast feedback but also often leads to better quality software and more efficient processes.</p>
+
+<p><img src="../assets/2014/01/CI1.png" alt="CI" /></p>
+
+<p>A CI process usually works something like the above picture.</p>
+
+<ol>
+  <li>
+    <p>A developer checks in code to the source control server.</p>
+  </li>
+  <li>
+    <p>The build server detects that a check in has occurred, gets all the new code and initiates a new build while also running all the relevant unit tests.</p>
+  </li>
+  <li>
+    <p>The result from the build and the tests are sent back to the team of developers and provides them with a up to date view of the “health” in the project.</p>
+  </li>
+  <li>
+    <p>If the build and all the test are successful the built and tested resources are written to a deploy area.</p>
+  </li>
+</ol>
+
+<p>As one can see the CI build server acts as another developer on the team but always builds everything on a fresh machine and bases everything on what is actually checked in to source control – guaranteeing that nothing is build using artifacts that for some reasons is not in source control or that some special setting etc is required to achieve a successful build.</p>
+
+<p>In step 4 above the CI server also writes everything to a deploy area. A golden rule for a CI workflow is to use artifacts and packages from this area for further deployment to test and production environments – and <em>never</em> directly build and move artifacts from developer machines! <br />
+As all resources from each successful build is stored safely and labeled one automatically achieves versioning and the possibility to roll back to previous versions and packages if needed.</p>
+
+<h2 id="what-is-the-problem-with-ci-and-biztalk">What is the problem with CI and BizTalk?</h2>
+
+<p>It is important to have the build and feedback process as efficient as possible to enable frequent checkins and to catch possible errors and mistake directly. As mentioned it is equally as important that the resources are written to the deploy area are the ones used to deploy to test and production so one gets all the advantages with versioning and roll back possibilities etc.</p>
+
+<p>The problem with BizTalk Server is however that only building a project in Visual Studio does not gives us a deployable package (only raw dlls)!</p>
+
+<p>There are a number of different ways to get around this. One popular option is to automate the whole installation of the dlls generated in the build. This not only requires a whole lot of scripting and work, it also requires a full BizTalk Server installation on the build server. The automated process of installation also takes time and slows down the feedback loop back to development team. There are however great frameworks as for example the <a href="http://biztalkdeployment.codeplex.com/">BizTalk Deployment Framework</a> to help with this (this solution of course also enables integration testing using <a href="http://bizunit.codeplex.com/">BizUnit</a> and other framework).</p>
+
+<p>Some people would also argue that the whole script package and the raw dlls could be moved onto test and production and viewed on as a deployment package. But MSI is a powerful packaging tool and BizTalk Server has a number of specialized features around MSI. As MSI also is so simple and flexible it usually the preferred solution by IT operations.</p>
+
+<p>A final possibility is of course to directly add the resources one by one using BizTalk Server Administration console. In more complex solutions this however takes time and requires deeper knowledge into the solution as one manually has to know in what order the different resources should be added.</p>
+
+<h2 id="another-option-in-btsmsitask">Another option in BtsMsiTask</h2>
+
+<p>Another option is then to use <a href="https://github.com/riha/BtsMsiTask">BtsMsiTask</a> to directly generate a BizTalk Server MSI from the Visual Studio build and MsBuild.</p>
+
+<p><img src="../assets/2014/01/SimplerProcess1.png" alt="SimplerProcess" /></p>
+
+<p>The BtsMsiTask uses same approach and tools as the MSI export process implemented into BizTalk Server but extracts it into a MSBuild task that can be directly executed as part of the build process.</p>
+
+<p>BtsMsiTask enables the CI server to generate a deployable MSI package directly from the Visual Studio based build <em>without</em> having to first install into BizTalk Server!</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

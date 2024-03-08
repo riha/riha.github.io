@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Calling an on premise Microsoft Dynamics CRM using BizTalk and Active Directory Federated Security (ADFS)
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Calling an on premise Microsoft Dynamics CRM using BizTalk and Active Directory Federated Security (ADFS)</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Oct 17, 2014</div>
+      <div class=" my-12">
+        <p>Federated security is a great way of accomplishing single-sign-on (SSO) security for your applications. It’s also a technique that is becoming increasingly relevant as things move to the cloud and we’re starting to get more hybrid situation with some applications on premise and some in the cloud.</p>
+
+<p>Active Directory Federated Security (ADFS) is an implementation of federated security and is used by a number of Microsoft Applications, Microsoft Dynamics CRM being one of them.</p>
+
+<p>Windows Communication Foundation (WCF) has a few techniques to simplify federated security communication and this post will show an example of using Microsoft BizTalk Server and WCF to communicate with an ADFS secured CRM installation.</p>
+
+<h2 id="what-is-federated-security">What is federated security?</h2>
+<p>Federated security at its core is pretty simple. In our scenario BizTalk Server (client) wants to login in and authenticate itself with the CRM system.</p>
+
+<p>Traditionally the CRM system then had to manage the credentials for the client and verify these as login happened. There a number of drawback to this, the main one being that it doesn’t scale that well when we’re getting many separated systems that need access to each other as login information and login logic is spreads out across a number of systems.</p>
+
+<p>When using federated security each part instead chooses to trust a common part (in this case the ADFS and AD), and as long as someone provide a token that can be validated with the trusted part, the CRM system will trust that it already has been authenticated and that everything is ok.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1317734/4677004/35ce5cea-55e2-11e4-8283-91f8158ffbb2.png" alt="Data flow" /></p>
+
+<ol>
+  <li>Authentication and requesting token</li>
+  <li>Authentication against AD</li>
+  <li>Login authenticated</li>
+  <li>ADFS token response</li>
+  <li>ADFS token based authentication</li>
+  <li>Response from CRM</li>
+</ol>
+
+<p>So basically a federated security model allows for separating all authentication and authorization out to a separate system.</p>
+
+<p>As mentioned ADFS is just an implementation of federated security were Active Directory acts as the main repository with a Security Token Service implementation on top of it.</p>
+
+<h2 id="biztalk-and-adfs">BizTalk and ADFS</h2>
+<p>As BizTalk has great WCF support we can use the WCF stack to handle all of communication with ADFS and CRM. But it does involve a fair bit of configuration. BizTalk and Visual Studio will help in most mainstream WCF scenario where one can point Visual Studio at the WSDL location and a basic binding file is generated for us. However, in the case of and ADFS based WSDL this will just result in an empty binding file that doesn’t help much.</p>
+
+<p>Lots of projects I’ve seen makes the decision at this point to use custom code and create a facade to solve authentication. As Microsoft Dynamics CRM comes with a nice SDK including a C# library to handle authentication is easy to understand how one would end up using that. The problem is however that this creates another code base that again needs to be maintained over time. One could also argue that using custom code that is called by BizTalk further complicates the overall solution and makes it harder to maintain.</p>
+
+<p>So let’s configure the authentication from scratch using Windows Communication Foundation.</p>
+
+<h2 id="choosing-the-right-wcf-binding">Choosing the right WCF binding</h2>
+<p>First thing to do is to choose the right WCF binding. Let’s create a WCF-Custom Static Solicit-Response send port and choose the <code class="language-plaintext highlighter-rouge">ws2007FederationHttpBinding</code>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1317734/4851310/55ef1c46-6071-11e4-95ad-fce44c84cf5a.png" alt="Choose binding" /></p>
+
+<h2 id="adding-the-issuer">Adding the Issuer</h2>
+<p>First thing we need to add is information on how to connect to the Issuer. The Issuer is the one issuing the ticket, in our case that’s the ADFS.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1317734/4677021/615e582e-55e2-11e4-8a20-d412647a9a54.png" alt="Issuer details" /></p>
+
+<p>First we need to add information about the address of the Issuer. The WSDL tells us that the mex endpoint for the ADFS server is located at <code class="language-plaintext highlighter-rouge">https://adfs20.xxx.yy/adfs/trust/mex</code>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1317734/4677037/75a339c6-55e2-11e4-8bee-262b54497e53.png" alt="Mex file" /></p>
+
+<p>Browsing the WSDL for the ADFS server shows a number of different endpoints. Which one to use depends on what kind of authentication being used when requesting the token. In our case we’re using a simple username and password so we’re using the <code class="language-plaintext highlighter-rouge">usernamemixed</code> endpoint (<code class="language-plaintext highlighter-rouge">https://adfs20.xxx.yy/adfs/services/trust/2005/usernamemixed</code>).</p>
+
+<p>Secondly we need to add information about the binding and the binding configuration for communication with the ADFS service.</p>
+
+<p>What this basically means is that we need to add information to a second, or an inner, binding configuration. The BizTalk Server WCF configuration GUI doesn’t provide a way to set this so the only way is to configure this is to use one of the relevant configuration files (“machine.config” or the BizTalk config) and ad a binding manually.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;bindings&gt;
+ &lt;ws2007HttpBinding&gt;
+  &lt;clear/&gt;
+  &lt;binding name="stsBinding"&gt;
+   &lt;security mode="TransportWithMessageCredential"&gt;
+    &lt;transport clientCredentialType="None"/&gt;
+    &lt;message clientCredentialType="UserName" establishSecurityContext="false"/&gt;
+   &lt;/security&gt;
+  &lt;/binding&gt;
+ &lt;/ws2007HttpBinding&gt;
+&lt;/bindings&gt;
+</code></pre></div></div>
+
+<p>Once this is setup we can point our BizTalk Server WCF configuration to the correct URL and reference the WCF inner binding we just configured.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1317734/4677048/8771fe58-55e2-11e4-9fb8-cdaea394039a.png" alt="Issuer configured" /></p>
+
+<p>Finally we need to provide the username and password to authenticate ourselves to the ADFS server.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1317734/4677053/980b0d04-55e2-11e4-97d4-2c3a9befb553.png" alt="Login details" /></p>
+
+<p>We now have communication setup to the ADFS service and should be able to get a valid ticket that we then can use to authenticate ourselves to the CRM system!</p>
+
+<p>We now however also need to provide information on how to connect to the actual CRM system.</p>
+
+<h2 id="configure-communication-to-crm">Configure communication to CRM</h2>
+
+<p>The rest is easy. Let’s start with adding the URL to the end service we want to call. As with any other service call we’ll also add the SOAP Action Header that in this case is the Update service (<code class="language-plaintext highlighter-rouge">http://schemas.microsoft.com/xrm/2011/Contracts/Services/IOrganizationService/Update</code>) of the <code class="language-plaintext highlighter-rouge">OrganizationService</code> service.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1317734/4677061/a975aab8-55e2-11e4-9727-1ffbd12e5132.png" alt="Service details" /></p>
+
+<p>As out service also uses SSL for encryption we need to tell the binding to use <code class="language-plaintext highlighter-rouge">TransportWithMessageCredentials</code>.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1317734/4677066/bab52f7e-55e2-11e4-8c17-5c93dde94637.png" alt="Transport encryption" /></p>
+
+<h2 id="establishing-a-security-context--or-not">Establishing a Security Context – or not</h2>
+
+<p>Finally there is a little tweak that is needed. WCF supports establishing a Security Context. This will cache the token and avoid asking the STS for a new token for each call to the CRM system. BizTalk Server however doesn’t seem to support this so we need to turn it off.</p>
+
+<p><img src="https://cloud.githubusercontent.com/assets/1317734/4677070/cc96a416-55e2-11e4-942a-851427e242ea.png" alt="Security Context" /></p>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>Understanding federated security is important and will become increasingly important as we move over to systems hosted in the cloud – federated security is the de facto authentication standard used by hosted systems in the cloud. Avoiding custom code and custom facades is a key factor in building maintainable large scale BizTalk based systems over time. BizTalk has great WCF support and taking full advantage of it is important to be able to build solutions that easy to oversee and possible to maintain not just by those familiar and comfortable in custom code.</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

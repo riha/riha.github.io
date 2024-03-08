@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; BOM - Byte Order Mark in BizTalk output
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>BOM - Byte Order Mark in BizTalk output</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Dec 13, 2006</div>
+      <div class=" my-12">
+        <p>Today was another day of new BizTalk problems … The task was easy; produce a XML file and send to a receiving system. Fine. Done. … Not.</p>
+
+<p>The receiving system could not read the file because of some strange characters in the beginning of the file! It looked something like the below when opening the file in a fancy text editor (<a href="http://www.ultraedit.com/">UltraEdit</a> or <a href="http://www.textpad.com/">TextPad</a> for example).</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;&lt;span style="color: #000000; "&gt;i»¿&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;?&lt;/span&gt;&lt;span style="color: #FF00FF; "&gt;xml version="1.0" encoding="utf-8"&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;?&gt;&lt;/span&gt;&lt;/div&gt;
+</code></pre></div></div>
+
+<p>After a couple of very interesting (:/) hours of <a href="http://en.wikipedia.org/wiki/Google_(verb)">Googling</a> I found this from Ben McFarlin</p>
+
+<blockquote>
+
+&gt; 
+&gt; It is because internal BizTalk messages are in UTF8 format and include  
+the byte order mark. When you added the xml declaration for UTF16 it  
+confused the engine; the declaration read UTF16 but the byte order mark indicated UTF8.
+&gt; 
+&gt; </blockquote>
+
+<p><a href="http://richardhallgren.com/blog/wp-content/uploads/2006/12/WindowsLiveWriter/BOMByteOrderMark_EA75/preserveBOM%5B5%5D5.jpg"><img src="http://richardhallgren.com/blog/wp-content/uploads/2006/12/WindowsLiveWriter/BOMByteOrderMark_EA75/preserveBOM_thumb%5B5%5D5.jpg" alt="Preserve BOM" /></a>When I finally found the cause the solution was easy. Just another of those <a href="http://support.microsoft.com/kb/921044">weird properties</a> … This time it’s called <em>Preserve BOM</em> (on the properties of the XML Assembly pipeline component - see figure on the right). <em>BOM</em> of course stands for <em>Byte Order Mark</em>.</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

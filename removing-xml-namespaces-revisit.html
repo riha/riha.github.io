@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Removing XML namespaces - revisit
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Removing XML namespaces - revisit</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Jun 26, 2008</div>
+      <div class=" my-12">
+        <p>I have a <a href="http://www.richardhallgren.com/removing-namespace-from-outgoing-messages/">old post on removing XML namespace</a> from outgoing messages using XSLT in a map on the send port. Removing XML namespace is usually a late requirement that shows up during integration tests with for example legacy systems that has problems reading XML and only finds XML namespaces messy and confusing and wants it removed.</p>
+
+<p>The post recently got commented by <a href="http://codebetter.com/blogs/jeff.lynch/">Jeff Lynch</a> (one of the <a href="http://codebetter.com/">codebetter.com</a> bloggers) asking me why I just didn’t create a schema without any XML namespace in it to represent the outgoing schema (see figure below) and then map to that in the send port.</p>
+
+<p><a href="../assets/2008/06/windowslivewriterremovingxmlnamespacesrevisit-834dremoving-xml-namespaces-revisit-2.png"><img src="../assets/2008/06/windowslivewriterremovingxmlnamespacesrevisit-834dremoving-xml-namespaces-revisit-thumb.png" alt="Removing XML namespaces - revisit" /></a></p>
+
+<p>Say for example that we have incoming messages like the one below with namespaces.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;ns0:BlahRoot &lt;/span&gt;&lt;span style="color: #FF0000; "&gt;xmlns:ns0&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;="http://Sample.BlahIncomingSchema"&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+  &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;BlahNode&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;Test Value&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;/&lt;/span&gt;&lt;span style="color: #800000; "&gt;BlahNode&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;/&lt;/span&gt;&lt;span style="color: #800000; "&gt;ns0:BlahRoot&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;/div&gt;
+</code></pre></div></div>
+
+<p>We’ve then defined a schema without namespace and map to that and get the following result.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;BlahRoot&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+  &lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;&lt;/span&gt;&lt;span style="color: #800000; "&gt;BlahNode&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;Test Value&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;/&lt;/span&gt;&lt;span style="color: #800000; "&gt;BlahNode&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;span style="color: #000000; "&gt;
+&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&lt;/&lt;/span&gt;&lt;span style="color: #800000; "&gt;BlahRoot&lt;/span&gt;&lt;span style="color: #0000FF; "&gt;&gt;&lt;/span&gt;&lt;/div&gt;
+</code></pre></div></div>
+
+<p>This method is of course much cleaner then any previous and it’s also more conceptually correct as the schema actually represents the contact between BizTalk and the receiving system (the contract is a message without namespace in it, <strong>not one with that we then remove</strong>).</p>
+
+<p>The only problem with this kind of approach is that as BizTalk recognized the message type using a combination between root node and XML namespace we can’t have another schema with the <em>BlahRoot</em> root node without a defined XML namespace. Even if those two schemas would look totally different in structure and be two different message types BizTalk would be able to see the difference (to BizTalk they both be <em>#BlahRoot</em> message types).</p>
+
+<p>Thanks Jeff for pointing this out to me.</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

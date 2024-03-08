@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; What kind of integration patters do you implement in BizTalk?
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>What kind of integration patters do you implement in BizTalk?</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Nov 10, 2009</div>
+      <div class=" my-12">
+        <p>I like to divide BizTalk based integrations into three different patterns.</p>
+
+<ol>
+  <li>
+    <p>Point-to-point integration</p>
+  </li>
+  <li>
+    <p>Broker-based integration</p>
+  </li>
+  <li>
+    <p>ESB-based integration</p>
+  </li>
+</ol>
+
+<p>I am sure someone could come up with fancier names but I will in this post try and dig into each of them, explain what I mean by them. I will also try and highlight some issues with each of the patterns.</p>
+
+<h3 id="point-to-point-integration">Point-to-point integration</h3>
+
+<p><a href="../assets/2009/11/image.png"><img src="../assets/2009/11/image-thumb.png" alt="image" /></a> This is where a lot of us started. The idea is that the sending system has information and knowledge about the receiving system.</p>
+
+<p>This usually means that the <em>messages are exported in a message format that is tailored to the format of the particular receiving system’s needs</em>. It also means that we usually <em>get one integration process for each receiving system there is</em>.</p>
+
+<p>The example in the figure on the right shows a sending system that sends information about invoices to two different receiving systems (“System A” and “System B”). Using a point-to-point pattern in this scenario we end up with two different types of messages that are exported. Each of the exported messages that are suited and tailored to the format of the receiving system.</p>
+
+<h4 id="issues">Issues</h4>
+
+<p>The main problem with this kind of point-to-point integration, where the sending system has detailed knowledge about the receiving systems, is that <em>this knowledge translates into a coupling between the systems</em>. When we tie the export message format from the sending system to the format of the receiving, <em>all changes in the receiving system will also cause changes in the sending system</em>.</p>
+
+<p>Suppose there is a sudden need to change the format of the receiving system - <em>as we use that format as our export format we now also have to change it there</em>.</p>
+
+<p>Another problem is the <em>lack of agility</em>. In this invoice scenario all other system that also has the need of invoice based information has to get this by going all the way back to the sending system and develop a whole new <em>specific</em> integration - separate to the existing ones.</p>
+
+<h3 id="broker-based-integration">Broker-based integration</h3>
+
+<p><a href="../assets/2009/11/image1.png"><img src="../assets/2009/11/image-thumb1.png" alt="image" /></a>In the broker-based scenario the integration platform is used as a broker of messages.</p>
+
+<p>This means that only **one canonical **format is exported from the sending system. The broker then handles the routing to the different systems and the transformation to the message formats that the receiving systems expects.</p>
+
+<p><em>The main advantage between this approach - where the sending system do not know anything about the receiving systems – and the point-to-point pattern is <strong>agility</strong></em>.</p>
+
+<p>If there now is a need for invoice information in a third, new system, we do not have to change the export from the sending system (as long as we have all the information need that is) or develop a whole new integration. <em>All we have to do is to route the invoices so that they also are sent to the third system and transformed into the format that the system expects</em>. A new BizTalk map and port and we are done!</p>
+
+<h4 id="issues-1">Issues</h4>
+
+<p>In my point of view this approach to integration has a lot of advantages over the point-to-point integrations previously discussed. And in a lot of simpler, stabile scenarios it works just fine and is the way to go.</p>
+
+<p>But in some scenarios it kind of breaks down and becomes hard to work with. The problems is related to configuration and how we define the routing information in BizTalk. In BizTalk we can either create an orchestration and “hardcode” the process that defines which systems the messages should be sent to. We can also create a “messaging” scenario where we configure this routing information in the different BizTalk port artifacts by setting up filters.</p>
+
+<p>Regardless if we choose a “messaging” or orchestration based solution the routing information becomes hard to update as the solution grow in size. We either get very complicated orchestrations or loads of ports to maintain.</p>
+
+<p>Furthermore the whole process is very coupled to the one canonical schema which makes versioning and updates hard. If the canonical schema needs to be updated and we still need to be able to send information using the old schema (so we have a “version 1” and “version 2” of the schema side-by-side) all artifacts needs to be more or less duplicated and the complexity of the solutions grows fast.</p>
+
+<p><em>This makes business agility hard and any changes takes long time to develop and deploy correctly.</em></p>
+
+<blockquote>
+  <p>I guess these issues has more to do with how BizTalk works than the integration pattern itself - but this is a BizTalk blog!</p>
+</blockquote>
+
+<h3 id="esb-based-integration">ESB-based integration</h3>
+
+<p><a href="../assets/2009/11/image2.png"><img src="../assets/2009/11/image-thumb2.png" alt="image" /></a>ESB-based integration in BizTalk is today achieved using <a href="http://msdn.microsoft.com/en-us/biztalk/dd876606.aspx">ESB Toolkit</a> from Microsoft.</p>
+
+<p>One of the ideas of ESB-based integration is that the integration platform should not have hardcoded routing information. These routing rules should either be looked up at run time or travel with the actual payload of the message (called “dynamic routing”).</p>
+
+<p>This in combination with having generic on- and off-ramps instead of loads of separate ports to maintain _promises to create more agile and configurable solutions _(called “Loosely coupled service composition” and “Endpoint run-time discovery and virtualization”).</p>
+
+<p>The figure again shows the invoice scenario used previously. In this case we export a “Invoice 1.0”-format from the sending system. The format is not directly bound to a schema in the port (as we are used to in BizTalk) but it is basically possible to send <strong>any</strong> message format to the on-ramp.</p>
+
+<p>The on-ramp then identifies what kind of message it received (for example using the XML-namespace) and looks up the routing rules for that specific message (the message “itinerary”) in a repository.</p>
+
+<p>In this scenario there could be rules to route the message to a orchestration or directly to a send port. _All the configuration for this port is however configured as part of the itinerary and applied at run-time on the generic off-ramp port. And as itineraries are simple XML documents they are super light to update and deploy in the repository! _</p>
+
+<p>So if we now wanted to update the “Invoice”-format to “version 2.0” all we would have to do is to create a new XML itinerary for the “Invoice 2.0” message type and possibly create new orchestration to handle the new message type. No new ports, no new bindings etc, etc. The configuration and deployment would be a lot simpler than before! We would end up with a lot fewer artifacts to maintain.</p>
+
+<p>**And **the itinerary for “Invoice 1.0” would still be applied to all incoming Invoice 1.0 messages. <em>Thus we have achieved what used to be so hard with a lot less development power!</em></p>
+
+<h4 id="issues-2">Issues</h4>
+
+<p>With agility and dynamic capabilities comes complexity in debugging when something bad happens … I also feel that we give up a lot of validating and control capabilities that we had in the more schema-coupled patterns previously discussed.</p>
+
+<p>I am new to this ESB-based model and I would love to hear your experiences, problems, stories etc!</p>
+
+<p><em>I am however sure that this is the way to go and I would not be surprised if ESB like patterns will play an ever bigger role in future BizTalk versions!</em></p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

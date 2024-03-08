@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Why full NuGet support for BizTalk projects is important!
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Why full NuGet support for BizTalk projects is important!</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Jun 03, 2014</div>
+      <div class=" my-12">
+        <p>Let’s start with a summary for those who don’t feel like reading the full post.</p>
+
+<p>Using NuGet to handle BizTalk dependencies for shared schemas, pipeline components and so on works fine today.</p>
+
+<p>As .btproj files however aren’t supported by NuGet (as shown in <a href="https://nuget.codeplex.com/SourceControl/network/forks/robinhultman/NuGetWithBizTalkProjectExtension/changeset/d1f1a29c9b322670c820f52d769422cb111253b3">this pull request</a>) and are not in the current white list of allowed project types <em>Package Restore will not work</em> (issue closed as by design <a href="https://nuget.codeplex.com/workitem/3010">here</a>).</p>
+
+<p>Not having Package Restore of course is a problem as one now is forced to check in all packages as part of the solutions, something that in the end leads to bloated and messy solutions.</p>
+
+<p>So please reach out to your Microsoft contacts and let’s get this fixed!</p>
+
+<h3 id="nuget">NuGet</h3>
+
+<p>As most people know NuGet is the package management solution from Microsoft for .NET. It started off as an initiative to further boost open source within the .NET community and NuGet packages uploaded to the <a href="http://www.nuget.org/">NuGet.org platform</a> are open and available directly within Visual Studio through the NuGet add-in. Currently there are well over 20 000 open packages for everyone to download and use.</p>
+
+<p>Lately there has however been lots of discussions within the community to use NuGet as a package manager for <em>internal</em> shared resources as well (by <a href="http://www.hanselman.com/blog/NuGetForTheEnterpriseNuGetInAContinuousIntegrationAutomatedBuildSystem.aspx">Hanselman</a> and <a href="https://www.simple-talk.com/dotnet/.net-framework/taking-nuget-to-the-enterprise/">others</a>). Solutions like <a href="https://www.myget.org/">MyGet</a> allows for <em>private</em> NuGet feeds – only available to those within your organization but still levering all the ease and control offered by NuGet.</p>
+
+<p>Using NuGet for references has a number of of advantages:</p>
+
+<ul>
+  <li>
+    <p><strong>Communication</strong>       <br />
+All available resources are directly visible in Visual Studio and when updates to a used library is a available a notification is shown. No more spam mails about changes and never read list of available libraries.</p>
+  </li>
+  <li>
+    <p><strong>Versioning</strong>       <br />
+A NuGet package has it’s own versioning. This is useful as it isn’t always optimal to change the dll version, but by using the NuGet package version one can still indicate that something has changed.       <br />
+As you also reference a specific version of a NuGet package from your solution you always have full control of <em>exactly</em> what version you’re targeting and where to find the built and ready bits.</p>
+  </li>
+  <li>
+    <p><strong>Efficiency</strong>       <br />
+When starting to work on a project with many references one first have to get the source code from source control for the references, build these (hopefully in the right version … hopefully you have your tags and labels in order …) until all the broken references are fix.       <br />
+With NuGet references this just works straight away and you can be sure you get the right version as the resource isn’t the latest from source control but the actual built dlls that’s part of the referenced NuGet package.</p>
+  </li>
+</ul>
+
+<h4 id="nuget-feeds">NuGet Feeds</h4>
+
+<p>As mentioned NuGet feeds can be public or private. A NuGet feed is basically a RSS feed with available resources and versions of these. A feed and a NuGet server can be a hosted web based solution or something as simple as a folder where you write your NuGet packages to. The <a href="http://docs.nuget.org/docs/creating-packages/hosting-your-own-nuget-feeds">NuGet documentation</a> covers these options in depth.     <br />
+The point being that creating your own private NuGet feed is very simple!</p>
+
+<blockquote>
+  <p>So if you haven’t already realized it by now - NuGet is not only a great tool to manage all public external dependencies but can add a <strong>a lot a value for internal references</strong> as well.</p>
+</blockquote>
+
+<h4 id="couple-of-relevant-nuget-features">Couple of relevant NuGet features</h4>
+
+<ul>
+  <li>
+    <p><strong>NuGet Package Restore</strong>        <br />
+<a href="http://docs.nuget.org/docs/reference/package-restore">NuGet Package Restore</a> enables NuGet to download the used referenced package from the package area. The goal is to avoid having to check in the actual references in source control as this will bloat the version control system and in the end the create a messy solution.</p>
+  </li>
+  <li>
+    <p><strong>NuGet Specification (nuspec) metadata token replacements</strong>        <br />
+All packages are based on a nuspec file that dictates the version, package description and other meta information.       <br />
+NuGet has the capability to by using replacement tokens (such as <em>$version$</em> for example) read some of this information from the <em>AssemblyInfo</em> files.       <br />
+This is far from a critical feature but nice to have and avoid having to repeat oneself and have the same information in a number of places.**</p>
+  </li>
+</ul>
+
+<h3 id="biztalk-and-nuget">BizTalk and NuGet?</h3>
+
+<p>A typical BizTalk solution has a number of shared resources such as shared schemas, shared libraries and pipeline components. As the resources usually are shared between a number of project they often live in a separate development cycle. So when opening a BizTalk project with such resources it’s not only a lot of work getting the referenced code and building the references, there’s also this nagging feeling that it _might not be in the right version _and that the source might have changed since the first time the reference was added.</p>
+
+<p>Another reference issue occurs when using a build server for a solution with references. As the solution has a dependency to the referenced project one has to make sure not only that the main solution is fetched to the build workarea by the build server, but also that all the referenced project are fetched from version control – and again, hopefully the latest version in the attended version …    <br />
+This kind of works using TFS Build Service and common TFS Source Control. If however one’s using Git and have resources in separate repositories this becomes impossible as TFS Build Service currently only supports fetching a single repository per build definition to the build workarea …     <br />
+(This issue does not apply for <a href="http://www.jetbrains.com/teamcity/">TeamCity</a> that has a number of different options for dependency management)</p>
+
+<p>All the these issues are actually solved when using NuGet references instead of traditional references as we can be sure we’re getting the packaged dlls as part of the NuGet package <em>in the version that one referenced and not the latest checked in version</em>.     <br />
+A NuGet reference also makes things a bit easier when it comes to managing the workarea for the TFS Build Service as one only have to sure the NuGet package is available (either as checked in as part of the solution or by using Package Restore).</p>
+
+<p><strong><em>But …</em></strong></p>
+
+<h3 id="nuget-doesnt-support-biztalk-projects">NuGet doesn’t support BizTalk projects!</h3>
+
+<p>As disused <a href="https://nuget.codeplex.com/workitem/3010">here</a> NuGet currently doesn’t support .btproj files. As BizTalk project files are are basically a standard .NET project file with some extra information a two line change in the NuGet whitelist is needed as in <a href="https://nuget.codeplex.com/SourceControl/network/forks/robinhultman/NuGetWithBizTalkProjectExtension/contribution/5960#!/tab/changes">this pull request</a>.</p>
+
+<p><img src="../assets/2014/06/nolove.png" alt="nolove" /></p>
+
+<p>So the main issue it that by <em>not having full support of .btproj files Package Restore won’t work</em> and we’re for now force to check in all the NuGet packages as part of our solutions.     <br />
+An other minor issue is that the token replacement feature also doesn’t work. I also think that if we could actually get full BizTalk support we’d see more BizTalk specific open shared packages for things like useful libraries and pipeline components.</p>
+
+<p><strong><em>Call for action</em></strong>: Reach out to <a href="https://twitter.com/nuget">the NuGet Team</a> or other Microsoft connections and let’s get those two lines added to the white list!</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

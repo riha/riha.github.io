@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Testable data access code
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Testable data access code</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Jan 03, 2007</div>
+      <div class=" my-12">
+        <p>As one of the most important rules for a test <strong>is that it can’t rely on state</strong>, I’ve always found automated data access testing hard. As I view it there are three approaches to accomplish reliable testing of such a layer:</p>
+
+<ol>
+  <li>A local database that is restored for each and every test.</li>
+  <li>Using transactions that can rollback the database after the test completed</li>
+  <li>Using mock objects</li>
+</ol>
+
+<p>I guess all of them has drawbacks and are suitable in different situations.</p>
+
+<p>It would be possible to have ones data access layer connected to a local database that’s fully restored to a know state for every test. But as the database grows that process would soon get extremely slow. And as one of the requirements for testing and test driven development is that is possible to test often (and if we like to test often is has to be fast) I think this is a method that only works when we have a simple tiny database (something we almost never have …).</p>
+
+<p>Another way of do it would be use transactions to rollback each test operation on the database. A problem here is that we might use transactions within the access layer we like to test! We might even have transactions disabled. This <a href="http://msdn.microsoft.com/msdnmag/issues/05/06/UnitTesting/default.aspx">excellent article</a> by Roy Osherove discusses the possibilities of using the transactions from  Enterprise Services (COM+) for rolling back database operations. This is an interesting approach and with the new <a href="http://msdn2.microsoft.com/en-us/library/system.transactions.aspx">System.Transactions namespace in .NET 2.0</a> things should be even easier. But still, if one is using transactions in the actually access layer that is being tested we still have to use something else. Another problem is that transactions always will cause a minor performance hit that might grow when using it in a large project with loads of tests.</p>
+
+<p>And then we have mock objects. The first thing we have to think about here is what we should test in a unit test? Should we really test the all the way to the database or should we stay within the boundaries of the application? My option is that a unit test should not test all the way through to the database, then it’s a integration test. <strong>However</strong> it might be very useful to have such a test in our test suite. If we decide to actually test trough to the database mock object will not do us any good. They will only be able to test that the right method in the data access class were called in correct order.</p>
+
+<p>Some links I found useful:<br />
+<a href="http://weblogs.asp.net/rosherove/archive/2004/12/10/279258.aspx">http://weblogs.asp.net/rosherove/archive/2004/12/10/279258.aspx</a><br />
+<a href="http://weblogs.asp.net/rosherove/articles/dbunittesting.aspx">http://weblogs.asp.net/rosherove/articles/dbunittesting.aspx</a><br />
+<a href="http://weblogs.asp.net/rosherove/archive/2004/07/20/187863.aspx">http://weblogs.asp.net/rosherove/archive/2004/07/20/187863.aspx</a><br />
+<a href="http://msdn.microsoft.com/msdnmag/issues/04/10/NMock/default.aspx">http://msdn.microsoft.com/msdnmag/issues/04/10/NMock/default.aspx</a><br />
+<a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnaspp/html/aspnet-testwithnunit.asp">http://msdn.microsoft.com/library…testwithnunit.asp</a><br />
+<a href="http://msdn.microsoft.com/msdnmag/issues/05/06/UnitTesting/default.aspx">http://msdn.microsoft.com/msdnmag…default.aspx</a></p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Efficient grouping and debatching of big files using BizTalk 2006
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Efficient grouping and debatching of big files using BizTalk 2006</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Jul 16, 2008</div>
+      <div class=" my-12">
+        <p>I’ve seen people struggle both on the <a href="http://forums.microsoft.com/msdn/ShowPost.aspx?PostID=3564558&amp;SiteID=1">forums</a> and while doing consulting when in it comes to finding an good way of grouping and transforming content in file before debatching it. Say for example we have a text file like the example below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0001;Test row, id 0001, category 10;10 
+0002;Test row, id 0002, category 10;10
+0003;Test row, id 0003, category 10;10
+0004;Test row, id 0004, category 20;20
+0005;Test row, id 0005, category 20;20
+0006;Test row, id 0006, category 20;20
+0007;Test row, id 0007, category 20;20
+0008;Test row, id 0008, category 10;10
+0009;Test row, id 0009, category 10;10
+0010;Test row, id 0010, category 30;30
+</code></pre></div></div>
+
+<p>Notice how the the ten rows belong to three different categories (10,20 and 30). These kind of export are in my experience quite common batch export from legacy systems and they usually aren’t ten rows (in my last project the sizes ranged from 5 MB to 25 MB) …</p>
+
+<h3 id="the-problem">The problem</h3>
+
+<p>The problem is that the receiving system expects the data to be in <em>separate groups,</em> <em>grouped by the categories the rows belong to</em>. The expected message might look something like the below for category 10 (notice how all rows within the group are from category 10)</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;ns1:Group numberOfRows="5" xmlns:ns1="http://Blah/Group"&gt;
+  &lt;Row&gt;
+    &lt;Id&gt;0001&lt;/Id&gt;
+    &lt;Text&gt;Test row, id 0001, category 10&lt;/Text&gt;
+    &lt;Category&gt;10&lt;/Category&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;Id&gt;0002&lt;/Id&gt;
+    &lt;Text&gt;Test row, id 0002, category 10&lt;/Text&gt;
+    &lt;Category&gt;10&lt;/Category&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;Id&gt;0003&lt;/Id&gt;
+    &lt;Text&gt;Test row, id 0003, category 10&lt;/Text&gt;
+    &lt;Category&gt;10&lt;/Category&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;Id&gt;0008&lt;/Id&gt;
+    &lt;Text&gt;Test row, id 0008, category 10&lt;/Text&gt;
+    &lt;Category&gt;10&lt;/Category&gt;
+  &lt;/Row&gt;
+  &lt;Row&gt;
+    &lt;Id&gt;0009&lt;/Id&gt;
+    &lt;Text&gt;Test row, id 0009, category 10&lt;/Text&gt;
+    &lt;Category&gt;10&lt;/Category&gt;
+  &lt;/Row&gt;
+&lt;/ns1:Group&gt;
+</code></pre></div></div>
+
+<p>The problem is now that we need to find a efficient way of first <em>grouping the incoming flat file based message</em> and then to _debatch it using those groups. <strong>Our ultimate goal is to have separate messages that groups all rows that belongs to the same category and then send these messages to the receiving system</strong>. _How would you solve this?</p>
+
+<p>I’ve seen loads of different solution involving orchestrations, databases etc, but the main problem they all had in common is that they’ve loaded up to much of the message in memory and finally hit an <em>OutOfMemoryException</em>.</p>
+
+<h3 id="the-solution">The solution</h3>
+
+<p>The way to solve this is to use pure messaging as one of the new features in BizTalk 2006 is the new <a href="http://www.microsoft.com/technet/prodtechnol/biztalk/2006/evaluate/overview/default.mspx">large messages transformation engine</a>.</p>
+
+<blockquote>
+  
+&gt; 
+&gt; **Large message transformation.** In previous versions of BizTalk Server, mapping of documents always occurred in-memory. While in-memory mapping provides the best performance, it can quickly consume resources when large documents are mapped. In BizTalk Server 2006, large messages will be mapped by the new large message transformation engine, which buffers message data to the file system, keeping the memory consumption flat.
+&gt; 
+&gt; 
+</blockquote>
+
+<p>So the idea is the to read the incoming flat file, use the <a href="FlatFileDisassembler">Flat File Disassembler</a> to transform the message to it’s XML representation (step 1,2 and in the figure below) and the to use XSLT to transform in to groups (step 4 and 5). We will then use the <a href="http://msdn.microsoft.com/en-us/library/aa561814.aspx">XML Disassembler</a> to split those groups into separate messages containing all the rows within a category (step 6 and 7).</p>
+
+<p><a href="../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow2-2.png"><img src="../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow2-thumb.png" alt="GroupingFlow2" /></a></p>
+
+<p>Step 1, 2 and 3 are <a href="http://msdn.microsoft.com/en-us/library/aa577898.aspx">straight forward</a> and pure configuration. Step 4 and 5 will require some custom XSLT and I’ll describe that in more detail in the section below. Step 6 and 7 will be discussed in the last section of the post.</p>
+
+<h4 id="grouping">Grouping</h4>
+
+<p>Let’s start by looking at a way to group the message. I will use some custom XSLT and a technique called the <a href="http://www.jenitennison.com/xslt/grouping/muenchian.html">Muenchian method</a>. A segment from the XML representation of the flat file message could look something like this.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Rows xmlns="http://Blah/Incoming_FF"&gt;
+    &lt;Row xmlns=""&gt;
+        &lt;ID&gt;0001&lt;/ID&gt;
+        &lt;Text&gt;Test row, id 0001, category 10&lt;/Text&gt;
+        &lt;Category&gt;10&lt;/Category&gt;
+    &lt;/Row&gt;
+    &lt;Row xmlns=""&gt;
+        &lt;ID&gt;0002&lt;/ID&gt;
+        &lt;Text&gt;Test row, id 0002, category 10&lt;/Text&gt;
+        &lt;Category&gt;10&lt;/Category&gt;
+    &lt;/Row&gt;
+...
+[message cut for readability]
+</code></pre></div></div>
+
+<p>The XSLT will use could look something like the below. It’s kind of straight forward and I’ve tried commenting the important parts of in the actual script. Basically it will use keys to fins the unique categories and then (again using keys) selecting those rows within the category to loop and write to a group.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+
+&lt;xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:ns1="http://GroupAndDebatch.Schemas.Incoming_FF"
+                xmlns:ns2="http://GroupAndDebatch.Schemas.Grouped"
+                &gt;
+    &lt;!--Defining the key we're gonna use--&gt;
+    &lt;xsl:key name="rows-by-category" match="Row" use="Category" /&gt;
+
+    &lt;xsl:template match="/ns1:Rows"&gt;
+        &lt;ns2:Groups&gt;
+        
+        &lt;!--Looping the unique categories to get a group for--&gt;
+        &lt;xsl:for-each select="Row[count(. | key('rows-by-category', Category)[1]) = 1]"&gt;
+            
+            &lt;!--Creating a new group and set the numberOfRows--&gt;
+            &lt;Group numberOfRows="{count(key('rows-by-category', Category))}"&gt;
+            
+            &lt;!--Loop all the rows within the specific category we're on--&gt;
+            &lt;xsl:for-each select="key('rows-by-category', Category)"&gt;
+                &lt;Row&gt;
+                    &lt;ID&gt;
+                        &lt;xsl:value-of select="ID"/&gt;
+                    &lt;/ID&gt;
+                    &lt;Text&gt;
+                        &lt;xsl:value-of select="Text"/&gt;
+                    &lt;/Text&gt;
+                    &lt;Category&gt;
+                        &lt;xsl:value-of select="Category"/&gt;
+                    &lt;/Category&gt;
+                &lt;/Row&gt;
+            &lt;/xsl:for-each&gt;
+            &lt;/Group&gt;
+        &lt;/xsl:for-each&gt;
+        &lt;/ns2:Groups&gt;
+    &lt;/xsl:template&gt;
+
+&lt;/xsl:stylesheet&gt;
+</code></pre></div></div>
+
+<blockquote>
+  
+&gt; 
+&gt; [![note](../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295note-thumb.gif)](../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295note-2.gif)You have found all the [XSLT and XML related features](http://msdn.microsoft.com/en-us/library/aa302298.aspx) in Visual Studio - right?
+&gt; 
+&gt; 
+</blockquote>
+
+<p>Ok, so the above XSLT will give us a XML structure that looks some like this.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;ns2:Groups xmlns:ns2="http://Blah/Groups" xmlns:ns1="http://Blah/Group"&gt;
+    &lt;ns1:Group numberOfRows="5"&gt;
+        &lt;Row&gt;
+            &lt;ID&gt;0001&lt;/ID&gt;
+            &lt;Text&gt;Test row, id 0001, category 10&lt;/Text&gt;
+            &lt;Category&gt;10&lt;/Category&gt;
+        &lt;/Row&gt;
+        &lt;Row&gt;
+            &lt;ID&gt;0002&lt;/ID&gt;
+            &lt;Text&gt;Test row, id 0002, category 10&lt;/Text&gt;
+            &lt;Category&gt;10&lt;/Category&gt;
+        &lt;/Row&gt;
+        &lt;Row&gt;
+            &lt;ID&gt;0003&lt;/ID&gt;
+            &lt;Text&gt;Test row, id 0003, category 10&lt;/Text&gt;
+            &lt;Category&gt;10&lt;/Category&gt;
+        &lt;/Row&gt;
+        &lt;Row&gt;
+            &lt;ID&gt;0008&lt;/ID&gt;
+            &lt;Text&gt;Test row, id 0008, category 10&lt;/Text&gt;
+            &lt;Category&gt;10&lt;/Category&gt;
+        &lt;/Row&gt;
+        &lt;Row&gt;
+            &lt;ID&gt;0009&lt;/ID&gt;
+            &lt;Text&gt;Test row, id 0009, category 10&lt;/Text&gt;
+            &lt;Category&gt;10&lt;/Category&gt;
+        &lt;/Row&gt;
+    &lt;/ns1:Group&gt;
+    &lt;ns1:Group numberOfRows="4"&gt;
+        &lt;Row&gt;
+            &lt;ID&gt;0004&lt;/ID&gt;
+            &lt;Text&gt;Test row, id 0004, category 20&lt;/Text&gt;
+            &lt;Category&gt;20&lt;/Category&gt;
+        &lt;/Row&gt;
+...
+[message cut for readability]
+</code></pre></div></div>
+
+<p><strong>Finally! This we can debatch!</strong></p>
+
+<h4 id="debatching">Debatching</h4>
+
+<p>Debatch the <em>Groups</em> message above is also rather straight forward and I won’t spend much time on in this post. The best way to learn more about it is to have a look ate the <a href="http://msdn.microsoft.com/en-us/library/ms966332.aspx">EnvelopeProcessing sample</a> in the BizTalk SDK.</p>
+
+<p><strong>And the end result of the debatching are single messages within a unique category, just as the receiving system expects! Problem solved.</strong></p>
+
+<h3 id="issue-1---slow-transformations">Issue #1 - slow transformations</h3>
+
+<p>The first time I’ve put a solution like this in test and started testing with some real sized messages (&gt; 1 MB) I really panicked, the mapping took forever. And I really mean forever, I sat there waiting for 2-3 hours (!) for a single file getting transformed. When I had tested the same XML based file in Visual Studio the transformation took about 10 seconds so I knew that wasn’t it. With some digging <a href="http://technet.microsoft.com/en-us/library/aa560481.aspx">here</a> I found the <em>TransformThreshold</em> parameter.</p>
+
+<p><em>TransformThreshold</em> decides how big a message can be in memory before BizTalk start buffering it to disk. The default value is 1 MB and one really has to be careful when changing this. Make sure you thought hard about your solution and situation before changing the value - how much traffic do you receive and how much of that can you afford reading in to memory?</p>
+
+<p>In my case I received a couple of big files spread out over a night so setting parameter with a large amount wasn’t really a problem and that really solved the problem. The mapping finished in below 10 minutes as I now allow a much bigger message to be read into memory and executed in memory before switching over to the large message transformation engine and start buffering to disk (which is always much slower).</p>
+
+<h3 id="problem-2---forced-to-temp-storage">Problem #2 - forced to temp storage</h3>
+
+<p>Looking at the model of the data flow again you probably see that I’m using the XML Disassembler to split the grouped files (step 5 to step 6).</p>
+
+<p><a href="../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow3-2.png"><img src="../assets/2008/07/windowslivewriterefficientgroupingandsplittingofbigfiles-8295groupingflow3-thumb.png" alt="GroupingFlow3" /></a></p>
+
+<p>The only way I’ve found this to work is actually to write the Grouped XML message to file and the to read that file in to BizTalk again and in that receive pipeline debatch the message. Not the most elegant solution, but there really isn’t a another out-of-the-box way of debatching messages (the XML Assembler can’t do it) and I don’t want to use an orchestration to execute the a pipeline as I want to keep the solution pure messaging for simplicity and performance reasons.</p>
+
+<h3 id="finishing-up">Finishing up</h3>
+
+<p>Have you solved similar cases differently? I’d be very interested in your experience! I also have a sample solution of this - just send me an <a href="email:richard.hallgren@gmail.com">email</a> and make sure you’ll get it.</p>
+
+<h3 id="update">Update</h3>
+
+<p>Also don’t miss <a href="http://biztalkhotrod.com/Documents/BizTalk_HotRod_Issue6_Q2_2009.pdf">this issue</a> (pdf) of <a href="http://biztalkhotrod.com/">BizTalk Hotrod magazine</a>. There is an article on “Muenchian Grouping and Sorting using Xslt” describing exactly the problem discussed above.</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

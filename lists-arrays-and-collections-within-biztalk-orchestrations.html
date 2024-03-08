@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Lists, Arrays and collections within BizTalk orchestrations
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Lists, Arrays and collections within BizTalk orchestrations</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Jul 05, 2007</div>
+      <div class=" my-12">
+        <blockquote>  
+&gt; 
+&gt; **Update 2012-03-28**        
+Unfortunately the images for this post was lost in upgrade of the blog.
+&gt; 
+&gt; </blockquote>
+
+<p>This post shows how it’s possible to create your own .NET class and then use this within your orchestration (as a variable) to work with typed lists - something that unfortunately isn’t supported out of the box in BizTalk orchestrations. Below is the class used to create a typed list for System.String objects.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;span class="kwrd"&gt;using&lt;/span&gt; System;
+&lt;span class="kwrd"&gt;using&lt;/span&gt; System.Collections.Generic;
+&lt;span class="kwrd"&gt;using&lt;/span&gt; System.Text;
+
+&lt;span class="kwrd"&gt;namespace&lt;/span&gt; Sample.BizTalkCollections
+{
+    [Serializable]
+    &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;class&lt;/span&gt; StringList
+    {
+        &lt;span class="kwrd"&gt;private&lt;/span&gt; List&lt;&lt;span class="kwrd"&gt;string&lt;/span&gt;&gt; _list = &lt;span class="kwrd"&gt;new&lt;/span&gt; List&lt;&lt;span class="kwrd"&gt;string&lt;/span&gt;&gt;();
+
+        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; Add(&lt;span class="kwrd"&gt;string&lt;/span&gt; item)
+        {
+            _list.Add(item);
+        }
+
+        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;int&lt;/span&gt; Count()
+        {
+            &lt;span class="kwrd"&gt;return&lt;/span&gt; _list.Count;
+        }
+
+        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;bool&lt;/span&gt; Remove(&lt;span class="kwrd"&gt;string&lt;/span&gt; item)
+        {
+            &lt;span class="kwrd"&gt;return&lt;/span&gt; _list.Remove(item);
+        }
+
+        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;void&lt;/span&gt; RemoveAt(&lt;span class="kwrd"&gt;int&lt;/span&gt; index)
+        {
+            _list.RemoveAt(index);
+        }
+
+        &lt;span class="kwrd"&gt;public&lt;/span&gt; &lt;span class="kwrd"&gt;override&lt;/span&gt; &lt;span class="kwrd"&gt;string&lt;/span&gt; ToString()
+        {
+            StringBuilder builder = &lt;span class="kwrd"&gt;new&lt;/span&gt; StringBuilder();
+            &lt;span class="kwrd"&gt;foreach&lt;/span&gt; (&lt;span class="kwrd"&gt;string&lt;/span&gt; item &lt;span class="kwrd"&gt;in&lt;/span&gt; _list)
+            {
+                builder.AppendLine(item);
+            }
+
+            &lt;span class="kwrd"&gt;return&lt;/span&gt; builder.ToString();
+        }
+    }
+}
+</code></pre></div></div>
+
+<p>Notice that the class is <a href="http://msdn2.microsoft.com/en-us/library/system.serializableattribute.aspx">serializable</a> so BizTalk can serialize when <a href="http://msdn2.microsoft.com/en-us/library/aa995563.aspx">dehydrating the orchestration</a> to the database. We’ve also chosen not to extend the <a href="http://msdn2.microsoft.com/en-us/library/system.collections.ilist.aspx">IList interface</a> as we don’t want to expose all methods of that interface, but only the once we’ll really going use within our orchestrations.</p>
+
+<p>This <em>StringList</em> class exists within the <em>BizTalkCollections</em> namespace where we have other classes for lists types with different datatypes (for example <em>ObjectList</em>, <em>Int32List</em> and so on). Below is a picture showing the structure of the Visual Studio project containing all the collections we current have implemented. This project and the BizTalk testproject is available for <a href="http://www.richardhallgren.com/blogfiles/Sample.BizTalkCollection.zip">download here</a>.</p>
+
+<p><a href="../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729biztalkcollections23.jpg"><img src="../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729biztalkcollections-thumb23.jpg" alt="" /></a></p>
+
+<p>In the orchestration we then have set up a variable and type this to our <em>StringList</em> class within the <em>Sample.BizTalkCollections</em> namespace.</p>
+
+<p><a href="../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729variable53.jpg"><img src="../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729variable-thumb53.jpg" alt="" /></a></p>
+
+<p>Also make sure the assembly with your collection class is installed in the <a href="http://support.microsoft.com/kb/815808">GAC</a>, otherwise you’ll end up with a _FileNotFound exception _saying</p>
+
+<blockquote>
+  
+&gt; 
+&gt; Could not load file or assembly 'Sample.BizTalkCollections, Version=1.0.0.0, Culture=neutral, PublicKeyToken=7109528d5dbf986b' or one of its dependencies. The system cannot find the file specified.
+&gt; 
+&gt; 
+</blockquote>
+
+<p>Then you can use the following code within your orchestration! <a href="http://www.richardhallgren.com/blogfiles/Sample.BizTalkCollection.zip">Download the sample project</a> and test it.</p>
+
+<p><a href="../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729code212.jpg"><img src="../assets/2007/07/windowslivewriterlistsarraysandcollectionswithinorchestra-b729code2-thumb12.jpg" alt="" /></a></p>
+
+<h2 id="a-really-generic-class">A really generic class</h2>
+
+<p>I’d really like for it be possible to create my own generic classes and then initialize these using something like the below.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>genericList = Sample.BizTalkCollections.GenericList&lt;System.String&gt;();
+</code></pre></div></div>
+
+<p>However this isn’t possible as BizTalk orchestrations don’t seem to understand generic classes … If someone found a solution to this please let me/us know via the comments to this post.</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

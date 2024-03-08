@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Update to BAM Service Generator
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Update to BAM Service Generator</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Jun 03, 2011</div>
+      <div class=" my-12">
+        <p>I have previously <a href="http://www.richardhallgren.com/end-to-end-tracking-using-bam-services-and-the-bam-service-generator-tool/">written</a> about how to generate a types set of WCF services to achieve end-to-end BAM based tracking – making BAM logging possible from outside potential firewalls and/or from non .NET based clients.</p>
+
+<p>In that post I reference a open source tool to generate the services based on the BAM definition files to be able to make types BAM API calls. I called the tool <a href="http://bmsrvgen.codeplex.com/">BAM Service Generator</a> and it’s published on CodePlex.</p>
+
+<p>The first version of the tool only made it possible to make simple activity tracking calls, even missing the option to defining a custom activity id. All advanced scenarios like continuation, activity and data reference or even updating a activity wasn’t possible. That has now been fixed and the second version of the tool enables the following operations.</p>
+
+<ul>
+  <li>
+    <p><strong>LogCompleteActivity</strong>       <br />
+Creates a simple logging line and is the most efficient option if one only want’s to begin, update and and end an activity logging as soon as possible.</p>
+  </li>
+  <li>
+    <p><strong>BeginActivity</strong>       <br />
+Start a new activity with a custom activity id</p>
+  </li>
+  <li>
+    <p><strong>UpdateActivity</strong>       <br />
+Updates a already started activity and accepts a types object as a parameter. The typed object is of course based on what’s has been defined in the BAM definition file. Multiple updates can be made until EndActivity is called.</p>
+  </li>
+  <li>
+    <p><strong>EnableContinuation</strong>       <br />
+Enables continuation. This is used if you have multiple activity loggings that belong together but you can not use the same activity id. This enables you to tie those related activities together using some other set of id (could for example be the invoice id).</p>
+  </li>
+  <li>
+    <p><strong>AddActivivityReference</strong>       <br />
+Add a reference to an another activity and enables you to for example display a link or read that whole activity when reading the main one.</p>
+  </li>
+  <li>
+    <p><strong>AddReference</strong>       <br />
+Adds a custom reference to something that isn’t necessarily an activity. Could for example be a link to a document of some sort. Limited to 1024 characters.</p>
+  </li>
+  <li>
+    <p><strong>AddLongReference</strong>       <br />
+Similar to AddReference but enables to also store a blog of data using the LongRefernceData parameter – limited to 512 KB.</p>
+  </li>
+  <li>
+    <p><strong>EndActivity</strong>       <br />
+Ends a started activity.</p>
+  </li>
+</ul>
+
+<p>Let <a href="mailto:richard.hallgren@gmail.com">me know</a> if you think that something is missing, if something isn’t working as would expect etc.</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

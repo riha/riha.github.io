@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Third party BizTalk monitoring tools
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Third party BizTalk monitoring tools</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Aug 11, 2009</div>
+      <div class=" my-12">
+        <blockquote>
+  <p><strong>Update 2012-03-28</strong>      <br />
+When looking into BizTalk monitoring and overall governance tools for BizTalk, don’t miss <a href="http://www.biztalk360.com/">BizTalk360</a>. BizTalk 360 wasn’t available when this post was written and has some really compelling features.</p>
+
+  <p><strong>Update 2010-09-30:</strong> BizMon is now owned and developed by <a href="http://www.communicate.no">Communicate Norway</a>. They have renamed, and further developed the product, to IPM (Integration Monitoring Platform) – check it out <a href="http://ipm.communicate.no/exciting-news">here</a>.</p>
+</blockquote>
+
+<p>I’ll start this post by clarifying two important things</p>
+
+<ol>
+  <li>
+    <p>I am involved in the development and marketing of “BizMon”. Therefore I am biased and you have to decide for yourself if that affects the content of the post. As always it is best to <a href="http://bizmontool.com/buy">try it for yourself</a> and see if it is useful for you.</p>
+  </li>
+  <li>
+    <p>I have talked about BizTalk monitoring tools in a previous post and my goal then was then to start a an open source project. That did not happened and you can read why in the update to <a href="http://www.richardhallgren.com/aggregated-monitoring-of-biztalk-solutions-using-bizmon/">that post</a>.</p>
+  </li>
+</ol>
+
+<h3 id="why-monitoring-for-biztalk">Why “monitoring” for BizTalk?</h3>
+
+<p><img src="../assets/2009/08/image1.png" alt="image" /> I have worked as a BizTalk developer for many years but it was not until I really got in to maintaining a large integration solution that I realized that the tools I really needed was not there. I found myself using the following “tools” and techniques over and over again.</p>
+
+<ol>
+  <li>Open the BizTalk Administration Console and query for suspended messages, running instances, routing errors etc, etc.</li>
+</ol>
+
+<p>But as I had to pull for this information it took time and discipline (two things I’m short of) to quickly find out when errors occurred.</p>
+
+<ol>
+  <li>I used the HAT to try and find out when the last messages was sent and received on the different applications. This gave me a “guarantee” that things worked as I accepted and that the solution had a “pulse” – messages at least moved back and forward.</li>
+</ol>
+
+<p>The problem is that the HAT tool is bad and it is hard to find what one is looking for (It is a bit better in BizTalk 2009 but it is still tricky to get useful information out of it.)</p>
+
+<ol>
+  <li>Some of the integrations in our environment used BAM to track messages and their state.</li>
+</ol>
+
+<p>The problem was that all solutions was developed by either myself or different consultants. This made it hard to get everyone to use the same tracking. It was also hard to convince management to go back and try and “instrument” old working integrations with BAM tracking.</p>
+
+<p>At the same time as we had the “tools” and techniques mentioned above available, management had the following requirements for us.</p>
+
+<ol>
+  <li>
+    <p>Start working on fixing an error <em>within 10 minutes</em> after it occurred <em>24/7 all 365 days</em> …</p>
+  </li>
+  <li>
+    <p>Be able to delegate simple monitoring task to support personnel (a help desk).</p>
+  </li>
+  <li>
+    <p>Not have to actively “pull” for information but be quickly altered of errors and get the information “pushed” to us.</p>
+  </li>
+</ol>
+
+<p>The idea was that this would would save time as people don’t have to look for errors when everything is working fine. Time that people can use for other tasks …</p>
+
+<ol>
+  <li>Enable reporting so we can provide systems owners and other interested people with information on how much data has been sent received to the systems and parties they care about.</li>
+</ol>
+
+<p>All the above lead up to the realization that we needed some sort of tool.</p>
+
+<h3 id="what-are-the-existing-options-for-biztalk-monitoring-tooling">What are the existing options for BizTalk monitoring tooling?</h3>
+
+<p>At the time we started looking for options all we could find was <a href="http://www.microsoft.com/systemcenter/operationsmanager/en/us/default.aspx">System Center Operations Manager (SCOM)</a>. We looked at <a href="http://msdn.microsoft.com/en-us/library/ee308798%28BTS.10%29.aspx">SCOM BizTalk Management Pack</a> and decided that <em>for us</em> this was not the right solution. It was too big, too complicated and it would be to hard to get it to the what we wanted to do.</p>
+
+<blockquote>  
+&gt; 
+&gt; The decision to not use SCOM I think was right for us. We wanted something leaner and more specialized. I am however **_not saying _**that it is the right decision for you.
+&gt; 
+&gt;    
+&gt; 
+&gt; If you are successfully suing SCOM to monitor BizTalk I would love to [hear about it](mailto:richard.hallgren@gmail.com)!
+&gt; 
+&gt; </blockquote>
+
+<h3 id="what-we-ended-up-with">What we ended up with</h3>
+
+<p>We ended up building <a href="http://bizmontool.com/">BizMon</a>. It does what we need and our help desk can now basically monitor about 100 different BizTalk application themselves. At the same time they do all the other support task they have to do. When something happens (and it does …) they are the first to know. Some easy tasks they can solve themselves, otherwise they make sure to notify the users and quickly call the developer that knows more and can help them.</p>
+
+<p>Support personnel can now also setup custom reports that users can subscribe to, all based on BAM that they now easily can interject tracking points in existing solutions – both new and old ones.</p>
+
+<p>As I said. This worked out out good and helped us. If you think that it could work for you as well – <a href="http://bizmontool.com/buy">give it a try</a>.</p>
+
+<p>I am also really interested to how you have solved similar requirements as we had with your own tool or other solutions.</p>
+
+<h3 id="what-else-is-there">What else is there?</h3>
+
+<p>Recently <a href="http://www.frends.com/">FRENDS</a> released a beta version of their <a href="http://www.frends.com/product/monitoring-technologies/">FRENDS Helium</a> product that looks promising could potentially solve a lot of the same issues that BizMon does and that I have discussed in this post.</p>
+
+<p>Check it out and let us know what you think.</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>

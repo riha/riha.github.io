@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <title>
+    Gobbledygooks
+    
+      &middot; Handle the 'bodyTypeAssemblyQualifiedName' SOAP Adapter bug in MSBuild as a RegEx ninja
+    
+  </title>
+
+  <!-- Sitemap -->
+  <link href="/sitemap.xml" rel="sitemap" title="Sitemap" type="application/xml">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
+</head>
+
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
+
+      <h1>Handle the 'bodyTypeAssemblyQualifiedName' SOAP Adapter bug in MSBuild as a RegEx ninja</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">Nov 12, 2008</div>
+      <div class=" my-12">
+        <p>This is a very specific problem but I’m sure some of you stumbled over it. When disassembling a XML message in a SOAP port BizTalk can’t read the message type. This causes problems when for example trying to handle an envelope message and split it to smaller independent messages in the port. It’s a known problem discussed <a href="http://blogs.msdn.com/richardbpi/archive/2006/09/15/Fixing-_2200_SOAP-_2F00_-Envelope-Schema_2200_-Error-In-BizTalk.aspx">here</a> and <a href="http://www.digitaldeposit.net/saravana/post/2007/08/17/SOAP-Adapter-and-BizTalk-Web-Publishing-Wizard-things-you-need-to-know.aspx">here</a> (you also find information about it in the <a href="http://download.microsoft.com/download/3/7/6/376a6f6c-8c97-4ab5-9d5a-416c76793fbb/bts06developerstroubleshootingguide.doc">BizTalk Developer’s Troubleshooting Guide</a>) and the solution is to make a small change in the generated web service class. Below is a small part of he generated class.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//[cut for clarity] ...
+            Microsoft.BizTalk.WebServices.ServerProxy.ParamInfo[] outParamInfos = null;
+            string bodyTypeAssemblyQualifiedName = "XXX.NO.XI.CustomerPayment.Schemas.r1.CustomerPayments_v01, XXX.NO.XI.CustomerPaym" +
+                "ent.Schemas.r1, Version=1.0.0.0, Culture=neutral, PublicKeyToken=ac564f277cd4488" +
+                "e";
+            // BizTalk invocation
+            this.Invoke("SaveCustomerPayment", invokeParams, inParamInfos, outParamInfos, 0, bodyTypeAssemblyQualifiedName, inHeaders, inoutHeaders, out inoutHeaderResponses, out outHeaderResponses, null, null, null, out unknownHeaderResponses, true, false);
+        }
+    }
+}
+</code></pre></div></div>
+
+<p>Basically the problem is that the generated code puts the wrong _DocumentSpecName _property in the message context. I’ll not dicusses the problem in detail here but Saravana Kumar does thorough dissection of the problem in <a href="http://www.digitaldeposit.net/saravana/post/2007/08/17/SOAP-Adapter-and-BizTalk-Web-Publishing-Wizard-things-you-need-to-know.aspx">his post</a> on it.</p>
+
+<p>The solution is to update the <em>bodyTypeAssemblyQualifiedName</em> to set a null value. That will cause the <em>XmlDiassasemler</em> to work as we’re used to and expect.</p>
+
+<blockquote>
+
+&gt; 
+&gt; If the value _null_ is passed instead of _bodyTypeAssemblyQualifiedName_, SOAP adapter won't add the _DocumentSpecName_ property to the context. Now, when we configure our auto-generated SOAP_ReceiveLocation_ to use _XmlReceive_ pipeline, the _XmlDisassembler_ component inside _XmlReceive_ will go through the process of automatic dynamic schema resolution mechanism, pick up the correct schema and promotes all the required properties (distinguished and promoted) defined in the schema and it also promotes the _MessageType_ property.
+&gt; 
+&gt; 
+
+&gt; 
+&gt; **From:** [http://www.digitaldeposit.net/saravana/post/2007/08/17/SOAP-Adapter-and-BizTalk-Web-Publishing-Wizard-things-you-need-to-know.aspx](http://www.digitaldeposit.net/saravana/post/2007/08/17/SOAP-Adapter-and-BizTalk-Web-Publishing-Wizard-things-you-need-to-know.aspx)
+&gt; 
+&gt; </blockquote>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//[cut for clarity] ...
+            Microsoft.BizTalk.WebServices.ServerProxy.ParamInfo[] outParamInfos = null;
+            string bodyTypeAssemblyQualifiedName = null;
+            // BizTalk invocation
+            this.Invoke("SaveCustomerPayment", invokeParams, inParamInfos, outParamInfos, 0, bodyTypeAssemblyQualifiedName, inHeaders, inoutHeaders, out inoutHeaderResponses, out outHeaderResponses, null, null, null, out unknownHeaderResponses, true, false);
+        }
+    }
+}
+</code></pre></div></div>
+
+<p>But if you have an automated deployment process you probably use <a href="http://geekswithblogs.net/michaelstephenson/archive/2006/09/16/91369.aspx">MSBuild to generate your Web Services</a>. Then is soon becomes <strong>_very _</strong>annoying to remember to update the .cs-file again and again for every deployment. <strong>So how can we script that update?</strong></p>
+
+<p>First we need to find a regular expression to find the right values. With some help from <a href="http://stackoverflow.com/">StackOverflow</a> (let’s face it, there are some <strong><em>crazy</em></strong> regular expressions skills out there …) I ended up on the following.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(?&lt;=string\sbodyTypeAssemblyQualifiedName\s=\s)(?s:[^;]*)(?=;)
+</code></pre></div></div>
+
+<p><img src="../assets/2008/11/windowslivewriterhandlethebodytypeassemblyqualifiednameso-adf4ninja5-thumb.jpg" alt="ninja5" /> If you’re not a RegEx ninja the line above does something like this:</p>
+
+<ol>
+  <li>
+    <p>After the string “string bodyTypeAssemblyQualifiedName = “</p>
+  </li>
+  <li>
+    <p>turn on single line (treat “\r\n” as any other character) ( this is what “(?s: )” does)</p>
+  </li>
+  <li>
+    <p>match every character that is not a semicolon</p>
+  </li>
+  <li>
+    <p>until a single semicolon is reached.</p>
+  </li>
+</ol>
+
+<p>Then I used a task from the <a href="http://www.codeplex.com/sdctasks">SDC Task library</a> (you probably already use this if you’re using MSBuild and BizTalk). More specially we use the <em>File.Replace</em></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;Target Name="FixSOAPServiceCode"&gt;
+    &lt;File.Replace
+            Path="$(WebSiteServicePath)CustomerPaymentService\App_Code\CustomerPaymentService.asmx.cs"
+            Force="true"
+            NewValue="null"
+            RegularExpression="(?&amp;lt;=string\sbodyTypeAssemblyQualifiedName\s=\s)(?s:[^;]*)(?=;)"&gt;
+    &lt;/File.Replace&gt;
+&lt;/Target&gt;
+</code></pre></div></div>
+
+<p>Now this task is part of the build script and called right after the tasks that generates the web service. This saves me a lot of manual work and potential errors!</p>
+
+      </div>
+      <div class="mt-6" />
+<div class="flex items-baseline justify-center gap-4">
+  <a href="https://www.linkedin.com/in/richardhallgren/">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-linkedin"
+    >
+      <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+      <rect width="4" height="12" x="2" y="9" />
+      <circle cx="4" cy="4" r="2" />
+    </svg>
+  </a>
+  <a href="mailto:richard@revision.app">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      class="lucide lucide-mail"
+    >
+      <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+  </a>
+</div>
+
+    </div>
+  </body>
+</html>
