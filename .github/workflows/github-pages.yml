@@ -11,6 +11,8 @@ on:
 jobs:
   github-pages:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
       - uses: ruby/setup-ruby@v1
