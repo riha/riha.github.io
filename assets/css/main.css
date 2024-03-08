@@ -1,0 +1,79 @@
+---
+---
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply font-bold text-lg text-center;
+  }
+
+  h2 {
+    @apply font-semibold text-lg my-4;
+  }
+
+  .post-page a {
+    @apply underline;
+  }
+
+  h3 {
+    @apply font-medium text-base;
+  }
+
+  .post-page h2 {
+    @apply mt-16;
+  }
+
+  .post-page h3 {
+    @apply mt-8;
+  }
+
+  .post-page p {
+    @apply mt-8;
+  }
+
+  /* Special thing for centering images */
+  .post-page p {
+    @apply has-[img]:flex has-[img]:justify-center;
+  }
+
+  .post-page img:not(.profile-image, .no-shadow) {
+    @apply shadow-lg rounded-lg;
+  }
+
+  .post-page figure {
+    @apply my-8;
+  }
+
+  .post-page figcaption {
+    @apply italic text-sm mt-2 text-center;
+  }
+
+  .post-page ol,
+  ul {
+    @apply mt-4 pl-4;
+  }
+
+  .post-page code {
+    @apply bg-bg-dark px-2 py-0.5 rounded text-bg-light text-sm;
+  }
+
+  .post-page ol,
+  ul li {
+    @apply list-disc;
+  }
+
+  .post-page blockquote {
+    @apply rounded mt-8 px-16 py-8 text-center italic text-xl font-sans bg-profile-border/45 shadow;
+  }
+
+  .post-page blockquote p {
+    @apply m-0;
+  }
+
+  .doodles-light {
+    background-image: url(/assets/pattern.svg);
+  }
+}

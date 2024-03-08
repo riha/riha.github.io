@@ -1,51 +1,66 @@
 ---
 layout: default
 ---
+<div class="mt-8">
+  <div class="my-2 text-center text-sm text-text-subtle">THINGS I'VE WORKED ON</div>
 
-<div class="posts">
-    {% for post in paginator.posts %}
-    <div class="post">
-        <h1>
-            <a href="{{ post.url }}">
-                {{ post.title }}
-            </a>
-        </h1>
-        <div class="meta">
-            <span class="fa fa-calendar-o"></span>&nbsp;<span class="post-date">{{ post.date | date_to_string }}</span>
-            <span class="fa fa-comment-o"></span>&nbsp;<span class="post-date"><a href="{{site.url}}{{post.url}}/#disqus_thread">{{site.url}}{{post.url}}/</a></span>
-            <span class="post-twitter">
-                <a href="https://twitter.com/share" data-url="{{site.url}}{{post.url}}" class="twitter-share-button" data-via="riha78">Tweet</a>
-                <script>
-                    !function (d, s, id) {
-                        var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                        if (!d.getElementById(id)) {
-                            js = d.createElement(s);
-                            js.id = id;
-                            js.src = p + '://platform.twitter.com/widgets.js';
-                            fjs.parentNode.insertBefore(js, fjs);
-                        }
-                    }(document, 'script', 'twitter-wjs');
-                </script>
-            </span>
+  <a href="https://revision.app">
+    <div class="bg-white rounded-md shadow mt-4 flex items-center hover:shadow-md min-h-12">
+      <div class="w-16 flex justify-center">
+        <div class="w-8">
+          {% include revision-logo.svg %}
         </div>
-        {{ post.content }}
+      </div>
+      <div class="px-4 py-1">
+        <div class="">Revision</div>
+        <div class="text-sm text-text-subtle">Web App for visualizing your architectures.</div>
+      </div>
     </div>
-    {% endfor %}
-</div>
+  </a>
 
-<!-- Pagination links -->
-<div class="pagination">
-    {% if paginator.next_page %}
-    <a href="/page{{paginator.next_page}}" class="older">Older</a>
-    {% else %}
-    <span class="next">Older</span>
-    {% endif %}
-    {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-    <a href="/" class="newer">Newer</a>
-    {% else %}
-    <a href="/page{{paginator.previous_page}}" class="newer">Newer</a>
-    {% endif %} {% else %}
-    <span class="previous">Newer</span>
-    {% endif %}
+  <a href="https://github.com/riha/BtsWebDoc">
+    <div class="bg-white rounded-md shadow mt-4 flex items-center hover:shadow-md min-h-12">
+      <div class="w-16 flex justify-center">
+        <div class="w-8">
+          {% include github-logo.svg %}
+        </div>
+      </div>
+      <div class="px-4 py-1">
+        <div class="">BtsWebDoc</div>
+        <div class="text-sm text-text-subtle">Generates a static BTS documentaion site.</div>
+      </div>
+    </div>
+  </a>
+
+  <a href="https://github.com/riha/BtsMsiLib">
+    <div class="bg-white rounded-md shadow mt-4 flex items-center hover:shadow-md min-h-12">
+      <div class="w-16 flex justify-center">
+        <div class="w-8">
+          {% include github-logo.svg %}
+        </div>
+      </div>
+
+      <div class="px-4 py-1">
+        <div class="">BtsMSILib</div>
+        <div class="text-sm text-text-subtle">Lib for creating and packing BTS resources into MSI files.</div>
+      </div>
+    </div>
+  </a>
+
+  <div class="mt-8">
+    <div class="my-2 text-center text-sm text-text-subtle">THINGS I WROTE</div>
+
+    {% for post in paginator.posts %}
+      <a href="{{ post.url }}">
+        <div class="bg-white rounded-md shadow mt-4 flex hover:shadow-md">
+          <div class="bg-bg-dark rounded-l-md w-16 text-xs shrink-0 text-text-light text-center py-2 px-2 font-semibold flex items-center">
+            {{ post.date | date: '%d %b %Y' }}
+          </div>
+          <div class="px-4 py-1 flex items-center">
+            {{ post.title }}
+          </div>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
 </div>

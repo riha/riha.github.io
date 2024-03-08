@@ -1,47 +1,27 @@
----
-layout: default
----
+<!doctype html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  {% include head.html %}
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
+    <div class="max-w-[750px]">
+      <div class="">
+        <div class="flex justify-center">
+          <a href="/">
+            <img
+              src="/assets/riha-profile-image.jpeg"
+              class="rounded-full w-32 border-profile-border shadow profile-image"
+            >
+          </a>
+        </div>
+      </div>
+      <div class="my-12"></div>
 
-<div class="post">
-    <h1>{{ page.title }}</h1>
-    <div class="meta">
-        <span class="fa fa-calendar-o"></span>&nbsp;<span class="post-date">{{ page.date | date_to_string }}</span>
-        <span class="fa fa-comment-o"></span>&nbsp;<span class="post-date"><a href="{{site.url}}{{page.url}}/#disqus_thread">{{site.url}}{{page.url}}/</a></span>
-        <span class="post-twitter">
-            <a href="https://twitter.com/share" class="twitter-share-button" data-via="riha78">Tweet</a>
-            <script>
-                !function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                    if (!d.getElementById(id)) {
-                        js = d.createElement(s);
-                        js.id = id;
-                        js.src = p + '://platform.twitter.com/widgets.js';
-                        fjs.parentNode.insertBefore(js, fjs);
-                    }
-                }(document, 'script', 'twitter-wjs');
-            </script>
-        </span>
+      <h1>{{ page.title }}</h1>
+      <div class="my-1"></div>
+      <div class="text-center text-text-subtle text-sm">{{ page.date | date: '%b %d, %Y' }}</div>
+      <div class=" my-12">
+        {{ content }}
+      </div>
+      {% include footer.html %}
     </div>
-    {{ content }}
-</div>
-
-<section id="comment">
-    <h1 class="title">Comments</h1>
-    <div id="disqus">{% include disqus.html %}</div>
-</section>
-
-<div class="related">
-    <h2>Related Posts</h2>
-    <ul class="related-posts">
-        {% for post in site.related_posts limit:3 %}
-        <li>
-            <h3>
-                <a href="{{ post.url }}">
-                    {{ post.title }}
-                    <small>{{ post.date | date_to_string }}</small>
-                </a>
-            </h3>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+  </body>
+</html>

@@ -1,58 +1,24 @@
-<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<!doctype html>
 
-{% include head.html %}
+<html lang="{{ site.lang | default: "en-US" }}">
+  {% include head.html %}
 
-<body>
-    <header class="masthead">
-        <div class="masthead-inner">
-            <a alt="Home" href="/"><img id="title" src="/public/images/title.png" /></a>
-            <p class="lead">{{ site.description }}</p>
-            <p>{{ site.menutext }}</p>
-            <div class="icons">
-                <a href="/feed">
-                    <img src="/public/images/feed.png" title="RSS feed" alt="Feed" />
-                </a>
-                <a href="mailto:richard.hallgren@gmail.com">
-                    <img src="/public/images/@.png" title="Mail to" alt="Mail" />
-                </a>
-                <a href="https://twitter.com/riha78">
-                    <img src="/public/images/twitter.png" title="Twitter page" alt="Twitter" />
-                </a>
-                <a href="https://www.linkedin.com/in/richardhallgren">
-                    <img title="LinkedIn page" src="/public/images/linked-in.png" alt="LinkedIn" />
-                </a>
-            </div>
+  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4">
+    <div class="max-w-[650px] doodles-light">
+      <div class="">
+        <div class="flex justify-center">
+          <img
+            src="/assets/riha-profile-image.jpeg"
+            class="rounded-full w-32 border-profile-border shadow profile-image"
+          >
         </div>
-    </header>
-    <div class="content container">{{ content }}</div>
-    <script type="text/javascript">
-        var disqus_shortname = '{{ site.disqus_short_name }}';
-
-        (function () {
-            var s = document.createElement('script');
-            s.async = true;
-            s.type = 'text/javascript';
-            s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-        }());
-
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                (i[r].q = i[r].q || []).push(arguments)
-            }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-              m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-10024473-4', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script src="//my.hellobar.com/33277f2a36220c0a63eec8942913342343ce42ab.js" type="text/javascript" charset="utf-8" async="async"></script>
-</body>
-
+        <div class="mt-4" />
+        <div class="flex justify-center ">RICHARD HALLGREN</div>
+        <div class="my-2" />
+        <div class="flex justify-center items-center text-text-subtle text-sm">Developer</div>
+      </div>
+      {{ content }}
+      {% include footer.html %}
+    </div>
+  </body>
 </html>

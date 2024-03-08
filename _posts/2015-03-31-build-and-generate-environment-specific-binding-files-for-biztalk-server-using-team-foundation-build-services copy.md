@@ -2,6 +2,7 @@
 date: 2015-03-31 12:00:0+01:00
 layout: post
 title: "Build and generate environment specific binding files for BizTalk Server using Team Foundation Build Services"
+categories: biztalk
 ---
 As most know a BizTalk Solution has two major parts – its resources in form of dlls, and its configuration in form of bindings. 
 In an [previous post](http://richardhallgren.com/build-and-generate-msi-for-biztalk-server-using-team-foundation-build-services/) 
@@ -10,7 +11,7 @@ So let’s see how we can build environment specific binding files using TFS Bui
 
 ![Workflow](https://www.dropbox.com/s/3c4hz5v643v1p4z/5.png?raw=1)
 
-##Creating a simple binding example for development and test environment
+## Creating a simple binding example for development and test environment
 
 Let’s start with a simple example of a simple binding with a receive port, receive location and a 
 send port for two different environments - one called "Test" and one "Production".
@@ -43,12 +44,12 @@ send port for two different environments - one called "Test" and one "Production
 </table>
 As one can see there's a small difference between the send ports destinations paths in Test and Production.
 
-##Exporting a binding template
+## Exporting a binding template
 Next we'll create a binding template. The binding template will hold all information that is shared between the different environments. 
 This is achieved this by an ordinary export of the application binding from the BizTalk Administration Console - as you’ve probably done many times before.
 <script src="https://gist.github.com/riha/72a597136892e428cf92.js"></script>
  
-##Creating environment specific bindings using web.config Transformation Syntax
+## Creating environment specific bindings using web.config Transformation Syntax
 The [Web.config Transformation Syntax](https://msdn.microsoft.com/en-us/library/dd465326.aspx) is feature that showed up in Visual Studio 2010 and 
 is often used to transform app.config and web.config files between different versions and environments – but it will of course work on any type 
 of configuration file. Including BizTalk binding files!
@@ -62,7 +63,7 @@ Below is the Test environment specific file matching the send port and replacing
 The Production specific file also matches the send port but with a different value for the Destination path.
 <script src="https://gist.github.com/riha/bf86d3de83f48b910809.js"></script>
 
-##Using MSBuild to execute the transformation
+## Using MSBuild to execute the transformation
 As part of the Visual Studio installation an MSBuild target is installed for executing the transform. 
 The target is installed into the standard [MSBuild Extensions Path](https://msdn.microsoft.com/en-us/library/ms164309.aspx) 
 which usally mean something lilke `C:\Program Files (x86)\MSBuild\Microsoft\VisualStudio\v10.0\Web\Microsoft.Web.Publishing.targets` 
@@ -78,7 +79,7 @@ Voila! MSBuild has performed our transformation and created two complete environ
 
 ![Two specific binding files](https://www.dropbox.com/s/i0lt7i3lu54uih5/2.png?raw=1)
 
-##Generating the file using TFS Build Services
+## Generating the file using TFS Build Services
 Start by setting up a TFS build definition as described in previous post on 
 [Generating BizTalk MSI using TFS Build Services](http://richardhallgren.com/build-and-generate-msi-for-biztalk-server-using-team-foundation-build-services/).
 
