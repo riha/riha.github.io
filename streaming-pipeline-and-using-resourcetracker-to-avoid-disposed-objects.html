@@ -20,8 +20,8 @@
   <link rel="alternate" type="application/atom+xml" title="riha feed" href="http://richardhallgren.com/feed">
 </head>
 
-  <body class="bg-bg-yellow flex justify-center font-mono py-4 px-4 post-page">
-    <div class="max-w-[750px]">
+  <body class="bg-bg-yellow max-w-[650px]  font-mono  post-page px-4 py-4 " style="margin: 0 auto;" >
+    <div class=" ">
       <div class="">
         <div class="flex justify-center">
           <a href="/">
@@ -37,7 +37,7 @@
       <h1>Streaming pipeline and using context ResourceTracker to avoid disposed streams</h1>
       <div class="my-1"></div>
       <div class="text-center text-text-subtle text-sm">Feb 22, 2010</div>
-      <div class=" my-12">
+      
         <p>Recently there’s been a few really good resources on streaming pipeline handling published. You can find some of the <a href="http://msdn.microsoft.com/en-us/library/ee377071(BTS.10).aspx">here</a> and <a href="http://msdn.microsoft.com/en-us/library/ff384124(BTS.10).aspx">here</a>.</p>
 
 <p>The <a href="http://msdn.microsoft.com/en-us/library/ee377071(BTS.10,classic).aspx">Optimizing Pipeline Performance</a> MSDN article has two great examples of how to use some of the <a href="http://technet.microsoft.com/en-us/library/microsoft.biztalk.streaming(BTS.20).aspx">Microsoft.BizTalk.Streaming.dl</a> classes. The execute method of first example looks something like below.</p>
@@ -110,7 +110,7 @@
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>context.ResourceTracker.AddResource(xmlTextReader);
 </code></pre></div></div>
 
-      </div>
+      
       <div class="mt-6" />
 <div class="flex items-baseline justify-center gap-4">
   <a href="https://www.linkedin.com/in/richardhallgren/">
