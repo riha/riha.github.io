@@ -33,7 +33,7 @@ Use a dead simple notation that everybody can write and read.
 
 Besides a simple notation, the [C4 model](https://c4model.com) describes a few different diagrams with increasing levels of detail. Using different levels makes it possible to drill down from an overview into more detailed diagrams. Similar to zooming in and out of a digital map.
 
-> Utilizing the levels and the simple notation in the C4 model, diagrams can have *information useful for non-technical business users and describe large parts of architecture without cluttering them down with too many details*.
+> Utilizing the levels and the simple notation in the C4 model, diagrams can have *information useful for non-technical business users and *describe large parts of architecture without cluttering them down with too many details*.
 
 ## The C4 levels in an integration context
 
@@ -46,7 +46,7 @@ Let's look at the three levels that make up good integration documentation.
 
 ### Level 1 (Context) - The Overall picture
 
-For quickly understanding an integration architecture the most important part of documentation is the high-level documentation. It shows all the systems and the data-flows between them. Not the nitty-gritty details, just what systems are involved and what data is transferer between them.
+For quickly understanding an integration architecture the most important part of documentation is the high-level documentation. It shows all the systems and the data-flows between them. Not the nitty-gritty details, just what systems are involved and what data is transferred between them.
 
 In smaller architectures, it's possible to describe all systems and data-flows in a single level 1 diagram. In large ones, we need to choose a context to avoid too large and hard-to-read diagrams. In this example, the context is the `e-Commerce` part of the architecture.
 
@@ -61,7 +61,7 @@ This part of the documentation is _important_. This is information that often is
 
 This is also the part of the documentation that business users will understand. As we all know, getting the business users involved is critical for making the right decisions and in the end creating solutions that actually help the business in the right way.
 
-Even though most people would agree that the overall picture is important to have documented, I've found that this is the part most developers tend to skip. 
+Even though most people would agree that the overall picture is important to have documented, I've found that this is the part most developers tend to skip.
 
 ### Level 2 (Container) - The Integration Processes
 
@@ -84,7 +84,7 @@ It's important to try and keep purely technical details out of this diagram and 
 
 Example of information we might include on level 2;
 
-- how often do we read and write data
+- what's triggering the transfer
 - duplication checks
 - conversions
 - transformations of data, and so on
