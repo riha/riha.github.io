@@ -25,15 +25,15 @@ As developers, we're good at documenting all the little technical details in our
 
 ### 3. Make it readable for everyone.
 
-UML and complex notations are great - if you understand them fully. The [C4 model](https://c4model.com) formalized the idea of a much simpler notion, based on boxes and arrows - easier to understand and work with.
+UML and complex notations are great - if you understand them fully. The [C4 model](https://c4model.com) formalized the idea of a much simpler notation, based on boxes and arrows - easier to understand and work with.
 
-Use a dead simple notion that everybody can write and read.
+Use a dead simple notation that everybody can write and read.
 
 ### 4. Make it useful for everyone.
 
 Besides a simple notation, the [C4 model](https://c4model.com) describes a few different diagrams with increasing levels of detail. Using different levels makes it possible to drill down from an overview into more detailed diagrams. Similar to zooming in and out of a digital map.
 
-Utilizing C4 model levels diagrams can have information useful for non-technical business users, at the same time as they can describe large parts of architecture without cluttering them down with too many details.
+> Utilizing the levels and the simple notation in the C4 model, diagrams can have information useful for non-technical business users and describe large parts of architecture _without_ cluttering them down with too many details.
 
 ## The C4 levels in an integration context
 
@@ -44,11 +44,11 @@ Let's look at the three levels that make up good integration documentation.
   <figcaption>C4 model diagrams on levels with increasing detail.</figcaption>
 </figure>
 
-### Level 1 (Context) - The Overall Picture
+### Level 1 (Context) - The Overall picture
 
 For quickly understanding an integration architecture the most important part of documentation is the high-level documentation. It shows all the systems and the data-flows between them. Not the nitty-gritty details, just what systems are involved and what data is transferer between them.
 
-In smaller architectures, it's possible to describe all systems and data-flows in a single level 1 diagram. In large ones, we need to choose a context to avoid too large and hard-to-read diagrams. In this example, the context is the e-Commerce part of the architecture.
+In smaller architectures, it's possible to describe all systems and data-flows in a single level 1 diagram. In large ones, we need to choose a context to avoid too large and hard-to-read diagrams. In this example, the context is the `e-Commerce` part of the architecture.
 
 <figure>
   <img src="../assets/revision-level-1.png" alt="Image description">
@@ -63,13 +63,15 @@ This is also the part of the documentation that business users will understand. 
 
 Even though most people would agree that the overall picture is important to have documented, I've found that this is the part most developers tend to skip. 
 
-### Level 2 - The Integration Processes
+### Level 2 (Container) - The Integration Processes
 
 It's hard to define an integration. In the overall picture product data are moved between several systems. Is the integration the part that moves the products between `InRiver PIM` and `Dynamics 365 PO`? Or is the integration the overall process that makes sure the products end up in all the destination systems?
 
 Leaving that discussion aside we can agree that the purpose of an integration is to support some sort of business process. In this case, the handling of product master data.
 
 Documenting how we support a business process is the second level of diagrams.
+
+The difference between this and the level 1 diagram is that we'll zoom in to a specific area and that we'll here include more details - things that we didn't want to include in the overall picture to keep it easy to understand. In the example, we're showing that product master data actually is distributed using a product service. We're also including other details we didn't show in the level 1 diagram.
 
 <figure>
   <img src="../assets/revision-level-2.png" alt="">
@@ -78,20 +80,18 @@ Documenting how we support a business process is the second level of diagrams.
 
 Again this is information that is hard to get from reading code and configuration and that is important for getting the business users to understand what we're actually building.
 
-The difference between this and the level 1 diagram is that we'll zoom in to a specific area and that we'll here include more details - things that we didn't want to include in the overall picture to keep it easy to understand.
+It's important to try and keep purely technical details out of this diagram and try and focus on more business rules like information. Information that is useful for a business user.
 
-Here we can include business rules we implemented such as;
+Example of information we might include on level 2;
 
 - how often do we read and write data
 - duplication checks
 - conversions
 - transformations of data, and so on
 
-It's important to try and keep purely technical details out of this diagram and try and focus on more business rules like information. Information that is useful for a business user.
-
 ### Level 3 - The Integration Details
 
-This is probably the diagram that needs the least explanation. This is the part I often find well done and maintained. Here we document all the technical components and implementation details.
+This is probably the diagram that needs the least explanation. This is the part I often find well documented and maintained. Here we document all the technical components and implementation details.
 
 This is however also the part that doesn't always require that much documentation. Much of the details at this level can easily be found in code and configuration and it's easy to spend time documenting things that in the end developers will look up code and configuration instead. 
 
