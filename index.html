@@ -1,48 +1,57 @@
 ---
 layout: default
 ---
+
 <div class="mt-8">
-  <div class="my-2 text-center text-sm text-text-subtle">THINGS I'VE WORKED ON</div>
+  <div class="my-2 text-center text-sm text-text-subtle">
+    THINGS I'VE WORKED ON
+  </div>
 
   <a href="https://revision.app">
-    <div class="bg-white rounded-md shadow mt-4 flex items-center hover:shadow-md min-h-12">
+    <div
+      class="bg-white rounded-md shadow mt-4 flex items-center hover:shadow-md min-h-12"
+    >
       <div class="w-16 flex justify-center">
-        <div class="w-8">
-          {% include revision-logo.svg %}
-        </div>
+        <div class="w-8">{% include revision-logo.svg %}</div>
       </div>
       <div class="px-4 py-1">
         <div class="">Revision</div>
-        <div class="text-sm text-text-subtle">Web App for visualizing your architectures.</div>
+        <div class="text-sm text-text-subtle">
+          Web App for visualizing your architectures.
+        </div>
       </div>
     </div>
   </a>
 
   <a href="https://github.com/riha/BtsWebDoc">
-    <div class="bg-white rounded-md shadow mt-4 flex items-center hover:shadow-md min-h-12">
+    <div
+      class="bg-white rounded-md shadow mt-4 flex items-center hover:shadow-md min-h-12"
+    >
       <div class="w-16 flex justify-center">
-        <div class="w-8">
-          {% include github-logo.svg %}
-        </div>
+        <div class="w-8">{% include github-logo.svg %}</div>
       </div>
       <div class="px-4 py-1">
         <div class="">BtsWebDoc</div>
-        <div class="text-sm text-text-subtle">Generates a static BTS documentaion site.</div>
+        <div class="text-sm text-text-subtle">
+          Generates a static BTS documentaion site.
+        </div>
       </div>
     </div>
   </a>
 
   <a href="https://github.com/riha/BtsMsiLib">
-    <div class="bg-white rounded-md shadow mt-4 flex items-center hover:shadow-md min-h-12">
+    <div
+      class="bg-white rounded-md shadow mt-4 flex items-center hover:shadow-md min-h-12"
+    >
       <div class="w-16 flex justify-center">
-        <div class="w-8">
-          {% include github-logo.svg %}
-        </div>
+        <div class="w-8">{% include github-logo.svg %}</div>
       </div>
 
       <div class="px-4 py-1">
         <div class="">BtsMSILib</div>
-        <div class="text-sm text-text-subtle">Lib for creating and packing BTS resources into MSI files.</div>
+        <div class="text-sm text-text-subtle">
+          Lib for creating and packing BTS resources into MSI files.
+        </div>
       </div>
     </div>
   </a>
@@ -51,16 +60,16 @@ layout: default
     <div class="my-2 text-center text-sm text-text-subtle">THINGS I WROTE</div>
 
     {% for post in paginator.posts %}
-      <a href="{{ post.url }}">
-        <div class="bg-white rounded-md shadow mt-4 flex hover:shadow-md">
-          <div class="bg-bg-dark rounded-l-md w-16 text-xs shrink-0 text-text-light text-center py-2 px-2 font-semibold flex items-center">
-            {{ post.date | date: '%d %b %Y' }}
-          </div>
-          <div class="px-4 py-1 flex items-center">
-            {{ post.title }}
-          </div>
+    <a href="{{ post.url }}">
+      <div class="bg-white rounded-md shadow mt-4 flex hover:shadow-md">
+        <div
+          class="bg-bg-dark rounded-l-md w-16 text-xs shrink-0 text-text-light text-center py-2 px-2 font-semibold flex items-center"
+        >
+          {{ post.date | date: '%d %b %Y' }}
         </div>
-      </a>
+        <div class="px-4 py-1 flex items-center">{{ post.title }}</div>
+      </div>
+    </a>
     {% endfor %}
   </div>
 </div>
