@@ -51,6 +51,10 @@
     @apply italic text-sm mt-2 text-center;
   }
 
+  .post-page em {
+    @apply font-semibold;
+  }
+
   .post-page ol,
   ul {
     @apply mt-4 pl-4;
@@ -66,7 +70,7 @@
   }
 
   .post-page blockquote {
-    @apply mt-8 px-16 py-4 text-center  text-xl font-sans;
+    @apply mt-8 px-16 py-4 text-center italic;
   }
 
   .post-page blockquote p {

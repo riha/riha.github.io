@@ -33,7 +33,7 @@ Use a dead simple notation that everybody can write and read.
 
 Besides a simple notation, the [C4 model](https://c4model.com) describes a few different diagrams with increasing levels of detail. Using different levels makes it possible to drill down from an overview into more detailed diagrams. Similar to zooming in and out of a digital map.
 
-> Utilizing the levels and the simple notation in the C4 model, diagrams can have information useful for non-technical business users and describe large parts of architecture _without_ cluttering them down with too many details.
+> Utilizing the levels and the simple notation in the C4 model, diagrams can have *information useful for non-technical business users and describe large parts of architecture without cluttering them down with too many details*.
 
 ## The C4 levels in an integration context
 
@@ -91,7 +91,7 @@ Example of information we might include on level 2;
 
 ### Level 3 - The Integration Details
 
-This is probably the diagram that needs the least explanation. This is the part I often find well documented and maintained. Here we document all the technical components and implementation details.
+This is probably the diagram that needs the least explanation. This is the part I often find well-documented and maintained. Here we document all the technical components and implementation details.
 
 This is however also the part that doesn't always require that much documentation. Much of the details at this level can easily be found in code and configuration and it's easy to spend time documenting things that in the end developers will look up code and configuration instead. 
 
