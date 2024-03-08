@@ -61,7 +61,7 @@
   }
 
   .post-page code {
-    @apply bg-bg-dark px-2 py-0.5 rounded text-bg-light text-sm;
+    @apply bg-bg-dark px-2 py-0.5 whitespace-nowrap rounded text-bg-light text-sm;
   }
 
   .post-page ol,
