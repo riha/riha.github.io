@@ -6,7 +6,7 @@ title: "How to document an integration architecture"
 
 One could argue that creating good documentation for an integration solution is harder than with other types of software projects. The reason is that integration solutions almost always span over many systems and services and that we often talk about _hundreds_ of integrations, touching almost every part of your architecture.
 
-Keeping track of such a complex system is littery _impossible_ without the right documentation. 🤯
+Keeping track of such a complex system is literally _impossible_ without the right documentation. 🤯
 
 <figure>
   <img src="../assets/massive-interconnect.jpg" alt="">
@@ -21,7 +21,7 @@ Textual documentation has its place and is important. But when it comes to tryin
 
 ### 2. Focus on the high-level diagrams.
 
-As developers, we're good at documenting all the little technical details in our solutions. But many times we document things that we as developers then end up looking up in the live code and configurations. Focus on high-level documentation, the overall picture and how the different parts of your solutions relate to each other.
+As developers, we're good at documenting all the little technical details in our solutions. But we often document things we end up looking up in the live code and configurations. Focus on high-level documentation, the overall picture, and how the different parts of your solutions relate to each other.
 
 ### 3. Make it readable for everyone.
 
@@ -33,7 +33,7 @@ Use a dead simple notation that everybody can write and read.
 
 Besides a simple notation, the [C4 model](https://c4model.com) describes a few different diagrams with increasing levels of detail. Using different levels makes it possible to drill down from an overview into more detailed diagrams. Similar to zooming in and out of a digital map.
 
-> Utilizing the levels and the simple notation in the C4 model, diagrams can have *information useful for non-technical business users and *describe large parts of architecture without cluttering them down with too many details*.
+> Utilizing the levels and the simple notation in the C4 model, diagrams can have *information useful for non-technical business users and describe large parts of architecture without cluttering them down with too many details*.
 
 ## The C4 levels in an integration context
 
