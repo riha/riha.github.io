@@ -33,7 +33,7 @@ Use a dead simple notation that everybody can write and read.
 
 Besides a simple notation, the [C4 model](https://c4model.com) describes a few different diagrams with increasing levels of detail. Using different levels makes it possible to drill down from an overview into more detailed diagrams. Similar to zooming in and out of a digital map.
 
-> Utilizing the levels and the simple notation in the C4 model, diagrams can have *information useful for non-technical business users and describe large parts of architecture without cluttering them down with too many details*.
+> Utilizing the levels and the simple notation in the C4 model, diagrams can have information useful for non-technical business users and describe large parts of architecture, without cluttering them down with too many details.
 
 ## The C4 levels in an integration context
 
