@@ -9,7 +9,7 @@ One could argue that creating good documentation for an integration solution is 
 Keeping track of such a complex system is literally _impossible_ without the right documentation. 🤯
 
 <figure>
-  <img src="../assets/massive-interconnect.jpg" alt="">
+  <img src="../assets/massive-interconnect.jpg" alt="Interconnected systems">
   <figcaption>An example of bad documentation ...</figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ Besides a simple notation, the [C4 model](https://c4model.com) describes a few d
 Let's look at the three levels that make up good integration documentation.
 
 <figure >
-  <img src="../assets/levels.png" alt="">
+  <img src="../assets/levels.png" alt="The levels of the c4-model">
   <figcaption>C4 model diagrams levels with increasing detail.</figcaption>
 </figure>
 
@@ -51,7 +51,7 @@ For quickly understanding an integration architecture the most important part of
 In smaller architectures, it's possible to describe all systems and data-flows in a single level 1 diagram. In large ones, we need to choose a context to avoid too large and hard-to-read diagrams. In this example, the context is the `e-Commerce` part of the architecture.
 
 <figure>
-  <img src="../assets/revision-level-1.png" alt="Image description">
+  <img src="../assets/revision-level-1.png" alt="Revision system architecture diagram at level 1">
   <figcaption>Level 1, Overall picture example - <a href="https://my.revision.app/diagram/6idZKQTeD8C9">https://my.revision.app/diagram/6idZKQTeD8C9</a>.</figcaption>
 </figure>
 
@@ -74,7 +74,7 @@ Documenting how we support a business process is the second level of diagrams.
 The difference between this and the level 1 diagram is that we'll zoom in to a specific area and that we'll here include more details - things that we didn't want to include in the overall picture to keep it easy to understand. In the example, we're showing that product master data actually is distributed using a product service. We're also including other details we didn't show in the level 1 diagram.
 
 <figure>
-  <img src="../assets/revision-level-2.png" alt="">
+  <img src="../assets/revision-level-2.png" alt="Revision system architecture diagram at level 2">
   <figcaption>Level 2, Integration Process example - <a href="https://my.revision.app/diagram/bwoG8AXEhhxD">https://my.revision.app/diagram/bwoG8AXEhhxD</a>. Shows how product master data flows between systems. </figcaption>
 </figure>
 
@@ -96,7 +96,7 @@ This is probably the diagram that needs the least explanation. This is the part 
 This is however also the part that doesn't always require that much documentation. Much of the details at this level can easily be found in code and configuration and it's easy to spend time documenting things that in the end developers will look up code and configuration instead. 
 
 <figure>
-  <img src="../assets/revision-level-3.png" alt="">
+  <img src="../assets/revision-level-3.png" alt="Revision system architecture diagram at level 3">
   <figcaption>Level 3, Integration Details example - <a href="https://my.revision.app/diagram/RmXsxDtuAEHy">https://my.revision.app/diagram/RmXsxDtuAEHy</a>. Shows a detailed view of how product master data in moved between one system to another.</figcaption>
 </figure>
 
