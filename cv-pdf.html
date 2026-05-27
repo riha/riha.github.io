@@ -13,7 +13,7 @@ permalink: /cv/pdf/
     <style>
       @page {
         size: A4;
-        margin: 14mm;
+        margin: 12mm;
       }
 
       * {
@@ -23,8 +23,8 @@ permalink: /cv/pdf/
       body {
         color: #1f2937;
         font-family: Helvetica, Arial, sans-serif;
-        font-size: 10px;
-        line-height: 1.42;
+        font-size: 10.5px;
+        line-height: 1.4;
         margin: 0;
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
@@ -43,50 +43,48 @@ permalink: /cv/pdf/
       }
 
       h1 {
-        font-size: 25px;
-        line-height: 1.15;
+        font-size: 24px;
+        line-height: 1.1;
       }
 
       h2 {
         border-bottom: 1px solid #d1d5db;
         color: #6b7280;
-        font-size: 10px;
+        font-size: 10.5px;
         font-weight: 600;
         letter-spacing: 0.04em;
-        margin: 17px 0 8px;
+        margin: 14px 0 8px;
         padding-bottom: 4px;
         text-transform: uppercase;
       }
 
       h3 {
-        font-size: 11.5px;
+        font-weight: 600;
+        font-size: 10.5px;
+        line-height: 1.3;
       }
 
-      .eyebrow {
+      .contact {
         color: #6b7280;
-        font-size: 10px;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        margin-bottom: 4px;
-        text-transform: uppercase;
+        font-size: 10.5px;
+        margin-top: 4px;
       }
 
       .summary {
         color: #4b5563;
-        font-size: 11px;
-        margin-top: 6px;
+        margin-top: 8px;
         max-width: 150mm;
       }
 
       .grid {
         display: grid;
-        gap: 8px;
+        gap: 8px 14px;
         grid-template-columns: 1fr 1fr;
       }
 
       .item {
         break-inside: avoid;
-        margin-top: 8px;
+        margin-top: 7px;
       }
 
       .meta {
@@ -95,16 +93,16 @@ permalink: /cv/pdf/
       }
 
       .description {
-        margin-top: 4px;
+        margin-top: 3px;
       }
 
       .project {
         align-items: flex-start;
         break-inside: avoid;
         display: grid;
-        gap: 10px;
+        gap: 9px;
         grid-template-columns: 28mm 1fr;
-        margin-top: 9px;
+        margin-top: 8px;
       }
 
       .logo {
@@ -120,17 +118,13 @@ permalink: /cv/pdf/
         max-width: 24mm;
       }
 
-      .certifications h3 {
-        font-size: 10px;
-      }
-
       .certification {
         align-items: center;
         break-inside: avoid;
         display: grid;
         gap: 7px;
         grid-template-columns: 13mm 1fr;
-        margin-top: 8px;
+        margin-top: 7px;
       }
 
       .certification-logo {
@@ -148,8 +142,8 @@ permalink: /cv/pdf/
   </head>
   <body>
     <header>
-      <div class="eyebrow">CV</div>
       <h1>{{ cv.name }}</h1>
+      <p class="contact">{{ cv.contact.email }} · {{ cv.contact.phone }}</p>
       <p class="summary">{{ cv.summary }}</p>
     </header>
 
