@@ -80,6 +80,11 @@
 
 @layer components {
   .cv-download-button {
-    @apply absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md text-text-subtle transition hover:bg-bg-yellow hover:text-text focus:outline-none focus:ring-2 focus:ring-bg-dark focus:ring-offset-2;
+    @apply absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md border bg-bg-yellow text-text-subtle shadow-sm transition hover:bg-white hover:text-text hover:shadow-md focus:outline-none focus:ring-2 focus:ring-bg-dark focus:ring-offset-2;
+    border-color: rgb(107 114 128 / 0.25);
+  }
+
+  .cv-download-button:hover {
+    border-color: rgb(107 114 128 / 0.45);
   }
 }
