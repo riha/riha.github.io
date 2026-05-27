@@ -3,7 +3,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/how-to-document-an-integration-architecture</loc>
+      <loc>https://richardhallgren.com/how-to-document-an-integration-architecture</loc>
       
         <lastmod>2024-03-08T09:00:00+00:00</lastmod>
       
@@ -18,7 +18,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/build-and-generate-environment-specific-binding-files-for-biztalk-server-using-team-foundation-build-services-copy</loc>
+      <loc>https://richardhallgren.com/build-and-generate-environment-specific-binding-files-for-biztalk-server-using-team-foundation-build-services-copy</loc>
       
         <lastmod>2015-03-31T11:00:00+00:00</lastmod>
       
@@ -33,7 +33,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/build-and-generate-msi-for-biztalk-server-using-team-foundation-build-services</loc>
+      <loc>https://richardhallgren.com/build-and-generate-msi-for-biztalk-server-using-team-foundation-build-services</loc>
       
         <lastmod>2015-02-26T11:00:00+00:00</lastmod>
       
@@ -48,7 +48,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/calling-an-on-premise-microsoft-dynamics-crm-using-biztalk-and-active-directory-federated-security-(ADFS)</loc>
+      <loc>https://richardhallgren.com/calling-an-on-premise-microsoft-dynamics-crm-using-biztalk-and-active-directory-federated-security-(ADFS)</loc>
       
         <lastmod>2014-10-17T11:00:00+00:00</lastmod>
       
@@ -63,7 +63,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/getting-digital-certificates-right-in-biztalk-using-a-third-party-root-certificate-and-wcf-basichttp</loc>
+      <loc>https://richardhallgren.com/getting-digital-certificates-right-in-biztalk-using-a-third-party-root-certificate-and-wcf-basichttp</loc>
       
         <lastmod>2014-08-28T22:00:00+00:00</lastmod>
       
@@ -78,7 +78,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/why-full-nuget-support-for-biztalk-projects-is-important</loc>
+      <loc>https://richardhallgren.com/why-full-nuget-support-for-biztalk-projects-is-important</loc>
       
         <lastmod>2014-06-03T09:33:09+00:00</lastmod>
       
@@ -93,7 +93,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/presenting-on-application-lifecycle-management-and-biztalk-again</loc>
+      <loc>https://richardhallgren.com/presenting-on-application-lifecycle-management-and-biztalk-again</loc>
       
         <lastmod>2014-02-22T14:13:29+00:00</lastmod>
       
@@ -108,7 +108,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/export-biztalk-server-msi-packages-directly-from-visual-studio-using-btsmsitask</loc>
+      <loc>https://richardhallgren.com/export-biztalk-server-msi-packages-directly-from-visual-studio-using-btsmsitask</loc>
       
         <lastmod>2014-01-14T10:42:25+00:00</lastmod>
       
@@ -123,7 +123,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/presenting-on-efficient-system-integration-documentation-at-biztalk-user-group-sweden</loc>
+      <loc>https://richardhallgren.com/presenting-on-efficient-system-integration-documentation-at-biztalk-user-group-sweden</loc>
       
         <lastmod>2012-10-14T20:02:45+00:00</lastmod>
       
@@ -138,7 +138,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/reborn-as-biztalk-web-documenter</loc>
+      <loc>https://richardhallgren.com/reborn-as-biztalk-web-documenter</loc>
       
         <lastmod>2012-09-30T20:27:40+00:00</lastmod>
       
@@ -153,7 +153,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/using-biztalk-config-explorer-as-a-new-way-of-documenting-your-biztalk-solutions</loc>
+      <loc>https://richardhallgren.com/using-biztalk-config-explorer-as-a-new-way-of-documenting-your-biztalk-solutions</loc>
       
         <lastmod>2011-09-02T11:01:22+00:00</lastmod>
       
@@ -168,7 +168,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/update-to-bam-service-generator</loc>
+      <loc>https://richardhallgren.com/update-to-bam-service-generator</loc>
       
         <lastmod>2011-06-03T05:58:29+00:00</lastmod>
       
@@ -183,7 +183,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/end-to-end-tracking-using-bam-services-and-the-bam-service-generator-tool</loc>
+      <loc>https://richardhallgren.com/end-to-end-tracking-using-bam-services-and-the-bam-service-generator-tool</loc>
       
         <lastmod>2011-01-18T14:48:36+00:00</lastmod>
       
@@ -198,7 +198,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/promote-properties-in-a-edi-schema-using-the-edi-disassembler</loc>
+      <loc>https://richardhallgren.com/promote-properties-in-a-edi-schema-using-the-edi-disassembler</loc>
       
         <lastmod>2010-04-23T07:08:46+00:00</lastmod>
       
@@ -213,7 +213,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/use-code-blocks-to-extend-your-biztalk-custom-xslt-maps</loc>
+      <loc>https://richardhallgren.com/use-code-blocks-to-extend-your-biztalk-custom-xslt-maps</loc>
       
         <lastmod>2010-04-12T07:38:47+00:00</lastmod>
       
@@ -228,7 +228,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/is-there-a-bug-in-biztalk-2006-r2-sp1</loc>
+      <loc>https://richardhallgren.com/is-there-a-bug-in-biztalk-2006-r2-sp1</loc>
       
         <lastmod>2010-03-17T11:14:25+00:00</lastmod>
       
@@ -243,7 +243,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/using-xslt-1-0-to-summarize-a-node-set-with-comma-separated-values</loc>
+      <loc>https://richardhallgren.com/using-xslt-1-0-to-summarize-a-node-set-with-comma-separated-values</loc>
       
         <lastmod>2010-02-26T09:31:50+00:00</lastmod>
       
@@ -258,7 +258,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/streaming-pipeline-and-using-resourcetracker-to-avoid-disposed-objects</loc>
+      <loc>https://richardhallgren.com/streaming-pipeline-and-using-resourcetracker-to-avoid-disposed-objects</loc>
       
         <lastmod>2010-02-22T08:50:16+00:00</lastmod>
       
@@ -273,7 +273,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/checking-if-biztalk-binding-file-is-up-to-date-during-deployment</loc>
+      <loc>https://richardhallgren.com/checking-if-biztalk-binding-file-is-up-to-date-during-deployment</loc>
       
         <lastmod>2009-12-11T10:19:52+00:00</lastmod>
       
@@ -288,7 +288,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/bam-tracking-data-not-moved-to-bam-archive-database</loc>
+      <loc>https://richardhallgren.com/bam-tracking-data-not-moved-to-bam-archive-database</loc>
       
         <lastmod>2009-11-13T15:31:20+00:00</lastmod>
       
@@ -303,7 +303,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/what-kind-of-integration-patters-do-you-implement-in-biztalk</loc>
+      <loc>https://richardhallgren.com/what-kind-of-integration-patters-do-you-implement-in-biztalk</loc>
       
         <lastmod>2009-11-10T19:41:58+00:00</lastmod>
       
@@ -318,7 +318,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/third-party-biztalk-monitoring-tools</loc>
+      <loc>https://richardhallgren.com/third-party-biztalk-monitoring-tools</loc>
       
         <lastmod>2009-08-11T15:18:11+00:00</lastmod>
       
@@ -333,7 +333,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/tips-and-tricks-on-biztalk-generated-soap-web-services</loc>
+      <loc>https://richardhallgren.com/tips-and-tricks-on-biztalk-generated-soap-web-services</loc>
       
         <lastmod>2009-06-16T08:30:32+00:00</lastmod>
       
@@ -348,7 +348,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/bam-ate-my-xml-declaration</loc>
+      <loc>https://richardhallgren.com/bam-ate-my-xml-declaration</loc>
       
         <lastmod>2009-05-28T12:14:49+00:00</lastmod>
       
@@ -363,7 +363,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/receiving-scheduled-msgboxviewer-reports-via-e-mail</loc>
+      <loc>https://richardhallgren.com/receiving-scheduled-msgboxviewer-reports-via-e-mail</loc>
       
         <lastmod>2009-03-19T16:37:01+00:00</lastmod>
       
@@ -378,7 +378,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/better-performance-in-batch-imports-to-sql-server-using-biztalk</loc>
+      <loc>https://richardhallgren.com/better-performance-in-batch-imports-to-sql-server-using-biztalk</loc>
       
         <lastmod>2009-02-17T21:36:09+00:00</lastmod>
       
@@ -393,7 +393,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/aggregated-monitoring-of-biztalk-solutions-using-bizmon</loc>
+      <loc>https://richardhallgren.com/aggregated-monitoring-of-biztalk-solutions-using-bizmon</loc>
       
         <lastmod>2009-01-06T15:25:20+00:00</lastmod>
       
@@ -408,7 +408,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/handle-the-bodytypeassemblyqualifiedname-soap-adapter-bug-in-msbuild-as-a-regex-ninja</loc>
+      <loc>https://richardhallgren.com/handle-the-bodytypeassemblyqualifiedname-soap-adapter-bug-in-msbuild-as-a-regex-ninja</loc>
       
         <lastmod>2008-11-12T12:53:32+00:00</lastmod>
       
@@ -423,7 +423,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/using-bizunitextensions-to-poke-around-in-some-xml</loc>
+      <loc>https://richardhallgren.com/using-bizunitextensions-to-poke-around-in-some-xml</loc>
       
         <lastmod>2008-10-30T14:59:17+00:00</lastmod>
       
@@ -438,7 +438,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/how-the-extend-a-custom-xslt-in-biztalk-using-exslt-and-the-mvpxml-project</loc>
+      <loc>https://richardhallgren.com/how-the-extend-a-custom-xslt-in-biztalk-using-exslt-and-the-mvpxml-project</loc>
       
         <lastmod>2008-09-05T20:15:55+00:00</lastmod>
       
@@ -453,7 +453,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/efficient-grouping-and-debatching-of-big-files-using-biztalk-2006</loc>
+      <loc>https://richardhallgren.com/efficient-grouping-and-debatching-of-big-files-using-biztalk-2006</loc>
       
         <lastmod>2008-07-16T10:06:06+00:00</lastmod>
       
@@ -468,7 +468,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/running-msbuild-scripts-from-visual-studio</loc>
+      <loc>https://richardhallgren.com/running-msbuild-scripts-from-visual-studio</loc>
       
         <lastmod>2008-07-09T09:04:22+00:00</lastmod>
       
@@ -483,7 +483,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/looking-forward-to-stackoverflowcom</loc>
+      <loc>https://richardhallgren.com/looking-forward-to-stackoverflowcom</loc>
       
         <lastmod>2008-07-09T06:52:12+00:00</lastmod>
       
@@ -498,7 +498,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/removing-xml-namespaces-revisit</loc>
+      <loc>https://richardhallgren.com/removing-xml-namespaces-revisit</loc>
       
         <lastmod>2008-06-26T07:25:33+00:00</lastmod>
       
@@ -513,7 +513,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/does-biztalk-have-man-bobs</loc>
+      <loc>https://richardhallgren.com/does-biztalk-have-man-bobs</loc>
       
         <lastmod>2008-06-09T07:14:04+00:00</lastmod>
       
@@ -528,7 +528,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/speaking-at-knug-karlstad-net-user-group</loc>
+      <loc>https://richardhallgren.com/speaking-at-knug-karlstad-net-user-group</loc>
       
         <lastmod>2008-05-09T14:05:53+00:00</lastmod>
       
@@ -543,7 +543,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/using-bam-for-latency-tracking-in-a-biztalk-request-response-scenario</loc>
+      <loc>https://richardhallgren.com/using-bam-for-latency-tracking-in-a-biztalk-request-response-scenario</loc>
       
         <lastmod>2008-04-28T13:35:15+00:00</lastmod>
       
@@ -558,7 +558,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/talking-at-developer-summit-on-masterdata-management-using-biztalk-2006</loc>
+      <loc>https://richardhallgren.com/talking-at-developer-summit-on-masterdata-management-using-biztalk-2006</loc>
       
         <lastmod>2008-04-24T20:33:39+00:00</lastmod>
       
@@ -573,7 +573,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/writing-biztalk-context-properties-to-a-message-from-a-wcf-service-using-behaviors</loc>
+      <loc>https://richardhallgren.com/writing-biztalk-context-properties-to-a-message-from-a-wcf-service-using-behaviors</loc>
       
         <lastmod>2008-04-24T17:43:28+00:00</lastmod>
       
@@ -588,7 +588,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/random-thoughts-on-sql-server-adapter-and-t-sql-stored-procedures-for-biztalk-2006</loc>
+      <loc>https://richardhallgren.com/random-thoughts-on-sql-server-adapter-and-t-sql-stored-procedures-for-biztalk-2006</loc>
       
         <lastmod>2008-02-18T22:36:06+00:00</lastmod>
       
@@ -603,7 +603,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/a-loosely-coupled-scatter-and-gather-implementation-in-biztalk-2006</loc>
+      <loc>https://richardhallgren.com/a-loosely-coupled-scatter-and-gather-implementation-in-biztalk-2006</loc>
       
         <lastmod>2008-01-15T17:40:05+00:00</lastmod>
       
@@ -618,7 +618,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/speaking-at-developer-summit-2008</loc>
+      <loc>https://richardhallgren.com/speaking-at-developer-summit-2008</loc>
       
         <lastmod>2007-12-20T13:26:59+00:00</lastmod>
       
@@ -633,7 +633,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/removing-namespace-from-outgoing-messages</loc>
+      <loc>https://richardhallgren.com/removing-namespace-from-outgoing-messages</loc>
       
         <lastmod>2007-12-20T12:38:24+00:00</lastmod>
       
@@ -648,7 +648,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/dealing-with-cxml-based-messages-in-biztalk</loc>
+      <loc>https://richardhallgren.com/dealing-with-cxml-based-messages-in-biztalk</loc>
       
         <lastmod>2007-11-29T16:33:30+00:00</lastmod>
       
@@ -663,7 +663,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/a-pattern-for-ordered-delivery-using-orchestrations</loc>
+      <loc>https://richardhallgren.com/a-pattern-for-ordered-delivery-using-orchestrations</loc>
       
         <lastmod>2007-11-01T13:37:46+00:00</lastmod>
       
@@ -678,7 +678,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/why-biztalk-isnt-an-esb-today-and-is-it-heading-there</loc>
+      <loc>https://richardhallgren.com/why-biztalk-isnt-an-esb-today-and-is-it-heading-there</loc>
       
         <lastmod>2007-09-25T14:01:57+00:00</lastmod>
       
@@ -693,7 +693,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/soa-isnt-response-request</loc>
+      <loc>https://richardhallgren.com/soa-isnt-response-request</loc>
       
         <lastmod>2007-08-10T17:48:17+00:00</lastmod>
       
@@ -708,7 +708,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/xpathmania-and-xpath-on-tv</loc>
+      <loc>https://richardhallgren.com/xpathmania-and-xpath-on-tv</loc>
       
         <lastmod>2007-08-03T08:08:46+00:00</lastmod>
       
@@ -723,7 +723,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/transform-and-split-messages-using-an-xslt-transformation-pipeline-component-and-the-xmldissasembler</loc>
+      <loc>https://richardhallgren.com/transform-and-split-messages-using-an-xslt-transformation-pipeline-component-and-the-xmldissasembler</loc>
       
         <lastmod>2007-08-02T08:44:09+00:00</lastmod>
       
@@ -738,7 +738,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/developing-and-debugging-orchestrations-using-debugview-and-soaptrace-tools</loc>
+      <loc>https://richardhallgren.com/developing-and-debugging-orchestrations-using-debugview-and-soaptrace-tools</loc>
       
         <lastmod>2007-07-31T07:38:33+00:00</lastmod>
       
@@ -753,7 +753,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/reading-text-value-from-node-using-xpath-function-directly-in-biztalk-orchestrations</loc>
+      <loc>https://richardhallgren.com/reading-text-value-from-node-using-xpath-function-directly-in-biztalk-orchestrations</loc>
       
         <lastmod>2007-07-24T14:10:02+00:00</lastmod>
       
@@ -768,7 +768,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/lists-arrays-and-collections-within-biztalk-orchestrations</loc>
+      <loc>https://richardhallgren.com/lists-arrays-and-collections-within-biztalk-orchestrations</loc>
       
         <lastmod>2007-07-05T12:40:30+00:00</lastmod>
       
@@ -783,7 +783,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/teched-barcelona-here-i-come</loc>
+      <loc>https://richardhallgren.com/teched-barcelona-here-i-come</loc>
       
         <lastmod>2007-07-02T11:41:34+00:00</lastmod>
       
@@ -798,7 +798,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/reading-the-message-body-and-context-from-the-biztalkdtadb-using-operations-library-in-biztalk-2006</loc>
+      <loc>https://richardhallgren.com/reading-the-message-body-and-context-from-the-biztalkdtadb-using-operations-library-in-biztalk-2006</loc>
       
         <lastmod>2007-06-04T14:18:20+00:00</lastmod>
       
@@ -813,7 +813,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/visual-studio-2005-tries-to-load-the-pdb-debug-file-from-the-gac</loc>
+      <loc>https://richardhallgren.com/visual-studio-2005-tries-to-load-the-pdb-debug-file-from-the-gac</loc>
       
         <lastmod>2007-05-15T06:14:01+00:00</lastmod>
       
@@ -828,7 +828,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/xpathupdateexception-when-assigning-value-to-constructed-messages</loc>
+      <loc>https://richardhallgren.com/xpathupdateexception-when-assigning-value-to-constructed-messages</loc>
       
         <lastmod>2007-05-14T14:11:53+00:00</lastmod>
       
@@ -843,7 +843,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/whats-an-esb-architecture</loc>
+      <loc>https://richardhallgren.com/whats-an-esb-architecture</loc>
       
         <lastmod>2007-05-11T06:18:39+00:00</lastmod>
       
@@ -858,7 +858,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/get-row-identity-from-sql-adapter-response</loc>
+      <loc>https://richardhallgren.com/get-row-identity-from-sql-adapter-response</loc>
       
         <lastmod>2007-04-18T14:11:52+00:00</lastmod>
       
@@ -873,7 +873,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/convoying</loc>
+      <loc>https://richardhallgren.com/convoying</loc>
       
         <lastmod>2007-04-05T07:21:51+00:00</lastmod>
       
@@ -888,7 +888,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/weekly-sum-up</loc>
+      <loc>https://richardhallgren.com/weekly-sum-up</loc>
       
         <lastmod>2007-03-02T08:31:13+00:00</lastmod>
       
@@ -903,7 +903,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/simple-regex-replace-in-c</loc>
+      <loc>https://richardhallgren.com/simple-regex-replace-in-c</loc>
       
         <lastmod>2007-02-01T07:22:47+00:00</lastmod>
       
@@ -918,7 +918,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/biztalk-assembly-version-redirection</loc>
+      <loc>https://richardhallgren.com/biztalk-assembly-version-redirection</loc>
       
         <lastmod>2007-01-26T13:34:56+00:00</lastmod>
       
@@ -933,7 +933,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/assembly-loading-policy-from-the-gac</loc>
+      <loc>https://richardhallgren.com/assembly-loading-policy-from-the-gac</loc>
       
         <lastmod>2007-01-17T17:27:04+00:00</lastmod>
       
@@ -948,7 +948,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/understanding-persistence-points</loc>
+      <loc>https://richardhallgren.com/understanding-persistence-points</loc>
       
         <lastmod>2007-01-08T12:11:25+00:00</lastmod>
       
@@ -963,7 +963,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/testable-data-access-code</loc>
+      <loc>https://richardhallgren.com/testable-data-access-code</loc>
       
         <lastmod>2007-01-03T15:26:55+00:00</lastmod>
       
@@ -978,7 +978,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/web-service-times-out-before-the-orchestration-completes</loc>
+      <loc>https://richardhallgren.com/web-service-times-out-before-the-orchestration-completes</loc>
       
         <lastmod>2006-12-20T10:09:33+00:00</lastmod>
       
@@ -993,7 +993,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/how-to-set-a-custom-file-name-using-the-file-adapter-in-biztalk</loc>
+      <loc>https://richardhallgren.com/how-to-set-a-custom-file-name-using-the-file-adapter-in-biztalk</loc>
       
         <lastmod>2006-12-15T10:28:26+00:00</lastmod>
       
@@ -1008,7 +1008,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/advanced-microsoft-biztalk-server-2004-and-microsoft-operations-manager-2005-scenarios</loc>
+      <loc>https://richardhallgren.com/advanced-microsoft-biztalk-server-2004-and-microsoft-operations-manager-2005-scenarios</loc>
       
         <lastmod>2006-12-15T07:27:02+00:00</lastmod>
       
@@ -1023,7 +1023,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/bom-byte-order-mark-in-biztalk-output</loc>
+      <loc>https://richardhallgren.com/bom-byte-order-mark-in-biztalk-output</loc>
       
         <lastmod>2006-12-13T15:38:05+00:00</lastmod>
       
@@ -1038,7 +1038,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/gmail-and-opera-mini-on-the-phone</loc>
+      <loc>https://richardhallgren.com/gmail-and-opera-mini-on-the-phone</loc>
       
         <lastmod>2006-12-13T11:51:46+00:00</lastmod>
       
@@ -1053,7 +1053,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/nevermind-the-xml-namespaces-in-xpath-expressions</loc>
+      <loc>https://richardhallgren.com/nevermind-the-xml-namespaces-in-xpath-expressions</loc>
       
         <lastmod>2006-12-11T15:45:59+00:00</lastmod>
       
@@ -1068,7 +1068,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/biztalk-deploy-tool</loc>
+      <loc>https://richardhallgren.com/biztalk-deploy-tool</loc>
       
         <lastmod>2006-12-11T14:44:13+00:00</lastmod>
       
@@ -1083,7 +1083,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/arcast-patterns-and-anti-patterns-for-soa</loc>
+      <loc>https://richardhallgren.com/arcast-patterns-and-anti-patterns-for-soa</loc>
       
         <lastmod>2006-12-11T13:37:10+00:00</lastmod>
       
@@ -1098,7 +1098,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/xml-comment-in-biztalk-output-message</loc>
+      <loc>https://richardhallgren.com/xml-comment-in-biztalk-output-message</loc>
       
         <lastmod>2006-12-11T13:18:36+00:00</lastmod>
       
@@ -1113,7 +1113,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/virtual-desktop-manager-in-xp-powertoys</loc>
+      <loc>https://richardhallgren.com/virtual-desktop-manager-in-xp-powertoys</loc>
       
         <lastmod>2006-09-29T08:57:21+00:00</lastmod>
       
@@ -1128,7 +1128,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/visual-studio-database-project</loc>
+      <loc>https://richardhallgren.com/visual-studio-database-project</loc>
       
         <lastmod>2006-09-28T09:00:54+00:00</lastmod>
       
@@ -1143,7 +1143,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/css-control-adapter-toolkit</loc>
+      <loc>https://richardhallgren.com/css-control-adapter-toolkit</loc>
       
         <lastmod>2006-09-28T06:40:09+00:00</lastmod>
       
@@ -1158,7 +1158,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/biztalk-server-2006-troubleshooters-guide</loc>
+      <loc>https://richardhallgren.com/biztalk-server-2006-troubleshooters-guide</loc>
       
         <lastmod>2006-09-27T20:16:10+00:00</lastmod>
       
@@ -1173,7 +1173,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/filesystemwatcher-class</loc>
+      <loc>https://richardhallgren.com/filesystemwatcher-class</loc>
       
         <lastmod>2006-09-25T10:02:04+00:00</lastmod>
       
@@ -1188,7 +1188,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/more-biztalk-and-integration-related-webcasts</loc>
+      <loc>https://richardhallgren.com/more-biztalk-and-integration-related-webcasts</loc>
       
         <lastmod>2006-09-20T18:40:59+00:00</lastmod>
       
@@ -1203,7 +1203,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/vs-2005-project-on-the-old-iis</loc>
+      <loc>https://richardhallgren.com/vs-2005-project-on-the-old-iis</loc>
       
         <lastmod>2006-09-13T06:24:29+00:00</lastmod>
       
@@ -1218,7 +1218,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/excel-into-biztalk-2006-the-easy-way</loc>
+      <loc>https://richardhallgren.com/excel-into-biztalk-2006-the-easy-way</loc>
       
         <lastmod>2006-09-11T20:08:41+00:00</lastmod>
       
@@ -1233,7 +1233,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/viewstate</loc>
+      <loc>https://richardhallgren.com/viewstate</loc>
       
         <lastmod>2006-09-11T07:10:45+00:00</lastmod>
       
@@ -1248,7 +1248,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/biztalk-webcasts</loc>
+      <loc>https://richardhallgren.com/biztalk-webcasts</loc>
       
         <lastmod>2006-09-09T10:58:53+00:00</lastmod>
       
@@ -1263,7 +1263,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/biztalk-exams-passed</loc>
+      <loc>https://richardhallgren.com/biztalk-exams-passed</loc>
       
         <lastmod>2006-09-09T10:44:33+00:00</lastmod>
       
@@ -1278,7 +1278,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/resources</loc>
+      <loc>https://richardhallgren.com/resources</loc>
       
         <lastmod>2006-08-31T05:59:16+00:00</lastmod>
       
@@ -1293,7 +1293,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/my-first-nnug-meeting</loc>
+      <loc>https://richardhallgren.com/my-first-nnug-meeting</loc>
       
         <lastmod>2006-08-30T05:32:30+00:00</lastmod>
       
@@ -1308,7 +1308,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/the-regulator</loc>
+      <loc>https://richardhallgren.com/the-regulator</loc>
       
         <lastmod>2006-08-29T14:26:30+00:00</lastmod>
       
@@ -1323,7 +1323,7 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/code-formater-plugin-for-windows-live-writer</loc>
+      <loc>https://richardhallgren.com/code-formater-plugin-for-windows-live-writer</loc>
       
         <lastmod>2006-08-26T13:11:57+00:00</lastmod>
       
@@ -1339,24 +1339,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/feed/</loc>
+      <loc>https://richardhallgren.com/cv/pdf/</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1369,24 +1354,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/assets/css/main.css</loc>
+      <loc>https://richardhallgren.com/cv/</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/sitemap.xml</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1399,24 +1369,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/page2/</loc>
+      <loc>https://richardhallgren.com/feed/</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/page3/</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1429,24 +1384,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/page4/</loc>
+      <loc>https://richardhallgren.com/</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/page5/</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1459,24 +1399,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/page6/</loc>
+      <loc>https://richardhallgren.com/assets/css/main.css</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/page7/</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1489,24 +1414,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/page8/</loc>
+      <loc>https://richardhallgren.com/sitemap.xml</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/page9/</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1519,24 +1429,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/page10/</loc>
+      <loc>https://richardhallgren.com/page2/</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/page11/</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1549,24 +1444,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/page12/</loc>
+      <loc>https://richardhallgren.com/page3/</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/page13/</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1579,24 +1459,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/page14/</loc>
+      <loc>https://richardhallgren.com/page4/</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/page15/</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1609,24 +1474,9 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/page16/</loc>
+      <loc>https://richardhallgren.com/page5/</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
-      
-      
-        <changefreq>monthly</changefreq>
-      
-      
-        <priority>0.3</priority>
-      
-    </url>
-    
-  
-    
-    <url>
-      <loc>http://richardhallgren.com/page17/</loc>
-      
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -1639,9 +1489,189 @@
   
     
     <url>
-      <loc>http://richardhallgren.com/page18/</loc>
+      <loc>https://richardhallgren.com/page6/</loc>
       
-        <lastmod>2024-10-18T09:18:14+00:00</lastmod>
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page7/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page8/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page9/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page10/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page11/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page12/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page13/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page14/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page15/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page16/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page17/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.3</priority>
+      
+    </url>
+    
+  
+    
+    <url>
+      <loc>https://richardhallgren.com/page18/</loc>
+      
+        <lastmod>2026-05-27T11:47:05+00:00</lastmod>
       
       
         <changefreq>monthly</changefreq>

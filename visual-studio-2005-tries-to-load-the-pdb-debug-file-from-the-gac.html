@@ -1,38 +1,51 @@
 <!doctype html>
 <html lang="en-US">
   <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="utf-8" />
-  <title>
-    Gobbledygooks  &middot; Visual Studio 2005 tries to load the .pdb debug file from the GAC 
-  </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Sitemap -->
+  
+  
+  
+  
+
+  <title>Gobbledygooks · Visual Studio 2005 tries to load the .pdb debug file from the GAC</title>
+  <meta name="description" content="A random pile of .NET, BizTalk, Azure, and integration focused scribbles by Richard Hallgren.">
+  <link rel="canonical" href="https://richardhallgren.com/visual-studio-2005-tries-to-load-the-pdb-debug-file-from-the-gac">
+
+  <meta property="og:title" content="Gobbledygooks · Visual Studio 2005 tries to load the .pdb debug file from the GAC">
+  <meta property="og:description" content="A random pile of .NET, BizTalk, Azure, and integration focused scribbles by Richard Hallgren.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://richardhallgren.com/visual-studio-2005-tries-to-load-the-pdb-debug-file-from-the-gac">
+  <meta property="og:site_name" content="Gobbledygooks">
+  <meta property="og:image" content="https://richardhallgren.com/assets/riha-profile-image.jpeg">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Gobbledygooks · Visual Studio 2005 tries to load the .pdb debug file from the GAC">
+  <meta name="twitter:description" content="A random pile of .NET, BizTalk, Azure, and integration focused scribbles by Richard Hallgren.">
+  <meta name="twitter:image" content="https://richardhallgren.com/assets/riha-profile-image.jpeg">
+
   <link
     href="/sitemap.xml"
     rel="sitemap"
     title="Sitemap"
     type="application/xml"
-  />
+  >
 
-  <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css">
 
-  <!-- Fathom - beautiful, simple website analytics -->
   <script
     src="https://cdn.usefathom.com/script.js"
     data-site="JOYKGAUK"
     defer
   ></script>
-  <!-- / Fathom -->
 
-  <!-- RSS -->
   <link
     rel="alternate"
     type="application/atom+xml"
     title="riha feed"
-    href="http://richardhallgren.com/feed"
-  />
+    href="https://richardhallgren.com/feed"
+  >
 </head>
 
   <body class="bg-bg-yellow max-w-[650px]  font-mono  post-page px-4 py-4 " style="margin: 0 auto;" >
@@ -66,9 +79,9 @@
 <p>Basically this means that <strong>Visual Studio can’t find the debug file **(the <a href="http://msdn2.microsoft.com/en-us/library/ms241903.aspx">.pdb file</a>)</strong> at the same location as the dll is loaded from<strong>. Reading the error message tells us that the **dll been loaded from the GAC</strong> and there aren’t any pdb files there! Just make sure to uninstall the dll from the GAC and Visual Studio should be able to load it from your Debug folder and  you’ll probably  be good to go.</p>
 
       
-      <div class="mt-6" />
-<div class="flex items-baseline justify-center gap-4">
-  <a href="https://www.linkedin.com/in/richardhallgren/">
+      <footer class="mt-6">
+  <nav class="flex items-baseline justify-center gap-4" aria-label="Contact links">
+  <a href="https://www.linkedin.com/in/richardhallgren/" aria-label="LinkedIn">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -86,7 +99,7 @@
       <circle cx="4" cy="4" r="2" />
     </svg>
   </a>
-  <a href="mailto:richard@revision.app">
+  <a href="mailto:richard@revision.app" aria-label="Email Richard Hallgren">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="24"
@@ -102,7 +115,8 @@
       <rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
     </svg>
   </a>
-</div>
+  </nav>
+</footer>
 
     </div>
   </body>
