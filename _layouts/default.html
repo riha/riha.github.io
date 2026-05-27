@@ -2,23 +2,26 @@
 
 <html lang="{{ site.lang | default: "en-US" }}">
   {% include head.html %}
-  <body class="bg-bg-yellow max-w-[650px]  font-mono  px-4 py-4 " style="margin: 0 auto;" >
-    <div class="max-w-[650px]">
-      <div class="">
+  <body class="bg-bg-yellow font-mono px-4 py-4">
+    <div class="mx-auto max-w-[650px]">
+      <header>
         <div class="flex justify-center">
           <img
             src="/assets/riha-profile-image.jpeg"
+            alt="Richard Hallgren"
             class="rounded-full w-32 border-profile-border shadow profile-image"
           >
         </div>
-        <div class="mt-4" />
-        <div class="flex justify-center ">RICHARD HALLGREN</div>
-        <div class="my-2" />
-        <div class="flex justify-center items-center text-text-subtle text-sm">Developer</div>
-      </div>
-      <div class=" my-12 ">
-      {{ content }}
-    </div>
+        <div class="mt-4 flex justify-center">RICHARD HALLGREN</div>
+        <div class="flex justify-center items-center gap-2 text-text-subtle text-sm">
+          <span>Developer</span>
+          <span class="text-xs">•</span>
+          <a class="underline" href="/cv/">CV</a>
+        </div>
+      </header>
+      <main class="my-12">
+        {{ content }}
+      </main>
       {% include footer.html %}
     </div>
   </body>

@@ -1,0 +1,222 @@
+---
+title: Richard Hallgren CV PDF
+permalink: /cv/pdf/
+---
+
+{% assign cv = site.data.cv %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ cv.name }} CV</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 14mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        color: #1f2937;
+        font-family: Helvetica, Arial, sans-serif;
+        font-size: 10px;
+        line-height: 1.42;
+        margin: 0;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: 25px;
+        line-height: 1.15;
+      }
+
+      h2 {
+        border-bottom: 1px solid #d1d5db;
+        color: #6b7280;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        margin: 17px 0 8px;
+        padding-bottom: 4px;
+        text-transform: uppercase;
+      }
+
+      h3 {
+        font-size: 11.5px;
+      }
+
+      .eyebrow {
+        color: #6b7280;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        margin-bottom: 4px;
+        text-transform: uppercase;
+      }
+
+      .summary {
+        color: #4b5563;
+        font-size: 11px;
+        margin-top: 6px;
+        max-width: 150mm;
+      }
+
+      .grid {
+        display: grid;
+        gap: 8px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .item {
+        break-inside: avoid;
+        margin-top: 8px;
+      }
+
+      .meta {
+        color: #6b7280;
+        margin-top: 1px;
+      }
+
+      .description {
+        margin-top: 4px;
+      }
+
+      .project {
+        align-items: flex-start;
+        break-inside: avoid;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 28mm 1fr;
+        margin-top: 9px;
+      }
+
+      .logo {
+        align-items: center;
+        display: flex;
+        height: 14mm;
+        justify-content: center;
+        padding: 2mm 1mm;
+      }
+
+      .logo img {
+        max-height: 9mm;
+        max-width: 24mm;
+      }
+
+      .certifications h3 {
+        font-size: 10px;
+      }
+
+      .certification {
+        align-items: center;
+        break-inside: avoid;
+        display: grid;
+        gap: 7px;
+        grid-template-columns: 13mm 1fr;
+        margin-top: 8px;
+      }
+
+      .certification-logo {
+        align-items: center;
+        display: flex;
+        height: 10mm;
+        justify-content: center;
+      }
+
+      .certification-logo img {
+        max-height: 8mm;
+        max-width: 12mm;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="eyebrow">CV</div>
+      <h1>{{ cv.name }}</h1>
+      <p class="summary">{{ cv.summary }}</p>
+    </header>
+
+    <section>
+      <h2>Reference Projects</h2>
+
+      {% for item in cv.reference_projects %}
+        <div class="project">
+          <div class="logo">
+            <img src="{{ item.logo }}" alt="{{ item.logo_alt }}">
+          </div>
+          <div>
+            <h3>{{ item.title }}</h3>
+            <p class="meta">{{ item.subtitle }}</p>
+            <p class="description">{{ item.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+
+      <div class="grid">
+        {% for item in cv.experience %}
+          <div class="item">
+            <h3>{{ item.title }}</h3>
+            <p class="meta">
+              {{ item.organization }}{% if item.period %} · {{ item.period }}{% endif %}
+            </p>
+            {% if item.description %}
+              <p class="description">{{ item.description }}</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      {% for item in cv.education %}
+        <div class="item">
+          <h3>{{ item.title }}</h3>
+          <p class="meta">
+            {{ item.organization }}{% if item.period %} · {{ item.period }}{% endif %}
+          </p>
+        </div>
+      {% endfor %}
+    </section>
+
+    <section class="certifications">
+      <h2>Certifications</h2>
+      <div class="grid">
+        {% for item in cv.certifications %}
+          <div class="certification">
+            <div class="certification-logo">
+              <img src="{{ item.logo }}" alt="{{ item.logo_alt }}">
+            </div>
+            <div>
+              <h3>{{ item.title }}</h3>
+              <p class="meta">
+                {{ item.issuer }}{% if item.issued %} · {{ item.issued }}{% endif %}
+              </p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </body>
+</html>

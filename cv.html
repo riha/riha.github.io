@@ -1,0 +1,106 @@
+---
+layout: default
+title: CV
+description: Richard Hallgren's CV, focused on Azure, Dynamics 365, BizTalk, and enterprise integration architecture.
+permalink: /cv/
+---
+
+{% assign cv = site.data.cv %}
+
+<div class="mt-8">
+  <h1 class="sr-only">{{ cv.name }} CV</h1>
+
+  <section aria-labelledby="cv-summary" class="bg-white rounded-md shadow mt-4 px-5 py-5 relative">
+    <h2 id="cv-summary" class="sr-only">Summary</h2>
+    <a
+      href="/assets/richard-hallgren-cv.pdf"
+      download
+      aria-label="Download CV as PDF"
+      title="Download PDF"
+      class="cv-download-button"
+    >
+      <img src="/assets/cv/file-pdf.svg" alt="" class="h-5 w-5" aria-hidden="true">
+    </a>
+    <p class="px-8 text-center text-sm text-text-subtle leading-6 sm:px-12">
+      {{ cv.summary }}
+    </p>
+  </section>
+
+  <section class="mt-8" aria-labelledby="experience-heading">
+    <h2 id="experience-heading" class="my-2 text-center text-sm text-text-subtle font-normal">EXPERIENCE</h2>
+
+    {% for item in cv.experience %}
+      <article class="bg-white rounded-md shadow mt-4 flex">
+        <div
+          class="bg-bg-dark rounded-l-md w-20 text-xs shrink-0 text-text-light text-center py-3 px-2 font-semibold flex items-center justify-center"
+        >
+          {{ item.date }}
+        </div>
+        <div class="px-4 py-3">
+          <h3>{{ item.title }}</h3>
+          <div class="text-sm text-text-subtle">
+            {{ item.organization }}{% if item.period %} · {{ item.period }}{% endif %}
+          </div>
+          {% if item.description %}
+            <p class="mt-2 text-sm leading-6">{{ item.description }}</p>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="mt-8" aria-labelledby="education-heading">
+    <h2 id="education-heading" class="my-2 text-center text-sm text-text-subtle font-normal">EDUCATION</h2>
+
+    {% for item in cv.education %}
+      <article class="bg-white rounded-md shadow mt-4 flex">
+        <div
+          class="bg-bg-dark rounded-l-md w-20 text-xs shrink-0 text-text-light text-center py-3 px-2 font-semibold flex items-center justify-center"
+        >
+          {{ item.date }}
+        </div>
+        <div class="px-4 py-3">
+          <h3>{{ item.title }}</h3>
+          <div class="text-sm text-text-subtle">
+            {{ item.organization }}{% if item.period %} · {{ item.period }}{% endif %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="mt-8" aria-labelledby="certifications-heading">
+    <h2 id="certifications-heading" class="my-2 text-center text-sm text-text-subtle font-normal">CERTIFICATIONS</h2>
+
+    {% for item in cv.certifications %}
+      <article class="bg-white rounded-md shadow mt-4 flex items-center">
+        <div class="w-20 shrink-0 flex justify-center px-4">
+          <img src="{{ item.logo }}" alt="{{ item.logo_alt }}" class="max-w-12 max-h-10">
+        </div>
+        <div class="px-4 py-4">
+          <h3>{{ item.title }}</h3>
+          <div class="mt-1 text-sm text-text-subtle">
+            {{ item.issuer }}{% if item.issued %} · {{ item.issued }}{% endif %}
+          </div>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+
+  <section class="mt-8" aria-labelledby="reference-projects-heading">
+    <h2 id="reference-projects-heading" class="my-2 text-center text-sm text-text-subtle font-normal">REFERENCE PROJECTS</h2>
+
+    {% for item in cv.reference_projects %}
+      <article class="bg-white rounded-md shadow mt-4 flex items-center">
+        <div class="w-24 shrink-0 flex justify-center px-4">
+          <img src="{{ item.logo }}" alt="{{ item.logo_alt }}" class="max-w-16 max-h-10">
+        </div>
+        <div class="px-4 py-4">
+          <h3>{{ item.title }}</h3>
+          <div class="text-sm text-text-subtle">{{ item.subtitle }}</div>
+          <p class="mt-2 text-sm leading-6">{{ item.description }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </section>
+</div>

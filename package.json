@@ -1,4 +1,11 @@
 {
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-site.mjs",
+    "build:cv-pdf": "node scripts/generate-cv-pdf.mjs",
+    "dev": "node scripts/serve-site.mjs",
+    "update:browserslist": "npx update-browserslist-db@latest"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.18",
     "cssnano": "^6.1.0",

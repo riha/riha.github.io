@@ -1,34 +1,49 @@
-﻿<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta charset="utf-8" />
-  <title>
-    {{ site.title }} {% if page.title %} &middot; {{ page.title }} {% endif %}
-  </title>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Sitemap -->
+  {% assign page_title = site.title %}
+  {% if page.title %}
+    {% assign page_title = site.title | append: " · " | append: page.title %}
+  {% endif %}
+  {% assign page_description = page.description | default: site.description | strip_html %}
+  {% assign canonical_url = page.url | absolute_url %}
+
+  <title>{{ page_title }}</title>
+  <meta name="description" content="{{ page_description | escape }}">
+  <link rel="canonical" href="{{ canonical_url }}">
+
+  <meta property="og:title" content="{{ page_title | escape }}">
+  <meta property="og:description" content="{{ page_description | escape }}">
+  <meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:image" content="{{ "/assets/riha-profile-image.jpeg" | absolute_url }}">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ page_title | escape }}">
+  <meta name="twitter:description" content="{{ page_description | escape }}">
+  <meta name="twitter:image" content="{{ "/assets/riha-profile-image.jpeg" | absolute_url }}">
+
   <link
     href="/sitemap.xml"
     rel="sitemap"
     title="Sitemap"
     type="application/xml"
-  />
+  >
 
-  <!-- CSS -->
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | relative_url }}">
 
-  <!-- Fathom - beautiful, simple website analytics -->
   <script
     src="https://cdn.usefathom.com/script.js"
     data-site="JOYKGAUK"
     defer
   ></script>
-  <!-- / Fathom -->
 
-  <!-- RSS -->
   <link
     rel="alternate"
     type="application/atom+xml"
     title="riha feed"
-    href="http://richardhallgren.com/feed"
-  />
+    href="{{ "/feed" | absolute_url }}"
+  >
 </head>

@@ -1,9 +1,9 @@
 title: "Gobbledygooks" # the name of your site, e.g. ACME Corp.
 tagline:      'Gobbledygooks by @riha78'
-description:  'A random pile of .NET, BizTalk and integration focused scribbles by <a href="http://twitter.com/riha78">@riha78</a>.'
-permalink:    /:title
+description:  'A random pile of .NET, BizTalk, Azure, and integration focused scribbles by Richard Hallgren.'
+lang: en-US
 
-url:          'http://richardhallgren.com'
+url:          'https://richardhallgren.com'
 baseurl: ''
 author:
   name:       'Richard'
@@ -11,7 +11,7 @@ author:
 
 
 
-highligter:   true
+highlighter:   rouge
 paginate:     5
 permalink:    /:title
 # disqus_short_name: 'gobbledygooks'

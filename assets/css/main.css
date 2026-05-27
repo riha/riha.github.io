@@ -56,7 +56,7 @@
   }
 
   .post-page ol,
-  ul {
+  .post-page ul {
     @apply mt-4 pl-4;
   }
 
@@ -65,7 +65,7 @@
   }
 
   .post-page ol,
-  ul li {
+  .post-page ul li {
     @apply list-disc;
   }
 
@@ -75,5 +75,11 @@
 
   .post-page blockquote p {
     @apply m-0;
+  }
+}
+
+@layer components {
+  .cv-download-button {
+    @apply absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md text-text-subtle transition hover:bg-bg-yellow hover:text-text focus:outline-none focus:ring-2 focus:ring-bg-dark focus:ring-offset-2;
   }
 }

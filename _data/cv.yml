@@ -1,0 +1,114 @@
+name: Richard Hallgren
+summary: >-
+  Integration architect and Azure expert with 20+ years of experience in
+  advanced integration architectures. Used to taking responsibility for larger
+  projects and teams, especially around Azure, Dynamics 365, and enterprise
+  integration modernization.
+
+experience:
+  - date: OCT 2022
+    title: Founder
+    organization: Revision
+    period: Full-time
+    description: >-
+      Building a web app for documenting and visualizing software and system
+      architecture.
+  - date: MAR 2015
+    title: CTO
+    organization: iBiz Solutions AB
+    period: Mar 2015 - Jul 2022
+    description: >-
+      Responsible for architectural and technical strategic questions while also
+      focusing on integration-related development and architecture for
+      customers.
+  - date: NOV 2009
+    title: Solutions Architect
+    organization: iBiz Solutions AB
+    period: Nov 2009 - Mar 2015
+    description: >-
+      Focused on integration-related development and architecture for iBiz
+      customers.
+  - date: JAN 2009
+    title: System Integration Architect
+    organization: YIT Group IT
+    period: Jan 2009 - Nov 2009
+    description: >-
+      Responsible for planning, architecture, and implementation of system
+      integrations within YIT.
+  - date: MAY 2008
+    title: Senior Developer / IT Architect
+    organization: YIT Building Systems AS
+    period: May 2008 - Jan 2009
+    description: >-
+      Architecture, planning, and development of the BizTalk Server based
+      integration platform for YIT Building Systems.
+  - date: OCT 2006
+    title: Senior Developer and IT Architect
+    organization: Sogeti Sverige AB
+    period: Oct 2006 - May 2008
+    description: >-
+      Worked as an architect and BizTalk evangelist for Sogeti's Swedish BizTalk
+      and Integration Competence Center.
+
+education:
+  - date: "1997"
+    title: Master, Computer Science
+    organization: Stockholm University
+    period: 1997 - 2001
+
+certifications:
+  - title: AZ-900 Azure Fundamentals
+    issuer: Microsoft Azure
+    logo: /assets/cv/microsoft-logo.svg
+    logo_alt: Microsoft logo
+  - title: AZ-204 Azure Developer Associate
+    issuer: Microsoft Azure
+    logo: /assets/cv/microsoft-logo.svg
+    logo_alt: Microsoft logo
+  - title: AZ-305 Azure Solutions Architect Expert
+    issuer: Microsoft Azure
+    logo: /assets/cv/microsoft-logo.svg
+    logo_alt: Microsoft logo
+  - title: Microsoft BizTalk Server 2006 certification
+    issuer: Microsoft BizTalk Server
+    logo: /assets/cv/biztalk.png
+    logo_alt: BizTalk logo
+  - title: "Microsoft Certified Technology Specialist: .NET Framework 4, Service Communication Applications"
+    issuer: Microsoft
+    issued: Issued Mar 2012
+    logo: /assets/cv/dotnet.svg
+    logo_alt: .NET logo
+  - title: "Microsoft Certified Technology Specialist: .NET Framework 4, Data Access"
+    issuer: Microsoft
+    logo: /assets/cv/dotnet.svg
+    logo_alt: .NET logo
+
+reference_projects:
+  - title: Maxbo
+    subtitle: Current reference project
+    logo: /assets/cv/maxbo.png
+    logo_alt: Maxbo logo
+    description: >-
+      Long-running modernization of a large integration landscape spanning
+      BizTalk, Azure, Dynamics 365, and Kubernetes. The work is focused on
+      evolving the architecture incrementally: reducing operating cost,
+      converting legacy BizTalk applications, and adding cloud-native services
+      where they create clear value.
+  - title: Felleskjøpet
+    subtitle: Dynamics 365 and Azure integration modernization
+    logo: /assets/cv/felleskjopet.png
+    logo_alt: Felleskjøpet logo
+    description: >-
+      Architecture responsibility for a Dynamics 365 implementation and a broad
+      modernization of the integration platform from BizTalk to Azure. Worked
+      across both the target architecture and concrete solution design, covering
+      integration patterns, platform boundaries, and delivery guidance.
+  - title: Apotek 1
+    subtitle: Azure integration platform modernization
+    logo: /assets/cv/apotek-1.svg
+    logo_alt: Apotek 1 logo
+    description: >-
+      Modernization of an established integration platform from BizTalk toward a
+      modern Azure-based architecture. The work balanced migration of existing
+      business-critical integrations with new cloud patterns, clear
+      architectural direction, and practical implementation support.
